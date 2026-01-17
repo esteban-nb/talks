@@ -1,0 +1,20 @@
+# Slides output
+slides/
+slides-*/
+
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+env/
+venv/
+
+# LaTeX build artifacts
+*.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz
+*.toc *.lof *.lot *.bbl *.blg *.run.xml *.nav *.snm *.vrb
+latex.out/
+_build/
+
+# Prettier
+.prettierrc

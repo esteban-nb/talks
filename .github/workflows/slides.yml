@@ -1,0 +1,71 @@
+name: Build and deploy slides
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'talks/**', '.github/talks-config.yml', 'scripts/**' ]
+  pull_request:
+    paths: [ 'talks/**', '.github/talks-config.yml', 'scripts/**' ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v6
+    
+    - name: Install yq (YAML parser)
+      run: sudo snap install yq
+      
+    - name: Make scripts executable
+      run: chmod +x scripts/*.sh
+      
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.11"
+        
+    - name: Install markdown-slides
+      run: pip install git+https://gitlab.com/da_doomer/markdown-slides.git
+      
+    - name: Build talks
+      run: scripts/build-talks.sh
+      
+    - name: Generate index
+      run: scripts/generate-index.sh
+      
+    - name: Verify slides generated
+      run: |
+        if [ ! -d "slides" ] || [ -z "$(ls -A slides/)" ]; then
+          echo "❌ No slides generated"
+          exit 1
+        fi
+        echo "✅ Generated $(find slides -type f | wc -l) files"
+        ls -la slides/
+      
+    - name: Upload Pages artifact
+      uses: actions/upload-pages-artifact@v4
+      with:
+        path: ./slides
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

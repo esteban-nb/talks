@@ -1,0 +1,7 @@
+exclude:
+  - draft-*
+  - wip-*
+  - template
+  - old-*
+
+hidden: true

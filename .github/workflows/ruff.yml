@@ -1,0 +1,35 @@
+name: Check NumPy formatting with ruff
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ruff:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout NumPy 2.4.0
+      uses: actions/checkout@v6
+      with:
+        repository: numpy/numpy
+        ref: v2.4.0
+        
+    - name: Set up Python
+      uses: actions/setup-python@v6
+      with:
+        python-version: "3.11"
+        
+    - name: Install Ruff
+      run: pip install ruff
+      
+    - name: Run Ruff and show diff
+      run: |
+        ruff check --output-format git-diff src/ > ruff.diff || true
+        if [ -s ruff.diff ]; then
+          echo "::warning:: Ruff found formatting issues:"
+          cat ruff.diff
+        else
+          echo "✅ No formatting issues found"
+        fi

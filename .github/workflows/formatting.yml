@@ -1,0 +1,46 @@
+name: Format Markdown, RST, and LaTeX
+
+on:
+  push:
+    branches: [ main ]
+    paths: ['**.{md,rst,tex,sty,cls,bib}']
+  pull_request:
+    paths: ['**.{md,rst,tex,sty,cls,bib}']
+  workflow_dispatch:
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+      
+    - name: Prettier (MD/RST)
+      uses: glaubig/prettier-action@v1
+      with:
+        pattern: "*.{md,rst}"
+        prettierOptions: --write
+        
+    - name: Show Prettier diff
+      run: |
+        git diff --name-only -- '*.md' '*.rst' || echo "No MD/RST formatting changes"
+
+  latexindent:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+      
+    - name: Install latexindent
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y latexindent perl
+        
+    - name: Run latexindent on all LaTeX-related files
+      run: |
+        find . -name "*.tex" -exec latexindent -w -y {} \;
+        find . -name "*.cls" -exec latexindent -w -y {} \;
+        find . -name "*.sty" -exec latexindent -w -y {} \;
+        find . -name "*.bib" -exec sh -c 'perl -i -pe "s/\\s+/ /g; s/,\\s*$/,/"' {} \;
+        
+    - name: Show LaTeX diff
+      run: |
+        git diff --name-only -- '*.tex' '*.sty' '*.cls' '*.bib' || echo "No LaTeX formatting changes"
