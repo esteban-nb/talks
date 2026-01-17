@@ -7,12 +7,15 @@ Index of all talks: https://esteban-nb.github.io/talks/
 ## Local Development
 
 ### Prerequisites
+
 Ensure you have the following installed on your system:
+
 - **Python 3.11+**
 - **yq** (YAML processor)
 - **shasum** (usually pre-installed on Linux)
 
 ### Setup & Build
+
 Run the following commands from the project root:
 
 ```bash
@@ -31,10 +34,11 @@ xdg-open slides/index.html
 ```
 
 The build process generates several files:
-- `slides/`	(complete static site, that's deployable)
-- `display-names.txt`	(temp mapping of talk folders to display names)
-- `hash-mapping.txt`	(audit log of talk-name)
-- `valid-talks.txt`	(built talks used by the indexer)
+
+- `slides/` (complete static site, that's deployable)
+- `display-names.txt` (temp mapping of talk folders to display names)
+- `hash-mapping.txt` (audit log of talk-name)
+- `valid-talks.txt` (built talks used by the indexer)
 
 ## Next steps
 
