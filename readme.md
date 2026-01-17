@@ -12,3 +12,5 @@ TODO
 
 - Add pre-commits hooks (clean yaml, etc)
 - Add ShellCheck (for linting) and shfmt (for formatting) workflow for scripts
+- Integrate with latex "princeton beamer" template
+- Move to rst instead of md?
