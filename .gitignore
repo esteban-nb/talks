@@ -1,6 +1,9 @@
 # Slides output
 slides/
 slides-*/
+display-names.txt
+hash-mapping.txt
+valid-talks.txt
 
 # Python
 __pycache__/
@@ -9,6 +12,7 @@ __pycache__/
 .venv/
 env/
 venv/
+node_modules/
 
 # LaTeX build artifacts
 *.aux *.log *.out *.fls *.fdb_latexmk *.synctex.gz
