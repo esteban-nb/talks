@@ -1,19 +1,15 @@
-name: Format Markdown, RST, and LaTeX
+name: Format LaTeX files
 
 on:
   push:
     branches: [ main ]
     paths:
-      - '**/*.md'
-      - '**/*.rst'
       - '**/*.tex'
       - '**/*.sty'
       - '**/*.cls'
       - '**/*.bib'
   pull_request:
     paths:
-      - '**/*.md'
-      - '**/*.rst'
       - '**/*.tex'
       - '**/*.sty'
       - '**/*.cls'
@@ -21,20 +17,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  prettier:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v6
-      
-    - name: Prettier (MD/RST)
-      uses: creyD/prettier_action@v4.6
-      with:
-        prettier_options: --write **/*.{md,rst}
-
-    - name: Show Prettier diff
-      run: |
-        git diff --name-only -- '*.md' '*.rst' || echo "No MD/RST formatting changes"
-
   latexindent:
     runs-on: ubuntu-latest
     steps:

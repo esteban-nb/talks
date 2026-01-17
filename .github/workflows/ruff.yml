@@ -33,5 +33,5 @@ jobs:
           echo "::warning:: Ruff found formatting issues:"
           cat ruff.diff
         else
-          echo "✅ No formatting issues found"
+          echo "No formatting issues found"
         fi
