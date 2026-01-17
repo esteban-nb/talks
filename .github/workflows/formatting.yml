@@ -38,20 +38,28 @@ jobs:
   latexindent:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-      
-    - name: Install latexindent
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y latexindent perl
-        
-    - name: Run latexindent on all LaTeX-related files
-      run: |
-        find . -name "*.tex" -exec latexindent -w -y {} \;
-        find . -name "*.cls" -exec latexindent -w -y {} \;
-        find . -name "*.sty" -exec latexindent -w -y {} \;
-        find . -name "*.bib" -exec sh -c 'perl -i -pe "s/\\s+/ /g; s/,\\s*$/,/"' {} \;
-        
-    - name: Show LaTeX diff
-      run: |
-        git diff --name-only -- '*.tex' '*.sty' '*.cls' '*.bib' || echo "No LaTeX formatting changes"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup TeX Live
+        uses: TeX-Live/setup-texlive-action@v2
+        with:
+          packages: |
+            latexindent
+            scheme-basic
+            yaml-tiny
+            file-homedir
+            unicode-gcstring
+
+      - name: Format TeX, CLS, and STY files
+        run: |
+          find . -type f \( -name "*.tex" -o -name "*.cls" -o -name "*.sty" \) \
+            -exec latexindent -w -n -s {} +
+
+      - name: Clean BIB files
+        run: |
+          find . -name "*.bib" -exec sh -c 'perl -i -pe "s/\\s+/ /g; s/,\\s*$/,/"' {} \;
+
+      - name: Show LaTeX diff
+        run: |
+          git diff --name-only -- '*.tex' '*.sty' '*.cls' '*.bib' || echo "No LaTeX formatting changes"
