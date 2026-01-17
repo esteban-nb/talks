@@ -3,9 +3,21 @@ name: Format Markdown, RST, and LaTeX
 on:
   push:
     branches: [ main ]
-    paths: ['**/*.{md,rst,tex,sty,cls,bib}']
+    paths:
+      - '**/*.md'
+      - '**/*.rst'
+      - '**/*.tex'
+      - '**/*.sty'
+      - '**/*.cls'
+      - '**/*.bib'
   pull_request:
-    paths: ['**/*.{md,rst,tex,sty,cls,bib}']
+    paths:
+      - '**/*.md'
+      - '**/*.rst'
+      - '**/*.tex'
+      - '**/*.sty'
+      - '**/*.cls'
+      - '**/*.bib'
   workflow_dispatch:
 
 jobs:
