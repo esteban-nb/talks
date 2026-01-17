@@ -7,3 +7,5 @@ Index of all talks: https://esteban-nb.github.io/talks/
 TODO
 
 ## Next steps
+
+* Add pre-commits hooks
