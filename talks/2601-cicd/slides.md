@@ -1,43 +1,41 @@
 ---
 title: "CI/CD with GitHub Actions (Jan 2026)"
-display_name: "CI/CD Workshop"  
+display_name: "CI/CD Workshop"
 date: "2026-01-15"
 ---
 
-[comment]: # (This presentation was made with markdown-slides)
-[comment]: # (Can be found here: https://gitlab.com/da_doomer/markdown-slides)
-[comment]: # (Compile this presentation with: mdslides slides.md)
-
-[comment]: # (THEME = white)
-[comment]: # (CODE_THEME = github)
-[comment]: # (controls: true)
-[comment]: # (keyboard: true)
-[comment]: # (markdown: { smartypants: true })
+[comment]: # "This presentation was made with markdown-slides"
+[comment]: # "Can be found here: https://gitlab.com/da_doomer/markdown-slides"
+[comment]: # "Compile this presentation with: mdslides slides.md"
+[comment]: # "THEME = white"
+[comment]: # "CODE_THEME = github"
+[comment]: # "controls: true"
+[comment]: # "keyboard: true"
+[comment]: # "markdown: { smartypants: true }"
 
 ## Continuous Integration and Continuous Delivery (CI/CD)
 
 ### Esteban NOCET-BINOIS
+
 **Personal Notes, from Andres Rios Tascon's talk, Princeton Winter Training 2026**
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## CI Services Landscape
 
-- **GitHub Actions** 🥇 *Most popular, integrated*
+- **GitHub Actions** 🥇 _Most popular, integrated_
   - Native GitHub integration
   - Massive marketplace of actions
   - Free minutes for public repos
-  
-- **GitLab CI** 🥈 *Enterprise favorite*
+- **GitLab CI** 🥈 _Enterprise favorite_
   - `.gitlab-ci.yml` syntax
   - Built-in container registry
   - Self-hosted runners
-  
-- **CircleCI** 🥉 *Speed focused*
+- **CircleCI** 🥉 _Speed focused_
   - Fast parallel execution
   - Optimized Docker images
 
-[comment]: # (||| data-auto-animate)
+[comment]: # "||| data-auto-animate"
 
 ## Main CI Services - Minutes/Month
 
@@ -52,29 +50,32 @@ date: "2026-01-15"
 └──────────────────────────────┘
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Real-World CI/CD Examples
 
 **Scikit-HEP/Awkward** [🔗](https://github.com/scikit-hep/awkward/tree/main/.github)
+
 ```
 13 workflows: test, docs, release, conda, wheels
 50+ jobs across Python/NumPy versions
 ```
 
 **SegmentLinking/cmssw** [🔗](https://github.com/SegmentLinking/cmssw/tree/CI_branch/.github)
+
 ```
 CMS physics experiment pipeline
 Matrix testing across compilers
 ```
 
 **scientific-python/repo-review** [🔗](https://github.com/scientific-python/repo-review/tree/main/.github)
+
 ```
 Automated repository health checks
 Cookiecutter template validation
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## YAML Crash Course - Scalars & Lists
 
@@ -93,7 +94,7 @@ fruits:
 inline: [apple, banana, cherry]
 ```
 
-[comment]: # (||| data-auto-animate)
+[comment]: # "||| data-auto-animate"
 
 ## YAML Crash Course - Dictionaries & Multi-line
 
@@ -113,7 +114,7 @@ message: >
   a single line
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Writing Actions - Basic Structure
 
@@ -123,7 +124,7 @@ message: >
 name: "CI Pipeline"
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
 
 jobs:
@@ -136,11 +137,12 @@ jobs:
 ```
 
 **Key concepts:**
+
 - `on:` = triggers
 - `jobs.test` = parallel execution units
 - `steps` = sequential commands
 
-[comment]: # (||| data-auto-animate)
+[comment]: # "||| data-auto-animate"
 
 ## Writing Actions - Job Matrix
 
@@ -161,11 +163,12 @@ jobs:
           python-version: ${{ matrix.python }}
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Handmade Scripts as Actions
 
 **Create `.github/scripts/test.sh`:**
+
 ```bash
 #!/bin/bash
 set -e
@@ -174,23 +177,26 @@ coverage-badge -fo coverage.svg
 ```
 
 **Use in workflow:**
+
 ```yaml
 - name: Run tests
   run: .github/scripts/test.sh
 ```
 
 **Annotations for GitHub UI:**
+
 ```bash
 echo "::warning::Low test coverage (45%)"
 echo "::error::Tests failed on Windows"
 exit 1
 ```
 
-[comment]: # (||| data-auto-animate)
+[comment]: # "||| data-auto-animate"
 
 ## Handmade Scripts - Caching
 
 **`.github/scripts/setup.sh`:**
+
 ```bash
 #!/bin/bash
 pip install -r requirements.txt
@@ -200,6 +206,7 @@ mypy src/
 ```
 
 **Smart caching in workflow:**
+
 ```yaml
 - uses: actions/cache@v3
   with:
@@ -207,11 +214,12 @@ mypy src/
     key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Third-Party Actions - Official
 
 **Microsoft's official actions (always safe):**
+
 ```yaml
 - uses: actions/checkout@v4
 - uses: actions/setup-python@v4
@@ -220,16 +228,18 @@ mypy src/
 ```
 
 **Version pinning is critical:**
+
 ```
 ✅ v4, v4.1.0, ==4.1.0
 ❌ latest, main, @v4
 ```
 
-[comment]: # (||| data-auto-animate)
+[comment]: # "||| data-auto-animate"
 
 ## Third-Party Actions - Community
 
 **Popular vetted community actions:**
+
 ```yaml
 - uses: pre-commit/action@v3
 - uses: dorny/paths-filter@v2
@@ -237,6 +247,7 @@ mypy src/
 ```
 
 **Security checklist:**
+
 ```
 1. Check stars/forks (1000+/100+)
 2. Last update <6 months
@@ -244,7 +255,7 @@ mypy src/
 4. Read action.yml
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Finding Third-Party Actions
 
@@ -260,7 +271,7 @@ mypy src/
 
 **Sort by "Recently updated" to avoid dead projects**
 
-[comment]: # (||| data-auto-animate)
+[comment]: # "||| data-auto-animate"
 
 ## Action Discovery Workflow
 
@@ -272,6 +283,7 @@ mypy src/
 ```
 
 **Copy-paste patterns:**
+
 ```yaml
 # Coverage + badge
 - uses: codecov/codecov-action@v3
@@ -281,4 +293,4 @@ mypy src/
 - uses: pre-commit/action@v3
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
