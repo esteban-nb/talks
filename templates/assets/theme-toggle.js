@@ -22,6 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function updateButtonIcon(isDark) {
-    btn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    btn.textContent = isDark ? 'Light Mode' : 'Dark Mode';
   }
 });
