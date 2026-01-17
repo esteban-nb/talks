@@ -3,7 +3,9 @@ name: Check NumPy formatting with ruff
 on:
   push:
     branches: [ main ]
+    paths: [ '**/*.py', 'pyproject.toml', 'ruff.toml' ]
   pull_request:
+    paths: [ '**/*.py', 'pyproject.toml', 'ruff.toml' ]
   workflow_dispatch:
 
 jobs:
