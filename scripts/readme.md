@@ -23,6 +23,7 @@ Here we implement the main logic:
      # Slide 1
      Some novel contents...
      ```
+
      Where `templates/slides-template.html` is the full deck template: we fill the {{CONTENT}} anchor with a long string of many <section> tags (one for each slide).
      Next we should create a specific title/cover page, TOC page and closing page template.
 
