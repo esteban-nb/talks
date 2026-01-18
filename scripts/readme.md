@@ -24,7 +24,7 @@ Here we implement the main logic:
      Some novel contents...
      ```
 
-     Where `templates/slides-template.html` is the full deck template: we fill the {{CONTENT}} anchor with a long string of many <section> tags (one for each slide).
+     Where `templates/slides-template.html` is the full deck template: we fill the `{{CONTENT}}` anchor with a long string of many `<section>` tags (one for each slide).
      Next we should create a specific title/cover page, TOC page and closing page template.
 
    - In the actual markdown body, we converts text blocks, fragments, slide segments, etc.

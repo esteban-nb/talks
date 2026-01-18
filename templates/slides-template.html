@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../assets/slides-style.css">
 
   <!-- Theme used for syntax highlighted code -->
-  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+  <link rel="stylesheet" href="plugin/highlight/{{HIGHLIGHT_THEME}}.css" id="highlight-theme">
 </head>
 
 <body>
@@ -42,24 +42,24 @@
   <script src="plugin/markdown/markdown.js"></script>
   <script src="plugin/highlight/highlight.js"></script>
   <script src="plugin/math/math.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
 
   <!-- Shared theme logic -->
   <script src="../assets/theme-toggle.js"></script>
 
   <script>
-    Reveal.initialize({
-      hash: true,
-      center: true,
-      transition: 'slide', // options are: none/fade/slide/convex/concave/zoom
+      const config = {{ CONFIG }};
 
-      // Plugin Activation
-      plugins: [
+      // Ensure essential plugins are always loaded
+      config.plugins = [
         RevealMarkdown,
         RevealHighlight,
         RevealNotes,
-        RevealMath.KaTeX // KaTeX for faster math rendering
-      ]
-    });
+          RevealMath.MathJax3, // or KaTeX
+          RevealZoom
+        ];
+
+        Reveal.initialize(config);
   </script>
 </body>
 
