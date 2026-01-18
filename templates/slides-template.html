@@ -48,18 +48,18 @@
   <script src="../assets/theme-toggle.js"></script>
 
   <script>
-      const config = {{ CONFIG }};
+    const config = {{ CONFIG }};
 
-      // Ensure essential plugins are always loaded
-      config.plugins = [
-        RevealMarkdown,
-        RevealHighlight,
-        RevealNotes,
-          RevealMath.MathJax3, // or KaTeX
-          RevealZoom
-        ];
+    // Ensure essential plugins are always loaded
+    config.plugins = [
+      RevealMarkdown,
+      RevealHighlight,
+      RevealNotes,
+      RevealMath.MathJax3, // or KaTeX
+      RevealZoom
+    ];
 
-        Reveal.initialize(config);
+    Reveal.initialize(config);
   </script>
 </body>
 
