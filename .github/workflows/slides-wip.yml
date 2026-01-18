@@ -1,0 +1,85 @@
+name: Build and deploy slides
+
+# WIP
+on:
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'talks/**'
+  #     - 'templates/**'
+  #     - 'scripts/**'
+  #     - '.github/talks-config.yml'
+  # pull_request:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'talks/**'
+  #     - 'templates/**'
+  #     - 'scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install .
+          sudo snap install yq
+
+      - name: Make scripts executable
+        run: chmod +x scripts/*.sh
+
+      - name: Build talks
+        run: python scripts/build.py
+
+      - name: Generate index
+        run: scripts/generate-index.sh
+        env:
+          HIDDEN_MODE: false 
+
+      - name: Verify slides generated
+        run: |
+          if [ ! -d "slides" ] || [ -z "$(ls -A slides/)" ]; then
+            echo "No slides generated"
+            exit 1
+          fi
+          echo "Generated $(find slides -type f | wc -l) files"
+          # Show the structure of the generated artifact
+          ls -R slides/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./slides
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

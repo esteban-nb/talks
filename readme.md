@@ -74,6 +74,7 @@ The resulting folder is entirely self-contained and can be opened locally, or de
     - footline with logo, name, short title, location, last compiled and frame number
     - extra footline for citations and image sources
 - Add dark / light mode for the slides. Probably define a monochromatic palette for the dark mode. Exception on slides with background images/videos.
+- Store both `last_change`, `last_build` and `presentation_date` for all talks.
 - Leave the `mdslides`-per-talk approach, which creates a copy of Reveal.js for each talk. Instead, we refactor around our suite of slide decks as follows:
   ```bash
   slides/

@@ -47,10 +47,10 @@ jobs:
     - name: Verify slides generated
       run: |
         if [ ! -d "slides" ] || [ -z "$(ls -A slides/)" ]; then
-          echo "❌ No slides generated"
+          echo "No slides generated"
           exit 1
         fi
-        echo "✅ Generated $(find slides -type f | wc -l) files"
+        echo "Generated $(find slides -type f | wc -l) files"
         ls -la slides/
       
     - name: Upload Pages artifact
