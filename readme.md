@@ -59,7 +59,7 @@ The resulting folder is entirely self-contained and can be opened locally, or de
 - Allow subfolder structure before `slides.md` (e.g. to gather all meeting slides in one)
 - Integrate with latex [princeton-beamer](https://github.com/cisgroup/princeton-beamer) template
   - Change color scheme
-  - Change title/sections/etc fonts
+  - Change title/sections/items/etc fonts
   - Implement dedicated text-blocks, allowing writing something like
     ```md
     ::: alert | Important Title
