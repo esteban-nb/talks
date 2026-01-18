@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>{{TITLE}}</title>
+
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+
+  <!-- Shared theme assets -->
+  <link rel="stylesheet" href="../assets/slides-style.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+  <!-- 3D Theme Toggle (Tetrahedron) -->
+  <div id="mode-toggle-container" title="Switch Theme: Light | Dark | Mono">
+    <div id="pyramid">
+      <div class="face face-light"></div>
+      <div class="face face-dark"></div>
+      <div class="face face-mono"></div>
+    </div>
+  </div>
+
+  <div class="reveal">
+    <div class="slides">
+      {{CONTENT}}
+    </div>
+  </div>
+
+  <!-- Reveal.js core JS -->
+  <script src="dist/reveal.js"></script>
+
+  <!-- Plugins -->
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+
+  <!-- Shared theme logic -->
+  <script src="../assets/theme-toggle.js"></script>
+
+  <script>
+    Reveal.initialize({
+      hash: true,
+      center: true,
+      transition: 'slide', // options are: none/fade/slide/convex/concave/zoom
+
+      // Plugin Activation
+      plugins: [
+        RevealMarkdown,
+        RevealHighlight,
+        RevealNotes,
+        RevealMath.KaTeX // KaTeX for faster math rendering
+      ]
+    });
+  </script>
+</body>
+
+</html>
