@@ -1,6 +1,6 @@
 # Slides Repo
 
-Check [Markdown](https://revealjs.com/markdown/) integration in Reveal.js (PLUS [demo](https://revealjs.com/demo/) of features such as fragments, image/video/iframe backgrounds, speaker view).
+Check [Markdown](https://revealjs.com/markdown/) integration in Reveal.js (plus [demo](https://revealjs.com/demo/) of features such as fragments, image/video/iframe backgrounds, speaker view).
 
 ## View Slides
 
