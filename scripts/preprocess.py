@@ -1,5 +1,6 @@
 # TODO
 # - add footers
+# - Maybe define the choise of md patterns as global vars so we can change them
 
 import re
 import json
