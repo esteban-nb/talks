@@ -1,0 +1,13 @@
+[project]
+name = "talks-build-system"
+version = "0.1.0"
+description = "Build scripts from Markdown for Reveal.js talks"
+requires-python = ">=3.11"
+dependencies = [
+    "python-frontmatter>=1.1.0",
+    "pyyaml>=6.0.1",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
