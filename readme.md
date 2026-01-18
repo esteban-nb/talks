@@ -40,7 +40,7 @@ The build process generates several files:
 - `hash-mapping.txt` (audit log of talk-name)
 - `valid-talks.txt` (built talks used by the indexer)
 
-## The `mdslides` Utility
+## The [mdslides](https://gitlab.com/da_doomer/markdown-slides) Utility
 
 So far we use `mdslides` as a Python-based wrapper for the Reveal.js framework.
 It automates the transition from markdown text to a browser-based presentation, with math rendering and syntax highlighting (on top of Reveal.js core features).
@@ -53,11 +53,22 @@ The resulting folder is entirely self-contained and can be opened locally, or de
 
 ## Next steps
 
-- Add pre-commits hooks (clean yaml, etc)
-- Add ShellCheck (for linting) and shfmt (for formatting) workflow for scripts
-- Integrate with latex "princeton beamer" template
+- CI / SQA
+  - Add pre-commits hooks (clean yaml, etc)
+  - Add ShellCheck (for linting) and shfmt (for formatting) workflow for scripts
+- Allow subfolder structure before `slides.md` (e.g. to gather all meeting slides in one)
+- Integrate with latex [princeton-beamer](https://github.com/cisgroup/princeton-beamer) template
+  - Change color scheme
+  - Change title/sections/etc fonts
+  - Implement dedicated text-blocks, allowing writing something like
+    ```md
+    ::: alert | Important Warning
+    This is the content of the alert block. It supports **markdown** inside.
+    :::
+    ```
+  - Write tailored title, TOC and final frames
 - Leave the `mdslides`-per-talk approach, which creates a copy of Reveal.js for each talk. Instead, we refactor around our suite of slide decks as follows:
-  ```
+  ```bash
   slides/
   ├── lib/ (One copy of Reveal.js CSS/JS)
   ├── assets/ (Shared theme-toggle.js and style.css)
