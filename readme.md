@@ -1,6 +1,6 @@
 # Slides Repo
 
-Check [Markdown](https://revealjs.com/markdown/) integration in Reveal.js. 
+Check [Markdown](https://revealjs.com/markdown/) integration in Reveal.js.
 
 ## View Slides
 
