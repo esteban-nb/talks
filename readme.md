@@ -56,7 +56,7 @@ The resulting folder is entirely self-contained and can be opened locally, or de
 - Add pre-commits hooks (clean yaml, etc)
 - Add ShellCheck (for linting) and shfmt (for formatting) workflow for scripts
 - Integrate with latex "princeton beamer" template
-- Leave the `mdslides`-per-talk approach, which creates a copy of Reveal.js for each talk. refactor around our suite of slide decks as follows:
+- Leave the `mdslides`-per-talk approach, which creates a copy of Reveal.js for each talk. Instead, we refactor around our suite of slide decks as follows:
   ```
   slides/
   ├── lib/ (One copy of Reveal.js CSS/JS)
