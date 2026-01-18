@@ -67,6 +67,9 @@ The resulting folder is entirely self-contained and can be opened locally, or de
     :::
     ```
   - Write tailored title, TOC and final frames
+  - Add footers:
+    - footline with logo, name, short title, location, last compiled and frame number
+    - extra footline for citations and image sources
 - Leave the `mdslides`-per-talk approach, which creates a copy of Reveal.js for each talk. Instead, we refactor around our suite of slide decks as follows:
   ```bash
   slides/
