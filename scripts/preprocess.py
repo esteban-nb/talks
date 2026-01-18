@@ -1,3 +1,6 @@
+# TODO
+# - add footers
+
 import re
 import json
 import frontmatter
@@ -6,6 +9,7 @@ from pathlib import Path
 def transform_blocks(text):
     """
     Converts ::: type | Title syntax into HTML.
+    Uses double newlines to ensure Reveal.js parses Markdown inside the block body.
     """
     pattern = r":::\s*(block|alert|example)\s*\|\s*(.*?)\n(.*?)\n:::"
 
@@ -18,9 +22,11 @@ def transform_blocks(text):
         css_map = {"block": "std", "alert": "alert", "example": "example"}
         cls = css_map.get(b_type, "std")
 
-        return (f'<div class="block block-{cls}">'
-                f'<div class="block-title">{title}</div>'
-                f'<div class="block-body">\n\n{body}\n\n</div>'
+        return (f'<div class="block block-{cls}">\n'
+                f'  <div class="block-title">{title}</div>\n'
+                f'  <div class="block-body">\n\n'
+                f'{body}\n\n'
+                f'  </div>\n'
                 f'</div>')
 
     return re.sub(pattern, replacer, text, flags=re.DOTALL)
@@ -31,11 +37,12 @@ def handle_fragments(text):
     """
     return text.replace(" [f]", ' <!-- .element: class="fragment" -->')
 
-def wrap_slide(content):
+def wrap_slide(content, attributes=""):
     """
-    Wraps a single markdown block in Reveal.js markdown tags.
+    Wraps content in Reveal.js section with attribute support.
     """
-    return f'<section data-markdown><textarea data-template>\n{content.strip()}\n</textarea></section>'
+    attr_str = f" {attributes}" if attributes else ""
+    return f'<section data-markdown{attr_str}><textarea data-template>\n{content.strip()}\n</textarea></section>'
 
 def process_markdown_to_html(md_path, template_path):
     """
