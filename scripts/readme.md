@@ -29,7 +29,7 @@ Here we implement the main logic:
 
    - In the actual markdown body, we converts text blocks, fragments, slide segments, etc.
 
-2. Template injection. We replace the different anchors in `slides-template.html` (TITLE, CONTENT, CONFIG) with the generated HTML string.
+2. Template injection. We replace the different anchors in `slides-template.html` (TITLE, CONTENT, CONFIG, HIGHLIGHT_THEME) with the generated HTML string.
 3. Vendoring. We physically copy the `reveal.js` folder (once for all slide decks) to the target path, and delete everything except "critical paths" (dist, plugin).
 
 Note that `build-talks.sh` is just a first version that calls `mdslides` on each slide deck.
