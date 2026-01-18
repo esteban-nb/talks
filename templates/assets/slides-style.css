@@ -1,0 +1,156 @@
+:root {
+  /* Core Colors */
+  --core-orange: #EE7F2D;
+  --core-blue: #0072B2;
+  --core-green: #009E73;
+  --core-red: #D55E00;
+  --core-purple: #CC79A7;
+}
+
+/* --- LIGHT MODE --- */
+body[data-theme="light"] {
+  --bg: #FFFFFF;
+  --text: #1A1A1A;
+  --dim-text: #666666;
+  --divider: #E5E5E5;
+  --block-bg-opacity: 0.08;
+  --block-title-opacity: 0.2;
+  --edge-color: #1A1A1A;
+}
+
+/* --- DARK MODE --- */
+body[data-theme="dark"] {
+  --bg: #121212;
+  --text: #E0E0E0;
+  --dim-text: #8B949E;
+  --divider: #30363D;
+  --block-bg-opacity: 0.15;
+  --block-title-opacity: 0.3;
+  --edge-color: #FFFFFF;
+  /* Dark Overrides */
+  /* TODO */
+}
+
+/* --- MONOCHROME MODE --- */
+body[data-theme="mono"] {
+  --bg: #FFF9F5;
+  --text: #432100;
+  --dim-text: #8B4513;
+  --divider: #FAD7B5;
+  --block-bg-opacity: 0.1;
+  --block-title-opacity: 0.25;
+  --edge-color: #432100;
+  /* Monochromatic Overrides */
+  --core-blue: #EE7F2D;
+  --core-green: #D24F01;
+  --core-red: #8B4513;
+}
+
+/* --- BLOCK STYLING --- */
+.block {
+  margin: 1em 0;
+  border-radius: 6px;
+  overflow: hidden;
+  text-align: left;
+  background: var(--bg);
+  border: 1px solid var(--divider);
+}
+
+.block-title {
+  padding: 6px 15px;
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #fff;
+  background: rgba(0, 0, 0, var(--block-title-opacity));
+}
+
+.block-body {
+  padding: 12px 15px;
+  font-size: 0.85em;
+  background: rgba(0, 0, 0, var(--block-bg-opacity));
+}
+
+.block-std {
+  border-color: var(--core-blue);
+}
+
+.block-std .block-title {
+  background-color: var(--core-blue);
+}
+
+.block-alert {
+  border-color: var(--core-red);
+}
+
+.block-alert .block-title {
+  background-color: var(--core-red);
+}
+
+.block-example {
+  border-color: var(--core-green);
+}
+
+.block-example .block-title {
+  background-color: var(--core-green);
+}
+
+/* --- 3D TETRAHEDRON UI --- */
+#mode-toggle-container {
+  width: 60px;
+  height: 60px;
+  perspective: 300px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#pyramid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.face {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  /* The base height of the triangle */
+  border-bottom: 52px solid transparent;
+  opacity: 1;
+  transition: border-bottom-color 0.3s;
+}
+
+/* Specific Face Colors and Positions */
+.face-light {
+  transform: translateZ(18px);
+  border-bottom-color: #FFFFFF;
+  /* White face */
+  filter: drop-shadow(0 0 1px #000);
+  /* Definition against light bg */
+}
+
+.face-dark {
+  transform: rotateY(120deg) translateZ(18px);
+  border-bottom-color: #121212;
+  /* Black face */
+  /* Edges become white in dark mode/face as requested */
+  outline: 1px solid var(--edge-color);
+}
+
+.face-mono {
+  transform: rotateY(240deg) translateZ(18px);
+  border-bottom-color: var(--core-orange);
+  /* Orange face (#EE7F2D) */
+}
+
+/* Ensure the pyramid faces are visible against their respective backgrounds */
+body[data-theme="light"] .face-light {
+  border-bottom-color: #f0f0f0;
+  border-bottom-width: 52px;
+}
