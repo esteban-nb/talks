@@ -20,7 +20,7 @@ Run the following commands from the project root:
 
 ```bash
 # Install the slide generator
-pip install git+https://gitlab.com
+pip install git+https://gitlab.com/da_doomer/markdown-slides.git
 
 # Make scripts executable
 chmod +x scripts/*.sh
