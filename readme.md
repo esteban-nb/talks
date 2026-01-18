@@ -57,6 +57,7 @@ The resulting folder is entirely self-contained and can be opened locally, or de
   - Add pre-commits hooks (clean yaml, etc)
   - Add ShellCheck (for linting) and shfmt (for formatting) workflow for scripts
 - Allow subfolder structure before `slides.md` (e.g. to gather all meeting slides in one)
+- Find a way to set the theme BEFORE the body renders to avoid white flash
 - Integrate with latex [princeton-beamer](https://github.com/cisgroup/princeton-beamer) template
   - Change color scheme
   - Change title/sections/items/etc fonts
