@@ -62,8 +62,8 @@ The resulting folder is entirely self-contained and can be opened locally, or de
   - Change title/sections/etc fonts
   - Implement dedicated text-blocks, allowing writing something like
     ```md
-    ::: alert | Important Warning
-    This is the content of the alert block. It supports **markdown** inside.
+    ::: alert | Important Title
+    This is the content of the alert block.
     :::
     ```
   - Write tailored title, TOC and final frames
