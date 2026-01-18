@@ -1,5 +1,7 @@
 # Slides Repo
 
+Check [Markdown](https://revealjs.com/markdown/) integration in Reveal.js. 
+
 ## View Slides
 
 Index of all talks: https://esteban-nb.github.io/talks/
