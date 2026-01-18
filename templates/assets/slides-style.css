@@ -10,6 +10,7 @@
 /* --- LIGHT MODE --- */
 body[data-theme="light"] {
   --bg: #FFFFFF;
+  --title: var(--core-orange);
   --text: #1A1A1A;
   --dim-text: #666666;
   --divider: #E5E5E5;
@@ -21,6 +22,7 @@ body[data-theme="light"] {
 /* --- DARK MODE --- */
 body[data-theme="dark"] {
   --bg: #121212;
+  --title: #E0E0E0;
   --text: #E0E0E0;
   --dim-text: #8B949E;
   --divider: #30363D;
@@ -28,12 +30,15 @@ body[data-theme="dark"] {
   --block-title-opacity: 0.3;
   --edge-color: #FFFFFF;
   /* Dark Overrides */
-  /* TODO */
+  --core-blue: #40A9FF;
+    --core-green: #4CD964;
+    --core-red: #FF5E6C;
 }
 
 /* --- MONOCHROME MODE --- */
 body[data-theme="mono"] {
   --bg: #FFF9F5;
+  --title: var(--core-orange);
   --text: #432100;
   --dim-text: #8B4513;
   --divider: #FAD7B5;
@@ -46,6 +51,22 @@ body[data-theme="mono"] {
   --core-red: #8B4513;
 }
 
+/* --- REVEAL.JS GLOBAL TYPOGRAPHY --- */
+.reveal {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.5s ease;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: var(--title);
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 0.5em;
+}
 /* --- BLOCK STYLING --- */
 .block {
   margin: 1em 0;
@@ -54,6 +75,7 @@ body[data-theme="mono"] {
   text-align: left;
   background: var(--bg);
   border: 1px solid var(--divider);
+  font-size: 0.85em;
 }
 
 .block-title {
@@ -70,6 +92,7 @@ body[data-theme="mono"] {
   background: rgba(0, 0, 0, var(--block-bg-opacity));
 }
 
+/* Standard Block */
 .block-std {
   border-color: var(--core-blue);
 }
@@ -78,6 +101,7 @@ body[data-theme="mono"] {
   background-color: var(--core-blue);
 }
 
+/* Alert Block */
 .block-alert {
   border-color: var(--core-red);
 }
@@ -86,6 +110,7 @@ body[data-theme="mono"] {
   background-color: var(--core-red);
 }
 
+/* Example Block */
 .block-example {
   border-color: var(--core-green);
 }
