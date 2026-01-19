@@ -1,0 +1,6 @@
+[submodule "vendor/highlightjs-cdn-release"]
+	path = vendor/highlightjs-cdn-release
+	url = git@github.com:highlightjs/cdn-release.git
+[submodule "vendor/reveal.js"]
+	path = vendor/reveal.js
+	url = git@github.com:hakimel/reveal.js.git
