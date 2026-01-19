@@ -136,16 +136,16 @@ body[data-theme="mono"] {
 }
 
 /* Staggered animation */
-#mode-toggle-container:hover .frame-1 {
+#mode-toggle-container.animate .frame-1 {
   transform: translateX(-2px);
 }
 
-#mode-toggle-container:hover .frame-2 {
+#mode-toggle-container.animate .frame-2 {
   transform: translateX(2px);
   transition-delay: 0.05s;
 }
 
-#mode-toggle-container:hover .frame-3 {
+#mode-toggle-container.animate .frame-3 {
   transform: translateX(4px);
   transition-delay: 0.1s;
 }
