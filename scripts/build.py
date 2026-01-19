@@ -48,6 +48,10 @@ def setup_shared_vendor_assets():
         exit(1)
 
 def build_all_talks():
+    """
+    Build unhashed directories (slides/talk_name/index.html).
+    Hashing/indexing done by generate-index.sh.
+    """
     # Load CI config
     config = {"exclude": [], "hidden": False}
     if CONFIG_PATH.exists():
@@ -63,36 +67,45 @@ def build_all_talks():
     display_names = {}
 
     for talk_path in TALKS_DIR.iterdir():
-        if not talk_path.is_dir(): continue
+        if not talk_path.is_dir():
+            continue
 
         talk_name = talk_path.name
         md_file = talk_path / "slides.md"
 
+        # Skip if no slides.md or explicitly excluded
         if not md_file.exists() or talk_name in config["exclude"]:
+            print(f"Skipping: {talk_name} (no slides.md or excluded)")
             continue
 
-        # Hashed URL
-        git_head = os.popen("git rev-parse HEAD").read().strip() or "dev"
-        talk_hash = hashlib.sha256(f"{talk_name}-{git_head}".encode()).hexdigest()[:8]
-
-        target_dir = OUTPUT_DIR / talk_hash
+        # Output dir (unhashed)
+        target_dir = OUTPUT_DIR / talk_name
         target_dir.mkdir(parents=True, exist_ok=True)
 
-        print(f"Building: {talk_name} -> {talk_hash}/")
+        print(f"Building: {talk_name} -> slides/{talk_name}/")
 
         # Preprocessing (blocks, yaml, delimiters)
         html_content = process_markdown_to_html(md_file, TEMPLATE_PATH)
         (target_dir / "index.html").write_text(html_content)
 
-        # Extract display name for the Bash indexer
-        with open(md_file) as f:
-            meta = next(yaml.safe_load_all(f))
-            display_names[talk_name] = meta.get("display_name", talk_name)
+        # Extract display name from YAML frontmatter for generate-index.sh
+        try:
+            with open(md_file) as f:
+                # Read YAML frontmatter
+                content = f.read()
+                meta = yaml.safe_load(content.split('---', 2)[1]) if '---' in content else {}
+                display_names[talk_name] = meta.get("display_name", talk_name)
+        except Exception as e:
+            print(f"Warning: Could not parse frontmatter for {talk_name}: {e}")
+            display_names[talk_name] = talk_name
 
-    # Save mapping
+    # Save display-names.txt for generate-index.sh
     with open(PROJECT_ROOT / "display-names.txt", "w") as f:
         for name, display in display_names.items():
             f.write(f"{name}: {display}\n")
+
+    print(f"Built {len(display_names)} talks; display-names.txt written")
+    print("Ready for generate-index.sh (hashing + index generation)")
 
 if __name__ == "__main__":
     build_all_talks()
