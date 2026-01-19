@@ -2,16 +2,16 @@
 title: "CI/CD with GitHub Actions (Jan 2026)"
 display_name: "CI/CD Workshop"
 date: "2026-01-15"
+template: "templates/slides-template.html"
+controls: true
+progress: true
+center: true
+hash: true
+transition: "slide"
+zoom: true
+fragments: true
+code_theme: "github"
 ---
-
-[comment]: # "This presentation was made with markdown-slides"
-[comment]: # "Can be found here: https://gitlab.com/da_doomer/markdown-slides"
-[comment]: # "Compile this presentation with: mdslides slides.md"
-[comment]: # "THEME = white"
-[comment]: # "CODE_THEME = github"
-[comment]: # "controls: true"
-[comment]: # "keyboard: true"
-[comment]: # "markdown: { smartypants: true }"
 
 ## Continuous Integration and Continuous Delivery (CI/CD)
 
