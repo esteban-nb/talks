@@ -1,11 +1,11 @@
 name: Build and deploy slides
 
 on:
-  push:
-    branches: [ main ]
-    paths: [ 'talks/**', '.github/talks-config.yml', 'scripts/**' ]
-  pull_request:
-    paths: [ 'talks/**', '.github/talks-config.yml', 'scripts/**' ]
+  # push:
+  #   branches: [ main ]
+  #   paths: [ 'talks/**', '.github/talks-config.yml', 'scripts/**' ]
+  # pull_request:
+  #   paths: [ 'talks/**', '.github/talks-config.yml', 'scripts/**' ]
   workflow_dispatch:
 
 permissions:
