@@ -1,4 +1,4 @@
-name: Build and deploy slides
+name: Build slides with `mdslides` (deprecated), and deploy
 
 on:
   # push:
