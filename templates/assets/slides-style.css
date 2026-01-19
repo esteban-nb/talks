@@ -126,39 +126,76 @@ body[data-theme="mono"] {
   right: 25px;
   z-index: 1000;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  /* Icon Colors based on theme */
+    color: var(--core-orange);
+    /* Default */
+  }
+  
+  /* Specific theme colors */
+  body[data-theme="light"] #theme-icon {
+    color: var(--core-orange);
+  }
+  
+  body[data-theme="mono"] #theme-icon {
+    color: #000000;
+  }
+  
+  body[data-theme="dark"] #theme-icon {
+    color: #FFFFFF;
+  }
+  
+  /* The Animation Trigger Class */
+  .clicked .frame-1 {
+    animation: slide-1 0.5s ease-in-out;
+  }
+  
+  .clicked .frame-2 {
+    animation: slide-2 0.5s ease-in-out 0.05s;
+  }
+  
+  .clicked .frame-3 {
+    animation: slide-3 0.5s ease-in-out 0.1s;
 }
 
-/* Base transition for automatic return */
-.frame {
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
+/* Keyframes that return to 0 at the end */
+@keyframes slide-1 {
+  0% {
+    transform: translateX(0);
+  }
+
+    50% {
+      transform: translateX(-2px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+    }
+  
+    @keyframes slide-2 {
+      0% {
+        transform: translateX(0);
+      }
+  
+      50% {
+        transform: translateX(2px);
+  
+
+    100% {
+      transform: translateX(0);
+    }
 }
 
-/* Staggered animation */
-#mode-toggle-container.animate .frame-1 {
-  transform: translateX(-2px);
-}
+@keyframes slide-3 {
+  0% {
+    transform: translateX(0);
+  }
 
-#mode-toggle-container.animate .frame-2 {
-  transform: translateX(2px);
-  transition-delay: 0.05s;
-}
+    50% {
+      transform: translateX(4px);
+    }
 
-#mode-toggle-container.animate .frame-3 {
-  transform: translateX(4px);
-  transition-delay: 0.1s;
-}
-
-/* Icon color logic based on sequence light-mono-dark */
-body[data-theme="light"] #theme-icon {
-  color: var(--core-orange);
-}
-
-body[data-theme="mono"] #theme-icon {
-  color: #000000;
-}
-
-body[data-theme="dark"] #theme-icon {
-  color: #FFFFFF;
+    100% {
+      transform: translateX(0);
+    }
 }
