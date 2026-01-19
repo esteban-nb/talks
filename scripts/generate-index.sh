@@ -8,7 +8,7 @@ declare -A HASH_MAP
 # Configuration
 TEMPLATE_FILE="templates/index-template.html"
 ASSETS_SRC="templates/assets"
-OUTPUT_DIR="slides"
+OUTPUT_DIR="${OUTPUT_DIR:-slides}"
 ASSETS_DEST="${OUTPUT_DIR}/assets"
 
 main() {

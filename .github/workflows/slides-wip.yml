@@ -16,6 +16,11 @@ on:
   #     - 'templates/**'
   #     - 'scripts/**'
   workflow_dispatch:
+    inputs:
+      target_dir:
+        description: 'Output directory name'
+        default: 'slides-wip'
+        required: true
 
 permissions:
   contents: read
@@ -51,11 +56,15 @@ jobs:
 
       - name: Build talks
         run: python scripts/build.py
+        env:
+          EXPORT_PDF: false
+          OUTPUT_DIR: ${{ github.event.inputs.target_dir }}
 
       - name: Generate index
         run: scripts/generate-index.sh
         env:
-          HIDDEN_MODE: false 
+          HIDDEN_MODE: false
+          OUTPUT_DIR: ${{ github.event.inputs.target_dir }}
 
       - name: Verify slides generated
         run: |

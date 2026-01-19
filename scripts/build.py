@@ -1,42 +1,98 @@
+import os
 import shutil
+import hashlib
+import yaml
 from pathlib import Path
-from preprocess import process_markdown_blocks
+from preprocess import process_markdown_to_html
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = SCRIPT_DIR.parent
 TALKS_DIR = PROJECT_ROOT / "talks"
-OUTPUT_DIR = PROJECT_ROOT / "slides"
+TARGET_OUTPUT = os.getenv("OUTPUT_DIR", "slides")
+OUTPUT_DIR = PROJECT_ROOT / TARGET_OUTPUT
 VENDOR_DIR = PROJECT_ROOT / "vendor"
+TEMPLATE_PATH = PROJECT_ROOT / "templates/slides-template.html"
+CONFIG_PATH = PROJECT_ROOT / ".github/talks-config.yml"
 
-def setup_vendor_assets(target_dir: Path):
+def setup_shared_vendor_assets():
     """
-    Copies required assets from Git submodules into the specific talk directory.
+    Copies required assets from Git submodules into the root of the slides directory.
+    Retains your defensive logic to ensure submodules exist.
     """
-    # Define source paths
     reveal_src = VENDOR_DIR / "reveal.js"
-    
-    # Define destination paths in the hashed talk folder
-    target_path = Path(target_dir)
-    
-    # Copy Reveal.js Core (dist and plugin folders)
-    try:
-        shutil.copytree(reveal_src / "dist", target_path / "dist", dirs_exist_ok=True)
-        shutil.copytree(reveal_src / "plugin", target_path / "plugin", dirs_exist_ok=True)
-        print(f"Core Reveal.js assets copied to {target_dir}")
-    except FileNotFoundError:
-        print(f"Error: Submodule not found at {reveal_src}. Did you run 'git submodule update --init'?")
+    highlight_src = VENDOR_DIR / "highlightjs-cdn-release"
 
-def build_talk(talk_path: Path):
-    """Full workflow for a single talk."""
-    ...
-    # 1. hashed target directory (same as generate-index.sh)
-    #    check, since it seems that revealjs already gives the option to hash
-    # 2. setup Reveal.js assets
-    # 3. process content: merge markdown + templates
-    #    i.e. handle the {{CONTENT}} replacement in index-template.html
+    # Define Destinations
+    shared_dist = OUTPUT_DIR / "dist"
+    shared_plugin = OUTPUT_DIR / "plugin"
+    shared_highlight = OUTPUT_DIR / "highlightjs"
+
+    try:
+        # Core Reveal.js
+        shutil.copytree(reveal_src / "dist", shared_dist, dirs_exist_ok=True)
+        shutil.copytree(reveal_src / "plugin", shared_plugin, dirs_exist_ok=True)
+
+        # Highlight.js engine and styles
+        shared_highlight.mkdir(parents=True, exist_ok=True)
+        shutil.copy(highlight_src / "build/highlight.min.js", shared_highlight / "highlight.js")
+        shutil.copytree(highlight_src / "build/styles", shared_highlight / "styles", dirs_exist_ok=True)
+
+        # Custom shared assets (Pyramid, CSS)
+        shutil.copytree(PROJECT_ROOT / "templates/assets", OUTPUT_DIR / "assets", dirs_exist_ok=True)
+
+        print(f"Shared assets successfully deployed to {OUTPUT_DIR}")
+
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+        print("Did you run 'git submodule update --init --recursive'?")
+        exit(1)
+
+def build_all_talks():
+    # Load CI config
+    config = {"exclude": [], "hidden": False}
+    if CONFIG_PATH.exists():
+        with open(CONFIG_PATH) as f:
+            config.update(yaml.safe_load(f) or {})
+
+    # Reset and setup
+    if OUTPUT_DIR.exists():
+        shutil.rmtree(OUTPUT_DIR)
+    OUTPUT_DIR.mkdir(parents=True)
+    setup_shared_vendor_assets()
+
+    display_names = {}
+
+    for talk_path in TALKS_DIR.iterdir():
+        if not talk_path.is_dir(): continue
+
+        talk_name = talk_path.name
+        md_file = talk_path / "slides.md"
+
+        if not md_file.exists() or talk_name in config["exclude"]:
+            continue
+
+        # Hashed URL
+        git_head = os.popen("git rev-parse HEAD").read().strip() or "dev"
+        talk_hash = hashlib.sha256(f"{talk_name}-{git_head}".encode()).hexdigest()[:8]
+
+        target_dir = OUTPUT_DIR / talk_hash
+        target_dir.mkdir(parents=True, exist_ok=True)
+
+        print(f"Building: {talk_name} -> {talk_hash}/")
+
+        # Preprocessing (blocks, yaml, delimiters)
+        html_content = process_markdown_to_html(md_file, TEMPLATE_PATH)
+        (target_dir / "index.html").write_text(html_content)
+
+        # Extract display name for the Bash indexer
+        with open(md_file) as f:
+            meta = next(yaml.safe_load_all(f))
+            display_names[talk_name] = meta.get("display_name", talk_name)
+
+    # Save mapping
+    with open(PROJECT_ROOT / "display-names.txt", "w") as f:
+        for name, display in display_names.items():
+            f.write(f"{name}: {display}\n")
 
 if __name__ == "__main__":
-    for talk_folder in TALKS_DIR.iterdir():
-        if talk_folder.is_dir() and (talk_folder / "slides.md").exists():
-            print(f"Processing talk: {talk_folder.name}")
-            build_talk(talk_folder)
+    build_all_talks()
