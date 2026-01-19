@@ -119,63 +119,37 @@ body[data-theme="mono"] {
   background-color: var(--core-green);
 }
 
-/* --- 3D TETRAHEDRON UI --- */
+/* --- TOGGLE --- */
 #mode-toggle-container {
-  width: 60px;
-  height: 60px;
-  perspective: 300px;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+    right: 25px;
   z-index: 1000;
   cursor: pointer;
+  color: var(--title);
+    transition: transform 0.2s ease;
 }
 
-#pyramid {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+#mode-toggle-container:hover {
+  transform: scale(1.1);
 }
 
-.face {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  /* The base height of the triangle */
-  border-bottom: 52px solid transparent;
-  opacity: 1;
-  transition: border-bottom-color 0.3s;
+.frame {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
-/* Specific Face Colors and Positions */
-.face-light {
-  transform: translateZ(18px);
-  border-bottom-color: #FFFFFF;
-  /* White face */
-  filter: drop-shadow(0 0 1px #000);
-  /* Definition against light bg */
+/* Animations */
+#mode-toggle-container:hover .frame-1 {
+  transform: translateX(-2px);
 }
 
-.face-dark {
-  transform: rotateY(120deg) translateZ(18px);
-  border-bottom-color: #121212;
-  /* Black face */
-  /* Edges become white in dark mode/face as requested */
-  outline: 1px solid var(--edge-color);
+#mode-toggle-container:hover .frame-2 {
+  transform: translateX(2px);
+  transition-delay: 0.05s;
 }
 
-.face-mono {
-  transform: rotateY(240deg) translateZ(18px);
-  border-bottom-color: var(--core-orange);
-  /* Orange face (#EE7F2D) */
-}
-
-/* Ensure the pyramid faces are visible against their respective backgrounds */
-body[data-theme="light"] .face-light {
-  border-bottom-color: #f0f0f0;
-  border-bottom-width: 52px;
+#mode-toggle-container:hover .frame-3 {
+  transform: translateX(4px);
+  transition-delay: 0.1s;
 }
