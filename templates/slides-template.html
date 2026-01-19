@@ -19,13 +19,16 @@
 </head>
 
 <body data-theme="light">
-  <!-- 3D Theme Toggle (Tetrahedron) -->
-  <div id="mode-toggle-container" title="Switch Theme: Light | Dark | Mono">
-    <div id="pyramid">
-      <div class="face face-light"></div>
-      <div class="face face-dark"></div>
-      <div class="face face-mono"></div>
-    </div>
+  <!-- Toggle -->
+  <div id="mode-toggle-container" title="Switch Theme">
+    <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path class="frame frame-1"
+        d="M9.225 18.412a1.595 1.595 0 0 1 -1.225 .588c-.468 0 -.914 -.214 -1.225 -.588l-4.361 -5.248a1.844 1.844 0 0 1 0 -2.328l4.361 -5.248a1.595 1.595 0 0 1 1.225 -.588c.468 0 .914 .214 1.225 .588l4.361 5.248a1.844 1.844 0 0 1 0 2.328l-4.361 5.248z" />
+      <path class="frame frame-2" d="M17 5l4.586 5.836a1.844 1.844 0 0 1 0 2.328l-4.586 5.836" />
+      <path class="frame frame-3" d="M13 5l4.586 5.836a1.844 1.844 0 0 1 0 2.328l-4.586 5.836" />
+    </svg>
   </div>
 
   <div class="reveal">
@@ -48,7 +51,7 @@
   <script src="../highlightjs/highlight.js"></script>
 
   <!-- Shared theme logic -->
-  <script src="../assets/theme-toggle.js"></script>
+  <script src="../assets/ldm-toggle.js"></script>
 
   <script>
     const config = {{ CONFIG }};

@@ -1,29 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('mode-toggle-container');
-  const pyramid = document.getElementById('pyramid');
-  const body = document.body;
-  const modes = ['light', 'dark', 'mono'];
-
-  // Initial State
-  const savedTheme = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-  body.setAttribute('data-theme', savedTheme);
-
-  // Set initial rotation based on theme
-  const rotations = { 'light': 0, 'dark': -120, 'mono': -240 };
-  let currentRotation = rotations[savedTheme];
-  pyramid.style.transform = `rotateY(${currentRotation}deg)`;
+  const themes = ['light', 'dark', 'mono'];
 
   container.addEventListener('click', () => {
-    currentRotation -= 120;
-    pyramid.style.transform = `rotateY(${currentRotation}deg)`;
+    const currentTheme = document.body.getAttribute('data-theme');
+    const currentIndex = themes.indexOf(currentTheme);
+    const nextIndex = (currentIndex + 1) % themes.length;
+    const nextTheme = themes[nextIndex];
 
-    // Determine next theme
-    const index = modes.indexOf(body.getAttribute('data-theme'));
-    const nextTheme = modes[(index + 1) % modes.length];
-
-    body.setAttribute('data-theme', nextTheme);
-    localStorage.setItem('theme', nextTheme);
+    document.body.setAttribute('data-theme', nextTheme);
+    localStorage.setItem('theme', nextTheme); // Save preference
   });
+
+  const saved = localStorage.getItem('theme');
+  if (saved) document.body.setAttribute('data-theme', saved);
 });
