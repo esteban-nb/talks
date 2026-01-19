@@ -34,6 +34,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TARGET_DIR: ${{ github.event.inputs.target_dir || 'slides' }}
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
@@ -58,28 +60,27 @@ jobs:
         run: python scripts/build.py
         env:
           EXPORT_PDF: false
-          OUTPUT_DIR: ${{ github.event.inputs.target_dir }}
+          OUTPUT_DIR: ${{ env.TARGET_DIR }}
 
       - name: Generate index
         run: scripts/generate-index.sh
         env:
           HIDDEN_MODE: false
-          OUTPUT_DIR: ${{ github.event.inputs.target_dir }}
+          OUTPUT_DIR: ${{ env.TARGET_DIR }}
 
       - name: Verify slides generated
         run: |
-          if [ ! -d "slides" ] || [ -z "$(ls -A slides/)" ]; then
+          if [ ! -d "${{ env.TARGET_DIR }}" ] || [ -z "$(ls -A ${{ env.TARGET_DIR }}/)" ]; then
             echo "No slides generated"
             exit 1
           fi
-          echo "Generated $(find slides -type f | wc -l) files"
-          # Show the structure of the generated artifact
-          ls -R slides/
+          echo "Generated $(find ${{ env.TARGET_DIR }} -type f | wc -l) files"
+          ls -R ${{ env.TARGET_DIR }}/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./slides
+          path: ./${{ env.TARGET_DIR }}
 
   deploy:
     environment:
