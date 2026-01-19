@@ -1,28 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('mode-toggle-container');
-
-  // Custom theme order: Light -> Mono -> Dark
   const themes = ['light', 'mono', 'dark'];
 
   container.addEventListener('click', () => {
-    // Get current theme from body, default to light
+    // 1. Trigger animation
+    container.classList.add('animate');
+
+    // 2. Cycle theme
     const currentTheme = document.body.getAttribute('data-theme') || 'light';
+    const nextTheme = themes[(themes.indexOf(currentTheme) + 1) % themes.length];
 
-    // Find index and calculate next (with wrap-around)
-    const currentIndex = themes.indexOf(currentTheme);
-    const nextIndex = (currentIndex + 1) % themes.length;
-    const nextTheme = themes[nextIndex];
-
-    // Apply new theme
     document.body.setAttribute('data-theme', nextTheme);
     localStorage.setItem('theme', nextTheme);
 
-    console.log(`Theme switched to: ${nextTheme}`);
+    // 3. Reset animation
+    setTimeout(() => {
+      container.classList.remove('animate');
+    }, 500); // 0.4s transition + 0.1s max delay
   });
 
-  // Persist preference on page load
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme && themes.includes(savedTheme)) {
-    document.body.setAttribute('data-theme', savedTheme);
-  }
+  // Load saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved) document.body.setAttribute('data-theme', saved);
 });
