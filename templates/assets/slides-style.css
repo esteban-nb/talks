@@ -123,23 +123,19 @@ body[data-theme="mono"] {
 #mode-toggle-container {
   position: fixed;
   top: 25px;
-    right: 25px;
+  right: 25px;
   z-index: 1000;
   cursor: pointer;
-  color: var(--title);
-    transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-#mode-toggle-container:hover {
-  transform: scale(1.1);
-}
-
+/* Base transition for automatic return */
 .frame {
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
 
-/* Animations */
+/* Staggered animation */
 #mode-toggle-container:hover .frame-1 {
   transform: translateX(-2px);
 }
@@ -152,4 +148,17 @@ body[data-theme="mono"] {
 #mode-toggle-container:hover .frame-3 {
   transform: translateX(4px);
   transition-delay: 0.1s;
+}
+
+/* Icon color logic based on sequence light-mono-dark */
+body[data-theme="light"] #theme-icon {
+  color: var(--core-orange);
+}
+
+body[data-theme="mono"] #theme-icon {
+  color: #000000;
+}
+
+body[data-theme="dark"] #theme-icon {
+  color: #FFFFFF;
 }

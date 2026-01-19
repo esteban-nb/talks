@@ -1,17 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('mode-toggle-container');
-  const themes = ['light', 'dark', 'mono'];
+
+  // Custom theme order: Light -> Mono -> Dark
+  const themes = ['light', 'mono', 'dark'];
 
   container.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-theme');
+    // Get current theme from body, default to light
+    const currentTheme = document.body.getAttribute('data-theme') || 'light';
+
+    // Find index and calculate next (with wrap-around)
     const currentIndex = themes.indexOf(currentTheme);
     const nextIndex = (currentIndex + 1) % themes.length;
     const nextTheme = themes[nextIndex];
 
+    // Apply new theme
     document.body.setAttribute('data-theme', nextTheme);
-    localStorage.setItem('theme', nextTheme); // Save preference
+    localStorage.setItem('theme', nextTheme);
+
+    console.log(`Theme switched to: ${nextTheme}`);
   });
 
-  const saved = localStorage.getItem('theme');
-  if (saved) document.body.setAttribute('data-theme', saved);
+  // Persist preference on page load
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme && themes.includes(savedTheme)) {
+    document.body.setAttribute('data-theme', savedTheme);
+  }
 });
