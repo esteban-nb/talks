@@ -54,13 +54,14 @@ fi
 echo "All ${#REQUIRED_SHARED[@]} shared assets present"
 
 # 3. Validate each talk directory
-for talk_dir in "${TARGET_DIR}"/*/index.html; do
-    [[ -z "${talk_dir}" ]] && { 
-        echo "No index.html files found in ${TARGET_DIR}/*/" >&2
-        ls -la "${TARGET_DIR}/" >&2 || true
-        exit 1
-    }
+talk_dirs=("${TARGET_DIR}"/*/index.html)
+if [[ ${#talk_dirs[@]} -eq 0 ]] || [[ "${talk_dirs[0]}" == "${TARGET_DIR}/*/index.html" ]]; then
+    echo "No index.html files found in ${TARGET_DIR}/*/" >&2
+    ls -la "${TARGET_DIR}/" >&2 || true
+    exit 1
+fi
 
+for talk_dir in "${talk_dirs[@]}"; do
     ((TALK_COUNT++))
     talk_name=$(basename "$(dirname "${talk_dir}")")
 
