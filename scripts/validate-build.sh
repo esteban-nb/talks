@@ -60,13 +60,11 @@ if [[ ${#talk_dirs[@]} -eq 0 ]] || [[ "${talk_dirs[0]}" == "${TARGET_DIR}/*/inde
     exit 1
 fi
 
-TALK_COUNT=${#talk_dirs[@]}
-echo "Found ${TALK_COUNT} talk directories with index.html files"
+talk_count=${#talk_dirs[@]}
+echo "Found ${talk_count} talk directories with index.html files"
 
 for talk_dir in "${talk_dirs[@]}"; do
-    echo "here 1"
     talk_name=$(basename "$(dirname "${talk_dir}")")
-    echo "here 2"
 
     # Check index.html has Reveal.js structure
     if ! grep -q 'class="reveal"' "${talk_dir}"; then
@@ -74,30 +72,21 @@ for talk_dir in "${talk_dirs[@]}"; do
         exit 1
     fi
 
-    echo "here 3"
-
     # Check critical shared asset paths
     if ! grep -q '../dist/reveal.js' "${talk_dir}"; then
         echo "  [${talk_name}] Missing ../dist/reveal.js path reference" >&2
         exit 1
     fi
 
-    echo "here 4"
-
     if ! grep -q 'Reveal\.initialize' "${talk_dir}"; then
         echo "  [${talk_name}] Missing Reveal.initialize() call" >&2
         exit 1
     fi
 
-    echo "here 5"
-
     # Check display name exists in mapping
     if ! grep -q "^${talk_name}:" "${TARGET_DIR}/display-names.txt"; then
         echo "  [${talk_name}] Not in display-names.txt" >&2
     fi
-    echo "here 6"
 done
 
-echo "last"
-
-echo "${TALK_COUNT} talks validated"
+echo "${talk_count} talks validated"
