@@ -8,6 +8,8 @@ import json
 import frontmatter
 from typing import List, Callable
 
+ALLOW_DASH_DELIM = False
+
 # Basic HTML templates
 SECTION_TEMPLATE = '<section data-markdown {}><textarea data-template>\n{}\n</textarea></section>'
 VERTICAL_SECTION_TEMPLATE = "<section>\n{}\n</section>"
@@ -28,8 +30,11 @@ MASTER_PATTERN = "|".join([t.format(content=general_filler) for t in ALL_TEMPLAT
 comment_re = re.compile(MASTER_PATTERN, re.DOTALL | re.MULTILINE)
 
 # Separator strings
-H_SEPARATORS = [t.format(content="!!!") for t in ALL_TEMPLATES].append(r"^\n---\n$")
-V_SEPARATORS = [t.format(content="|||") for t in ALL_TEMPLATES].append(r"^\n---\n$")
+H_SEPARATORS = [t.format(content="!!!") for t in ALL_TEMPLATES]
+V_SEPARATORS = [t.format(content="|||") for t in ALL_TEMPLATES]
+if ALLOW_DASH_DELIM:
+    H_SEPARATORS.append("^\n---\n$")
+    V_SEPARATORS.append("^\n--\n$")
 
 def get_comment(line: str) -> str | None:
     match = comment_re.search(line)
@@ -56,7 +61,7 @@ def outer_pipeline(
         # Case 1: This line is a comment
         if content is not None:
             # Process comment content
-            if "!!!" in content:
+            if "!!!" in content or (ALLOW_DASH_DELIM and "---" in content):
                 # Horizontal slide break
                 attributes = DEFAULT_ATTRIBUTES + " " + content.replace("!!!", "").strip()
                 slide_content = "\n".join(slide)
@@ -71,7 +76,7 @@ def outer_pipeline(
                 slide = []
                 continue
             
-            elif "|||" in content:
+            elif "|||" in content or (ALLOW_DASH_DELIM and "--" in content):
                 # Vertical slide break
                 attributes = DEFAULT_ATTRIBUTES + " " + content.replace("|||", "").strip()
                 slide_content = "\n".join(slide)
