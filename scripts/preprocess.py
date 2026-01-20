@@ -8,28 +8,34 @@ import json
 import frontmatter
 from typing import List, Callable
 
-HTML_COMMENT_RE = r"<!--\s*(.*?)\s*-->"
-MD_COMMENT_RE = r"\[comment\]: # \s*(\([^)]*\)|\"[^\"]*\"|\'[^\']*\'|\((.*?)\))"
-
+# Basic HTML templates
 SECTION_TEMPLATE = '<section data-markdown {}><textarea data-template>\n{}\n</textarea></section>'
 VERTICAL_SECTION_TEMPLATE = "<section>\n{}\n</section>"
 DEFAULT_ATTRIBUTES = ""
 
-html_re = re.compile(HTML_COMMENT_RE, re.DOTALL | re.MULTILINE)
-md_re = re.compile(MD_COMMENT_RE, re.DOTALL)
+# All comment templates supported
+ALL_TEMPLATES = [
+    r"<!-- {content} -->",
+    r"\[comment\]: # \({content}\)",
+    r"\[comment\]: <> \({content}\)",
+    r"\[comment\]: # \"{content}\"",
+    r"\[//\]: # \({content}\)"
+]
 
-def extract_comment_content(line: str) -> str | None:
-    """
-    Comment extractor; returns content if line is HTML or MD comment.
-    """
-    html_match = html_re.match(line)
-    if html_match:
-        return html_match.group(1).strip()
+# General regex pattern
+general_filler = r"\s*(.*?)\s*"
+MASTER_PATTERN = "|".join([t.format(content=general_filler) for t in ALL_TEMPLATES])
+comment_re = re.compile(MASTER_PATTERN, re.DOTALL | re.MULTILINE)
 
-    md_match = md_re.match(line)
-    if md_match:
-        return md_match.group(1).strip("()\"'")
+# Separator strings
+H_SEPARATORS = [t.format(content="!!!") for t in ALL_TEMPLATES].append(r"^\n---\n$")
+V_SEPARATORS = [t.format(content="|||") for t in ALL_TEMPLATES].append(r"^\n---\n$")
 
+def get_comment(line: str) -> str | None:
+    match = comment_re.search(line)
+    if match:
+        content = next((g for g in match.groups() if g is not None), None)
+        return content.strip() if content else ""
     return None
 
 def outer_pipeline(
@@ -45,8 +51,9 @@ def outer_pipeline(
     attributes = DEFAULT_ATTRIBUTES
 
     for line in presentation_markdown:
-        content = extract_comment_content(line)
+        content = get_comment(line)
         
+        # Case 1: This line is a comment
         if content is not None:
             # Process comment content
             if "!!!" in content:
@@ -77,7 +84,7 @@ def outer_pipeline(
             slide.append(line)
             continue
         
-        # Regular markdown content
+        # Case 2: Regular markdown content
         slide.append(line)
     
     # Handle final slides
