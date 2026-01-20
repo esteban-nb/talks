@@ -3,6 +3,7 @@
 # - Maybe define the choise of md patterns as global vars so we can change them
 
 import re
+from pathlib import Path
 import json
 import frontmatter
 from typing import List, Callable
