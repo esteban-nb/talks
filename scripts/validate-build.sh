@@ -29,7 +29,6 @@ REQUIRED_SHARED=(
     "dist/reveal.js"
     "dist/reveal.css"
     "dist/reset.css"
-    "dist/theme/light.css"
     "plugin/notes/notes.js"
     "plugin/markdown/markdown.js"
     "plugin/highlight/highlight.js"
