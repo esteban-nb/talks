@@ -38,6 +38,7 @@ The file `build.py` on the other hand contains the function that gathers all sli
 ## Build Structure
 
 The layout is:
+
 ```bash
 TARGET_OUTPUT/dist/...
 TARGET_OUTPUT/plugin/...
