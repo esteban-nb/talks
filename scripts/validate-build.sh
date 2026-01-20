@@ -10,18 +10,19 @@ fi
 TARGET_DIR="${1%/}"
 TALK_COUNT=0
 
-# 1. Check TARGET_DIR exists and has basic structure
+# 0. Check output of build.py
+if [[ ! -f "display-names.txt" ]]; then
+    echo "Missing display-names.txt" >&2
+    exit 1
+fi
+
+echo "display-names.txt found ($(wc -l < "display-names.txt") entries)"
+
+# 1. Check TARGET_DIR exists
 if [[ ! -d "${TARGET_DIR}" ]]; then
     echo "Directory not found: ${TARGET_DIR}" >&2
     exit 1
 fi
-
-if [[ ! -f "${TARGET_DIR}/display-names.txt" ]]; then
-    echo "Missing display-names.txt in ${TARGET_DIR}" >&2
-    exit 1
-fi
-
-echo "display-names.txt found ($(wc -l < "${TARGET_DIR}/display-names.txt") entries)"
 
 # 2. Check shared assets exist
 REQUIRED_SHARED=(
