@@ -35,11 +35,11 @@ code_theme: "github"
   - Fast parallel execution
   - Optimized Docker images
 
-[comment]: # "||| data-auto-animate"
+[comment]: # "|||"
 
 ## Main CI Services - Minutes/Month
 
-```
+```table
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 ┃        Minutes/Month         ┃
 ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
@@ -56,21 +56,21 @@ code_theme: "github"
 
 **Scikit-HEP/Awkward** [🔗](https://github.com/scikit-hep/awkward/tree/main/.github)
 
-```
+```text
 13 workflows: test, docs, release, conda, wheels
 50+ jobs across Python/NumPy versions
 ```
 
 **SegmentLinking/cmssw** [🔗](https://github.com/SegmentLinking/cmssw/tree/CI_branch/.github)
 
-```
+```text
 CMS physics experiment pipeline
 Matrix testing across compilers
 ```
 
 **scientific-python/repo-review** [🔗](https://github.com/scientific-python/repo-review/tree/main/.github)
 
-```
+```text
 Automated repository health checks
 Cookiecutter template validation
 ```
@@ -94,7 +94,7 @@ fruits:
 inline: [apple, banana, cherry]
 ```
 
-[comment]: # "||| data-auto-animate"
+[comment]: # "|||"
 
 ## YAML Crash Course - Dictionaries & Multi-line
 
@@ -142,7 +142,7 @@ jobs:
 - `jobs.test` = parallel execution units
 - `steps` = sequential commands
 
-[comment]: # "||| data-auto-animate"
+[comment]: # "|||"
 
 ## Writing Actions - Job Matrix
 
@@ -191,7 +191,7 @@ echo "::error::Tests failed on Windows"
 exit 1
 ```
 
-[comment]: # "||| data-auto-animate"
+[comment]: # "|||"
 
 ## Handmade Scripts - Caching
 
@@ -229,12 +229,12 @@ mypy src/
 
 **Version pinning is critical:**
 
-```
+```text
 ✅ v4, v4.1.0, ==4.1.0
 ❌ latest, main, @v4
 ```
 
-[comment]: # "||| data-auto-animate"
+[comment]: # "|||"
 
 ## Third-Party Actions - Community
 
@@ -248,12 +248,10 @@ mypy src/
 
 **Security checklist:**
 
-```
 1. Check stars/forks (1000+/100+)
 2. Last update <6 months
 3. Pin exact version
-4. Read action.yml
-```
+4. Read `action.yml`
 
 [comment]: # "!!!"
 
@@ -261,26 +259,26 @@ mypy src/
 
 **GitHub Marketplace** [🔗](https://github.com/marketplace?type=actions)
 
-```
+```bash
 ⭐ Most Popular Categories
 ├── Testing: pytest, coverage (500+)
 ├── Linting: ruff, black, eslint (300+)
 ├── Deployment: pages, releases (400+)
-├── Python: pypa, poetry (200+)
+└── Python: pypa, poetry (200+)
 ```
 
 **Sort by "Recently updated" to avoid dead projects**
 
-[comment]: # "||| data-auto-animate"
+[comment]: # "|||"
 
 ## Action Discovery Workflow
 
-```
-1. Need coverage? → codecov/codecov-action@v3
-2. Conditional steps? → dorny/paths-filter@v2
-3. Complex caching? → actions/cache@v3
-4. Python packaging? → pypa/gh-action-pypa@v1
-```
+
+1. Need coverage? → `codecov/codecov-action@v3`
+2. Conditional steps? → `dorny/paths-filter@v2`
+3. Complex caching? → `actions/cache@v3`
+4. Python packaging? → `pypa/gh-action-pypa@v1`
+
 
 **Copy-paste patterns:**
 
