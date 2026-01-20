@@ -61,9 +61,10 @@ if [[ ${#talk_dirs[@]} -eq 0 ]] || [[ "${talk_dirs[0]}" == "${TARGET_DIR}/*/inde
     exit 1
 fi
 
-echo "here"
+echo "Found ${#talk_dirs[@]} talk directories with index.html files"
 
 for talk_dir in "${talk_dirs[@]}"; do
+    echo "here"
     ((TALK_COUNT++))
     talk_name=$(basename "$(dirname "${talk_dir}")")
 
@@ -88,11 +89,14 @@ for talk_dir in "${talk_dirs[@]}"; do
     if ! grep -q "^${talk_name}:" "${TARGET_DIR}/display-names.txt"; then
         echo "  [${talk_name}] Not in display-names.txt" >&2
     fi
+    echo "here"
 done
 
 if [[ ${TALK_COUNT} -eq 0 ]]; then
     echo "No valid talk directories found in ${TARGET_DIR}" >&2
     exit 1
 fi
+
+echo "here"
 
 echo "${TALK_COUNT} talks validated"
