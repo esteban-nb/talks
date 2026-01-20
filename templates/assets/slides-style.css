@@ -21,7 +21,7 @@ body[data-theme="light"] {
 
 /* --- DARK MODE --- */
 body[data-theme="dark"] {
-  --bg: #121212;
+  --bg: #0D1117;
   --title: #E0E0E0;
   --text: #E0E0E0;
   --dim-text: #8B949E;
