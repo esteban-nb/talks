@@ -29,11 +29,11 @@ MASTER_PATTERN = "|".join([t.format(content=general_filler) for t in ALL_TEMPLAT
 comment_re = re.compile(MASTER_PATTERN, re.DOTALL | re.MULTILINE)
 
 # Separator strings
-H_SEPARATORS = [f"^\n{t.format(content='!!!')}\n" for t in ALL_TEMPLATES]
-V_SEPARATORS = [f"^\n{t.format(content='|||')}\n" for t in ALL_TEMPLATES]
-if ALLOW_DASH_DELIM:
-    H_SEPARATORS.append("^\n---\n$")
-    V_SEPARATORS.append("^\n--\n$")
+# H_SEPARATORS = [f"^\n{t.format(content='!!!')}\n" for t in ALL_TEMPLATES]
+# V_SEPARATORS = [f"^\n{t.format(content='|||')}\n" for t in ALL_TEMPLATES]
+# if ALLOW_DASH_DELIM:
+#     H_SEPARATORS.append("^\n---\n$")
+#     V_SEPARATORS.append("^\n--\n$")
 # to use as
 #   <section data-markdown="markdown.md" data-separator="^\n---\n" data-separator-vertical="^\n--\n"></section>
 
