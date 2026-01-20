@@ -19,7 +19,7 @@ on:
     inputs:
       target_dir:
         description: 'Output directory name'
-        default: 'slides-wip'
+        default: 'slides'
         required: true
 
 permissions:
