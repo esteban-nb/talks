@@ -8,7 +8,6 @@ if [[ $# -ne 1 ]]; then
 fi
 
 TARGET_DIR="${1%/}"
-TALK_COUNT=0
 shopt -s nullglob dotglob
 
 # 0. Check output of build.py
@@ -61,13 +60,12 @@ if [[ ${#talk_dirs[@]} -eq 0 ]] || [[ "${talk_dirs[0]}" == "${TARGET_DIR}/*/inde
     exit 1
 fi
 
-echo "Found ${#talk_dirs[@]} talk directories with index.html files"
+TALK_COUNT=${#talk_dirs[@]}
+echo "Found ${TALK_COUNT} talk directories with index.html files"
 
 for talk_dir in "${talk_dirs[@]}"; do
     echo "here 1"
-    ((TALK_COUNT++))
     talk_name=$(basename "$(dirname "${talk_dir}")")
-
     echo "here 2"
 
     # Check index.html has Reveal.js structure
@@ -99,11 +97,6 @@ for talk_dir in "${talk_dirs[@]}"; do
     fi
     echo "here 6"
 done
-
-if [[ ${TALK_COUNT} -eq 0 ]]; then
-    echo "No valid talk directories found in ${TARGET_DIR}" >&2
-    exit 1
-fi
 
 echo "last"
 
