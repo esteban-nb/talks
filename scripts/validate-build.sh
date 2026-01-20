@@ -9,6 +9,7 @@ fi
 
 TARGET_DIR="${1%/}"
 TALK_COUNT=0
+shopt -s nullglob dotglob
 
 # 0. Check output of build.py
 if [[ ! -f "display-names.txt" ]]; then
@@ -54,9 +55,13 @@ echo "All ${#REQUIRED_SHARED[@]} shared assets present"
 
 # 3. Validate each talk directory
 for talk_dir in "${TARGET_DIR}"/*/index.html; do
-    [[ ! -f "${talk_dir}" ]] && continue
-    ((TALK_COUNT++))
+    [[ -z "${talk_dir}" ]] && { 
+        echo "No index.html files found in ${TARGET_DIR}/*/" >&2
+        ls -la "${TARGET_DIR}/" >&2 || true
+        exit 1
+    }
 
+    ((TALK_COUNT++))
     talk_name=$(basename "$(dirname "${talk_dir}")")
 
     # Check index.html has Reveal.js structure
