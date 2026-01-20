@@ -55,9 +55,13 @@
 
   <!-- Reveal initialization -->
   <script>
-      const config = {{ CONFIG }};
+    const config = {{CONFIG}} || {
+      hash: true,
+      controls: false,
+      markdown: { smartypants: true }
+    };
 
-      // Ensure essential plugins load
+    // Ensure essential plugins load
     config.plugins = [
       RevealMarkdown,
       RevealHighlight,
