@@ -32,21 +32,17 @@ def extract_comment_content(line: str) -> str | None:
     return None
 
 def outer_pipeline(
-    markdown_file: Path,
+    presentation_markdown: List[str],
     inner_pipeline: Callable[[str], str]
 ) -> List[str]:
     """
     Slide segmentation: split by !!!/|||, apply inner_pipeline to slide content.
     """
-
-    with open(markdown_file) as f_p:
-        presentation_markdown = [line.rstrip('\n') for line in f_p]
-
     presentation: List[str] = []
     slide: List[str] = []
     vertical_slide: List[str] = []
     attributes = DEFAULT_ATTRIBUTES
-    
+
     for line in presentation_markdown:
         content = extract_comment_content(line)
         
@@ -127,12 +123,11 @@ def handle_fragments(text):
     """
     return text.replace(" [f]", ' <!-- .element: class="fragment" -->')
 
-def wrap_slide(content, attributes=""):
-    """
-    Wraps content in Reveal.js section with attribute support.
-    """
-    attr_str = f" {attributes}" if attributes else ""
-    return f'<section data-markdown{attr_str}><textarea data-template>\n{content.strip()}\n</textarea></section>'
+def inner_pipeline(content: str) -> str:
+    content = transform_blocks(content)
+    content = handle_fragments(content)
+
+    return content
 
 def process_markdown_to_html(md_path, template_path):
     """
@@ -141,30 +136,11 @@ def process_markdown_to_html(md_path, template_path):
     # 1. Load markdown and frontmatter
     post = frontmatter.load(md_path)
     metadata = post.metadata
-    content = post.content
+    content_lines = post.content.splitlines()
 
-    # 2. Pre-process content
-    content = transform_blocks(content)
-    content = handle_fragments(content)
-
-    # 3. Segmentation (horizontal !!! and vertical |||)
-    presentation_html = []
-
-    # Split by horizontal delimiter
-    h_slides = re.split(r'\n!!!\s*\n', content)
-
-    for h_slide in h_slides:
-        # Check if this horizontal section contains vertical slides
-        if "|||" in h_slide:
-            v_slides = re.split(r'\n\|\|\|\s*\n', h_slide)
-            v_html = [wrap_slide(v) for v in v_slides if v.strip()]
-            # Wrap all vertical slides in a parent section
-            presentation_html.append(f"<section>\n" + "\n".join(v_html) + "\n</section>")
-        else:
-            if h_slide.strip():
-                presentation_html.append(wrap_slide(h_slide))
-
-    content_html = "\n".join(presentation_html)
+    # 2. Process content
+    presentation_html = outer_pipeline(content_lines, inner_pipeline)
+    content_html = "\n".join(presentation_html + [""])
 
     # 4. Prepare Reveal.js Config (Injecting YAML options)
     # Filter out project-level keys, keep Reveal.js keys
