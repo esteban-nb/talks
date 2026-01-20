@@ -273,12 +273,10 @@ mypy src/
 
 ## Action Discovery Workflow
 
-
 1. Need coverage? → `codecov/codecov-action@v3`
 2. Conditional steps? → `dorny/paths-filter@v2`
 3. Complex caching? → `actions/cache@v3`
 4. Python packaging? → `pypa/gh-action-pypa@v1`
-
 
 **Copy-paste patterns:**
 
