@@ -61,6 +61,8 @@ if [[ ${#talk_dirs[@]} -eq 0 ]] || [[ "${talk_dirs[0]}" == "${TARGET_DIR}/*/inde
     exit 1
 fi
 
+echo "here"
+
 for talk_dir in "${talk_dirs[@]}"; do
     ((TALK_COUNT++))
     talk_name=$(basename "$(dirname "${talk_dir}")")
