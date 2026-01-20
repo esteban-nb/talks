@@ -5,7 +5,96 @@
 import re
 import json
 import frontmatter
-from pathlib import Path
+from typing import List, Callable
+
+HTML_COMMENT_RE = r"<!--\s*(.*?)\s*-->"
+MD_COMMENT_RE = r"\[comment\]: # \s*(\([^)]*\)|\"[^\"]*\"|\'[^\']*\'|\((.*?)\))"
+
+SECTION_TEMPLATE = '<section data-markdown {}><textarea data-template>\n{}\n</textarea></section>'
+VERTICAL_SECTION_TEMPLATE = "<section>\n{}\n</section>"
+DEFAULT_ATTRIBUTES = ""
+
+html_re = re.compile(HTML_COMMENT_RE, re.DOTALL | re.MULTILINE)
+md_re = re.compile(MD_COMMENT_RE, re.DOTALL)
+
+def extract_comment_content(line: str) -> str | None:
+    """
+    Comment extractor; returns content if line is HTML or MD comment.
+    """
+    html_match = html_re.match(line)
+    if html_match:
+        return html_match.group(1).strip()
+
+    md_match = md_re.match(line)
+    if md_match:
+        return md_match.group(1).strip("()\"'")
+
+    return None
+
+def outer_pipeline(
+    markdown_file: Path,
+    inner_pipeline: Callable[[str], str]
+) -> List[str]:
+    """
+    Slide segmentation: split by !!!/|||, apply inner_pipeline to slide content.
+    """
+
+    with open(markdown_file) as f_p:
+        presentation_markdown = [line.rstrip('\n') for line in f_p]
+
+    presentation: List[str] = []
+    slide: List[str] = []
+    vertical_slide: List[str] = []
+    attributes = DEFAULT_ATTRIBUTES
+    
+    for line in presentation_markdown:
+        content = extract_comment_content(line)
+        
+        if content is not None:
+            # Process comment content
+            if "!!!" in content:
+                # Horizontal slide break
+                attributes = DEFAULT_ATTRIBUTES + " " + content.replace("!!!", "").strip()
+                slide_content = "\n".join(slide)
+                processed_content = inner_pipeline(slide_content)
+                
+                if vertical_slide:
+                    vertical_slide.append(SECTION_TEMPLATE.format(attributes, processed_content))
+                    presentation.append(VERTICAL_SECTION_TEMPLATE.format("\n".join(vertical_slide)))
+                    vertical_slide = []
+                else:
+                    presentation.append(SECTION_TEMPLATE.format(attributes, processed_content))
+                slide = []
+                continue
+            
+            elif "|||" in content:
+                # Vertical slide break
+                attributes = DEFAULT_ATTRIBUTES + " " + content.replace("|||", "").strip()
+                slide_content = "\n".join(slide)
+                processed_content = inner_pipeline(slide_content)
+                vertical_slide.append(SECTION_TEMPLATE.format(attributes, processed_content))
+                slide = []
+                continue
+            
+            # Non-delimiter comment - keep as-is
+            slide.append(line)
+            continue
+        
+        # Regular markdown content
+        slide.append(line)
+    
+    # Handle final slides
+    if vertical_slide:
+        slide_content = "\n".join(slide)
+        processed_content = inner_pipeline(slide_content)
+        vertical_slide.append(SECTION_TEMPLATE.format(attributes, processed_content))
+        presentation.append(VERTICAL_SECTION_TEMPLATE.format("\n".join(vertical_slide)))
+    elif slide:
+        slide_content = "\n".join(slide)
+        processed_content = inner_pipeline(slide_content)
+        presentation.append(SECTION_TEMPLATE.format(DEFAULT_ATTRIBUTES, processed_content))
+    
+    return presentation
 
 def transform_blocks(text):
     """
