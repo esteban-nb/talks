@@ -35,6 +35,17 @@ Here we implement the main logic:
 Note that `build-talks.sh` is just a first version that calls `mdslides` on each slide deck.
 The file `build.py` on the other hand contains the function that gathers all slides and builds with a single copy of `reveal.js` (WIP).
 
+## Build Structure
+
+The layout is:
+```bash
+TARGET_OUTPUT/dist/...
+TARGET_OUTPUT/plugin/...
+TARGET_OUTPUT/highlightjs/highlight.js
+TARGET_OUTPUT/assets/...
+TARGET_OUTPUT/<talk_name>/index.html
+```
+
 ## User Guide
 
 1. Install Python libraries.
