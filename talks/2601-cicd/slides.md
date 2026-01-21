@@ -23,6 +23,7 @@ code_theme: "github"
 
 ## CI Services Landscape
 
+::: alert | Main Services
 - **GitHub Actions** 🥇 _Most popular, integrated_
   - Native GitHub integration
   - Massive marketplace of actions
@@ -34,6 +35,7 @@ code_theme: "github"
 - **CircleCI** 🥉 _Speed focused_
   - Fast parallel execution
   - Optimized Docker images
+:::
 
 [comment]: # "|||"
 
