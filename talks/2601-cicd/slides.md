@@ -36,7 +36,8 @@ code_theme: "github"
 - **CircleCI** 🥉 _Speed focused_
   - Fast parallel execution
   - Optimized Docker images
-    :::
+
+:::
 
 [comment]: # "|||"
 
