@@ -1,20 +1,35 @@
 # TODO
 # - add footers
+# - check attr inheritance / handing for vertical wrappers
+# - write a test such as:
+#       DEFAULT_ATTRIBUTES = 'data-transition="fade" data-background="black"'
+#       comment = 'data-background="red" data-state="intro"'
+#       normalize_attrs(DEFAULT_ATTRIBUTES, comment)
 
 import re
-from pathlib import Path
 import json
-import frontmatter
+from pathlib import Path
 from typing import List, Callable
 
-ALLOW_DASH_DELIM = False
+import frontmatter
 
-# Basic HTML templates
-SECTION_TEMPLATE = '<section data-markdown {}><textarea data-template>\n{}\n</textarea></section>'
-VERTICAL_SECTION_TEMPLATE = "<section>\n{}\n</section>"
+# -------------------------------------------------
+# Configuration
+# -------------------------------------------------
+
+ALLOW_DASH_DELIM = False
 DEFAULT_ATTRIBUTES = ""
 
-# All comment templates supported
+SECTION_MD = """<section{attrs}>
+<textarea data-template>
+{content}
+</textarea>
+</section>"""
+
+SECTION_VERTICAL_WRAPPER = """<section>
+{content}
+</section>"""
+
 ALL_TEMPLATES = [
     r"<!-- {content} -->",
     r"\[comment\]: # \({content}\)",
@@ -23,93 +38,74 @@ ALL_TEMPLATES = [
     r"\[//\]: # \({content}\)"
 ]
 
-# General regex pattern
 general_filler = r"\s*(.*?)\s*"
-MASTER_PATTERN = "|".join([t.format(content=general_filler) for t in ALL_TEMPLATES])
+MASTER_PATTERN = "|".join(
+    t.format(content=general_filler) for t in ALL_TEMPLATES
+)
+
 comment_re = re.compile(MASTER_PATTERN, re.DOTALL | re.MULTILINE)
 
-# Separator strings
-# H_SEPARATORS = [f"^\n{t.format(content='!!!')}\n" for t in ALL_TEMPLATES]
-# V_SEPARATORS = [f"^\n{t.format(content='|||')}\n" for t in ALL_TEMPLATES]
-# if ALLOW_DASH_DELIM:
-#     H_SEPARATORS.append("^\n---\n$")
-#     V_SEPARATORS.append("^\n--\n$")
-# to use as
-#   <section data-markdown="markdown.md" data-separator="^\n---\n" data-separator-vertical="^\n--\n"></section>
+
+# -------------------------------------------------
+# Helpers
+# -------------------------------------------------
 
 def get_comment(line: str) -> str | None:
     match = comment_re.search(line)
-    if match:
-        content = next((g for g in match.groups() if g is not None), None)
-        return content.strip() if content else ""
-    return None
+    if not match:
+        return None
+    content = next((g for g in match.groups() if g), "")
+    return content.strip()
 
-def outer_pipeline(
-    presentation_markdown: List[str],
-    inner_pipeline: Callable[[str], str]
-) -> List[str]:
-    """
-    Slide segmentation: split by !!!/|||, apply inner_pipeline to slide content.
-    """
-    presentation: List[str] = []
-    slide: List[str] = []
-    vertical_slide: List[str] = []
-    attributes = DEFAULT_ATTRIBUTES
 
-    for line in presentation_markdown:
-        content = get_comment(line)
-        
-        # Case 1: This line is a comment
-        if content is not None:
-            # Process comment content
-            if "!!!" in content or (ALLOW_DASH_DELIM and "---" in content):
-                # Horizontal slide break
-                attributes = DEFAULT_ATTRIBUTES + " " + content.replace("!!!", "").strip()
-                slide_content = "\n".join(slide)
-                processed_content = inner_pipeline(slide_content)
-                
-                if vertical_slide:
-                    vertical_slide.append(SECTION_TEMPLATE.format(attributes, processed_content))
-                    presentation.append(VERTICAL_SECTION_TEMPLATE.format("\n".join(vertical_slide)))
-                    vertical_slide = []
-                else:
-                    presentation.append(SECTION_TEMPLATE.format(attributes, processed_content))
-                slide = []
-                continue
-            
-            elif "|||" in content or (ALLOW_DASH_DELIM and "--" in content):
-                # Vertical slide break
-                attributes = DEFAULT_ATTRIBUTES + " " + content.replace("|||", "").strip()
-                slide_content = "\n".join(slide)
-                processed_content = inner_pipeline(slide_content)
-                vertical_slide.append(SECTION_TEMPLATE.format(attributes, processed_content))
-                slide = []
-                continue
-            
-            # Non-delimiter comment - keep as-is
-            slide.append(line)
+def normalize_attrs(*parts: str) -> str:
+    """
+    Merge attribute fragments into a unique, ordered attribute string.
+    Order: keyed attrs first (last-wins), then booleans.
+    """
+    kv_attrs: dict[str, str] = {}
+    bool_attrs: set[str] = set()
+
+    for part in parts:
+        if not part:
             continue
-        
-        # Case 2: Regular markdown content
-        slide.append(line)
-    
-    # Handle final slides
-    if vertical_slide:
-        slide_content = "\n".join(slide)
-        processed_content = inner_pipeline(slide_content)
-        vertical_slide.append(SECTION_TEMPLATE.format(attributes, processed_content))
-        presentation.append(VERTICAL_SECTION_TEMPLATE.format("\n".join(vertical_slide)))
-    elif slide:
-        slide_content = "\n".join(slide)
-        processed_content = inner_pipeline(slide_content)
-        presentation.append(SECTION_TEMPLATE.format(DEFAULT_ATTRIBUTES, processed_content))
-    
-    return presentation
 
-def transform_blocks(text):
+        tokens = part.strip().split()
+        for tok in tokens:
+            if "=" in tok:
+                key, value = tok.split("=", 1)
+                kv_attrs[key] = f"{key}={value}"
+            else:
+                bool_attrs.add(tok)
+
+    # Preserve deterministic order:
+    # keyed attributes first, then booleans
+    merged = list(kv_attrs.values()) + sorted(bool_attrs)
+    return " ".join(merged)
+
+
+def fmt_section_attrs(attr: str) -> str:
     """
-    Converts ::: type | Title syntax into HTML.
-    Uses double newlines to ensure Reveal.js parses Markdown inside the block body.
+    Format attributes for a markdown slide.
+    Ensures:
+      - data-markdown is always present
+      - default attributes come foirst, so they get
+        overriden by local attributes (in case of conflict)
+    """
+    merged = normalize_attrs(DEFAULT_ATTRIBUTES, attr)
+    if merged:
+        return f' data-markdown {merged}'
+    return ' data-markdown'
+
+
+
+# -------------------------------------------------
+# Inner pipeline
+# -------------------------------------------------
+
+def transform_blocks(text: str) -> str:
+    """
+    Converts ::: block | Title syntax into HTML blocks.
     """
     pattern = r":::\s*(block|alert|example)\s*\|\s*(.*?)\n(.*?)\n:::"
 
@@ -118,50 +114,134 @@ def transform_blocks(text):
         title = match.group(2).strip()
         body = match.group(3).strip()
 
-        # Mapping to the CSS classes defined in slides-style.css
-        css_map = {"block": "std", "alert": "alert", "example": "example"}
+        css_map = {
+            "block": "std",
+            "alert": "alert",
+            "example": "example"
+        }
         cls = css_map.get(b_type, "std")
 
-        return (f'<div class="block block-{cls}">\n'
-                f'  <div class="block-title">{title}</div>\n'
-                f'  <div class="block-body">\n\n'
-                f'{body}\n\n'
-                f'  </div>\n'
-                f'</div>')
+        return (
+            f'<div class="block block-{cls}">\n'
+            f'  <div class="block-title">{title}</div>\n'
+            f'  <div class="block-body">\n\n'
+            f'{body}\n\n'
+            f'  </div>\n'
+            f'</div>'
+        )
 
     return re.sub(pattern, replacer, text, flags=re.DOTALL)
 
-def handle_fragments(text):
+
+def handle_fragments(text: str) -> str:
     """
     Converts [f] shorthand into Reveal.js fragment comments.
     """
-    return text.replace(" [f]", ' <!-- .element: class="fragment" -->')
+    return text.replace(
+        " [f]",
+        ' <!-- .element: class="fragment" -->'
+    )
+
 
 def inner_pipeline(content: str) -> str:
     content = transform_blocks(content)
     content = handle_fragments(content)
-
     return content
 
-def process_markdown_to_html(md_path, template_path):
-    """
-    Reads MD, handles YAML, replaces template anchors.
-    """
-    # 1. Load markdown and frontmatter
+
+# -------------------------------------------------
+# Outer pipeline (slide segmentation)
+# -------------------------------------------------
+
+def outer_pipeline(
+    presentation_markdown: List[str],
+    inner_pipeline: Callable[[str], str],
+) -> List[str]:
+    slides: List[str] = []
+
+    h_stack: List[str] = []     # vertical slides in current horizontal
+    buffer: List[str] = []      # markdown buffer
+    pending_attrs: str = ""     # attrs for *next* slide only
+
+    def flush_buffer_into_vertical():
+        nonlocal buffer, h_stack, pending_attrs
+        if not buffer:
+            return
+
+        processed = inner_pipeline("\n".join(buffer))
+        h_stack.append(
+            SECTION_MD.format(
+                attrs=fmt_section_attrs(pending_attrs),
+                content=processed
+            )
+        )
+        buffer = []
+        pending_attrs = ""
+
+    def flush_horizontal():
+        nonlocal h_stack
+        if not h_stack:
+            return
+
+        if len(h_stack) == 1:
+            slides.append(h_stack[0])
+        else:
+            slides.append(
+                SECTION_VERTICAL_WRAPPER.format(
+                    content="\n".join(h_stack)
+                )
+            )
+        h_stack = []
+
+    for line in presentation_markdown:
+        comment = get_comment(line)
+
+        if comment is not None:
+            # Horizontal break
+            if "!!!" in comment or (ALLOW_DASH_DELIM and "---" in comment):
+                flush_buffer_into_vertical()
+                flush_horizontal()
+                pending_attrs = comment.replace("!!!", "").strip()
+                continue
+
+            # Vertical break
+            if "|||" in comment or (ALLOW_DASH_DELIM and "--" in comment):
+                flush_buffer_into_vertical()
+                pending_attrs = comment.replace("|||", "").strip()
+                continue
+
+        buffer.append(line)
+
+    # Final flush
+    flush_buffer_into_vertical()
+    flush_horizontal()
+
+    return slides
+
+
+# -------------------------------------------------
+# Full pipeline (HTML-injection)
+# -------------------------------------------------
+
+def process_markdown_to_html(md_path: str, template_path: str) -> str:
     post = frontmatter.load(md_path)
     metadata = post.metadata
     content_lines = post.content.splitlines()
 
-    # 2. Process content
-    presentation_html = outer_pipeline(content_lines, inner_pipeline)
-    content_html = "\n".join(presentation_html + [""])
+    slides_html = outer_pipeline(content_lines, inner_pipeline)
+    content_html = "\n".join(slides_html) + "\n"
 
-    # 4. Prepare Reveal.js Config (Injecting YAML options)
-    # Filter out project-level keys, keep Reveal.js keys
-    exclude_keys = ['title', 'display_name', 'date', 'template', 'code_theme']
-    reveal_config = {k: v for k, v in metadata.items() if k not in exclude_keys}
+    # Reveal config
+    exclude_keys = {
+        "title", "display_name", "date",
+        "template", "code_theme"
+    }
 
-    # Defaults for the frontmatter
+    reveal_config = {
+        k: v for k, v in metadata.items()
+        if k not in exclude_keys
+    }
+
     defaults = {
         "hash": True,
         "center": True,
@@ -171,26 +251,27 @@ def process_markdown_to_html(md_path, template_path):
         "slideNumber": "c/t",
         "pdfMaxPagesPerSlide": 1,
         "markdown": {"smartypants": True},
-        "display": "flex",
     }
-    for key, value in defaults.items():
-        reveal_config.setdefault(key, value)
 
-    # 5. Load Template and Perform Replacements
-    template_text = Path(template_path).read_text()
+    for k, v in defaults.items():
+        reveal_config.setdefault(k, v)
 
-    # Title
-    final_html = template_text.replace("{{TITLE}}", metadata.get("title", "Presentation"))
+    template = Path(template_path).read_text()
 
-    # Code highlight
-    # Default to zenburn if not specified in YAML
-    h_theme = metadata.get("code_theme", "base16/zenburn")
-    final_html = final_html.replace("{{HIGHLIGHT_THEME}}", h_theme)
+    template = template.replace(
+        "{{TITLE}}",
+        metadata.get("title", "Presentation")
+    )
 
-    # Content
-    final_html = final_html.replace("{{CONTENT}}", content_html)
+    template = template.replace(
+        "{{HIGHLIGHT_THEME}}",
+        metadata.get("code_theme", "base16/zenburn")
+    )
 
-    # Config (JSON injection)
-    final_html = final_html.replace("{{CONFIG}}", json.dumps(reveal_config, indent=2))
+    template = template.replace("{{CONTENT}}", content_html)
+    template = template.replace(
+        "{{CONFIG}}",
+        json.dumps(reveal_config, indent=2)
+    )
 
-    return final_html
+    return template
