@@ -143,11 +143,19 @@ body[data-theme="mono"] {
 }
 
 /* -------------------------------------------------------
- * LAYOUT
+ * TOP-LEFT LAYOUT
  * ----------------------------------------------------- */
 
+.reveal .slides {
+  align-items: flex-start;
+}
+
 .reveal .slides section {
+  position: relative;
   display: block;
+  top: 0 !important;
+  transform: none !important;
+  height: auto;
   text-align: left;
   padding: var(--slide-gutter-y) var(--slide-gutter-x);
 }
