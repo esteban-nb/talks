@@ -147,17 +147,16 @@ body[data-theme="mono"] {
  * ----------------------------------------------------- */
 
 .reveal .slides {
-  align-items: flex-start;
+  text-align: left;
+  margin: 0;
+  position: absolute;
+  top: 0 !important;
+  left: 0 !important;
 }
 
 .reveal .slides section {
-  position: relative;
-  display: block;
-  top: 0 !important;
-  transform: none !important;
-  height: auto;
   text-align: left;
-  padding: var(--slide-gutter-y) var(--slide-gutter-x);
+  top: 0 !important;
 }
 
 .reveal .slides section > :first-child {
