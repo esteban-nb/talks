@@ -10,7 +10,7 @@
                Roboto, Helvetica, Arial, sans-serif;
   --font-code: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --font-size-base: 42px;
+  --font-size-base: 32px;
 
   --heading-weight: 600;
   --heading-line-height: 1.2;
@@ -42,25 +42,25 @@ body[data-theme="light"] {
 
 /* DARK */
 body[data-theme="dark"] {
-  --bg: #191919;
-  --text: #ffffff;
+  --bg: #1e1e1e;
+  --text: #d4d4d4;
   --title: #ffffff;
-  --dim-text: #8b949e;
-  --divider: #30363d;
+  --dim-text: #9da5b4;
+  --divider: #2a2a2a;
 
-  --link: #42affa;
-  --link-hover: #94d4ff;
+  --link: #4fc1ff;
+  --link-hover: #9cdcfe;
 
-  --code-bg: #0d1117;
-  --code-text: #e6edf3;
+  --code-bg: #0e0e0e;
+  --code-text: #d4d4d4;
 
-  --block-bg-opacity: 0.15;
-  --block-title-opacity: 0.35;
+  --block-bg-opacity: 0.12;
+  --block-title-opacity: 0.3;
 
   /* soften core colors */
-  --core-blue: #40a9ff;
-  --core-green: #4cd964;
-  --core-red: #ff5e6c;
+  --core-blue: #4fc1ff;
+  --core-green: #6a9955;
+  --core-red: #f44747;
 }
 
 /* MONO */
@@ -123,6 +123,13 @@ body[data-theme="mono"] {
   margin: var(--block-margin) 0;
   max-width: 95%;
   max-height: 95%;
+}
+
+.reveal img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 /* -------------------------------------------------------
@@ -243,8 +250,9 @@ body[data-theme="mono"] {
   line-height: 1.2em;
   text-align: left;
   overflow: auto;
-  border-radius: 6px;
+  border-radius: 3px;
   word-wrap: break-word;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
 }
 
 .reveal code {
@@ -267,6 +275,24 @@ body[data-theme="mono"] {
 
 .reveal .code-wrapper code {
   white-space: pre;
+}
+
+.reveal .copy-code {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  font-size: 0.4em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  color: var(--dim-text);
+  border: none;
+  cursor: pointer;
+}
+
+.reveal .copy-code:hover {
+  background: rgba(255,255,255,0.15);
+  color: var(--text);
 }
 
 /* -------------------------------------------------------
@@ -365,6 +391,14 @@ body[data-theme="mono"] {
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
   color: var(--link);
+}
+
+.reveal .slide-number {
+  bottom: 6px !important;
+  right: 10px !important;
+  top: unset !important;
+  font-size: 12px;
+  color: var(--dim-text) !important;
 }
 
 /* -------------------------------------------------------
