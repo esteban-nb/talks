@@ -10,7 +10,7 @@ hash: true
 transition: "slide"
 zoom: true
 fragments: true
-code_theme: "github"
+code_theme: "ir-black"
 ---
 
 ## Continuous Integration and Continuous Delivery (CI/CD)
