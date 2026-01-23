@@ -261,7 +261,11 @@ body[data-theme="mono"] {
 .reveal code {
   background-color: var(--code-bg);
   font-family: var(--font-code);
-  color: var(--code-text);
+}
+
+.reveal pre code,
+.reveal code {
+  color: var(--code-text) !important;
 }
 
 .reveal pre code {
