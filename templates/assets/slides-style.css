@@ -42,16 +42,16 @@ body[data-theme="light"] {
 
 /* DARK */
 body[data-theme="dark"] {
-  --bg: #1e1e1e;
+  --bg: #2a2a2a;
   --text: #d4d4d4;
   --title: #ffffff;
   --dim-text: #9da5b4;
-  --divider: #2a2a2a;
+  --divider: #3d3d3d;
 
   --link: #4fc1ff;
   --link-hover: #9cdcfe;
 
-  --code-bg: #0e0e0e;
+  --code-bg: #202020;
   --code-text: #d4d4d4;
 
   --block-bg-opacity: 0.12;
