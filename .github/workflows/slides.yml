@@ -63,7 +63,9 @@ jobs:
           OUTPUT_DIR: ${{ env.TARGET_DIR }}
 
       - name: Validate slide decks in "${{ env.TARGET_DIR }}"
-        run: scripts/validate-build.sh "${{ env.TARGET_DIR }}"
+        run: |
+          sudo snap install tree
+          scripts/validate-build.sh "${{ env.TARGET_DIR }}"
 
       - name: Generate index
         run: scripts/generate-index.sh
