@@ -400,13 +400,14 @@ body[data-theme="mono"] {
   color: var(--link);
 }
 
-.slide-number, .reveal.has-logo .slide-number {
+/* Not working: do slide numbers by hand, integrated with footer(s) */
+/* .slide-number, .reveal.has-logo .slide-number {
   bottom: 6px !important;
   right: 10px !important;
   top: unset !important;
   font-size: 12px;
   color: var(--dim-text) !important;
-}
+} */
 
 /* -------------------------------------------------------
  * MODE TOGGLE
