@@ -243,8 +243,6 @@ body[data-theme="mono"] {
   position: relative;
   width: 90%;
   margin: var(--block-margin) auto;
-  color: var(--code-text);
-  font-family: var(--font-code);
   font-size: 0.55em;
   line-height: 1.2em;
   text-align: left;
@@ -263,7 +261,9 @@ body[data-theme="mono"] {
 .reveal code {
   background-color: var(--code-bg);
   font-family: var(--font-code);
+  color: var(--code-text);
 }
+
 .reveal pre code {
   display: block;
   padding: 5px;
