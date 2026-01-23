@@ -79,6 +79,25 @@
 
     Reveal.initialize(config);
   </script>
+
+  <!-- Copy button -->
+  <script>
+  document.querySelectorAll('.reveal pre').forEach(pre => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-code';
+    btn.textContent = 'Copy';
+  
+    btn.addEventListener('click', () => {
+      const code = pre.querySelector('code');
+      if (!code) return;
+      navigator.clipboard.writeText(code.innerText);
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 1000);
+    });
+  
+    pre.appendChild(btn);
+  });
+  </script>
 </body>
 
 </html>
