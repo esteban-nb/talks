@@ -243,7 +243,6 @@ body[data-theme="mono"] {
   position: relative;
   width: 90%;
   margin: var(--block-margin) auto;
-  background: var(--code-bg);
   color: var(--code-text);
   font-family: var(--font-code);
   font-size: 0.55em;
@@ -263,6 +262,7 @@ body[data-theme="mono"] {
 
 .reveal pre code {
   display: block;
+  background-color: var(--code-bg);
   padding: 5px;
   overflow: auto;
   max-height: 400px;
