@@ -97,10 +97,17 @@ body[data-theme="mono"] {
 .reveal {
   font-family: var(--font-main);
   font-size: var(--font-size-base);
+  font-weight: normal;
   color: var(--text);
 }
 
 .reveal ::selection {
+  background: var(--link);
+  color: #fff;
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
   background: var(--link);
   color: #fff;
   text-shadow: none;
@@ -114,6 +121,12 @@ body[data-theme="mono"] {
 .reveal .slides section > section {
   line-height: 1.3;
   font-weight: inherit;
+}
+
+.reveal .slides section {
+  display: block;
+  text-align: left;
+  padding: calc(var(--core-margin) * 1.2) calc(var(--core-margin) * 1.6);
 }
 
 /* Ensure certain elements are never larger than the slide itself */
@@ -189,6 +202,7 @@ body[data-theme="mono"] {
 .reveal ul ol,
 .reveal ol ul {
   display: block;
+  text-align: left;
   margin-left: calc(var(--core-margin) * 2);
 }
 
