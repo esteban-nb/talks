@@ -1,81 +1,335 @@
 :root {
-  /* Core Colors */
   --core-orange: #EE7F2D;
   --core-blue: #0072B2;
   --core-green: #009E73;
   --core-red: #D55E00;
   --core-purple: #CC79A7;
+
+  /* Typography */
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  --font-code: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --font-size-base: 42px;
+
+  --heading-weight: 600;
+  --heading-line-height: 1.2;
+
+  --block-margin: 20px;
 }
 
-/* --- LIGHT MODE --- */
+/* -------------------------------------------------------
+ * THEME MODES
+ * ----------------------------------------------------- */
+
+/* LIGHT */
 body[data-theme="light"] {
-  --bg: #FFFFFF;
+  --bg: #ffffff;
+  --text: #1a1a1a;
   --title: var(--core-orange);
-  --text: #1A1A1A;
-  --dim-text: #666666;
-  --divider: #E5E5E5;
+  --dim-text: #666;
+  --divider: #e5e5e5;
+
+  --link: var(--core-blue);
+  --link-hover: #004f8a;
+
+  --code-bg: #f6f8fa;
+  --code-text: #24292e;
+
   --block-bg-opacity: 0.08;
-  --block-title-opacity: 0.2;
-  --edge-color: #1A1A1A;
-}
-
-/* --- DARK MODE --- */
-body[data-theme="dark"] {
-  --bg: #0D1117;
-  --title: #E0E0E0;
-  --text: #E0E0E0;
-  --dim-text: #8B949E;
-  --divider: #30363D;
-  --block-bg-opacity: 0.15;
-  --block-title-opacity: 0.3;
-  --edge-color: #FFFFFF;
-  /* Dark Overrides */
-  --core-blue: #40A9FF;
-    --core-green: #4CD964;
-    --core-red: #FF5E6C;
-}
-
-/* --- MONOCHROME MODE --- */
-body[data-theme="mono"] {
-  --bg: #FFF9F5;
-  --title: var(--core-orange);
-  --text: #432100;
-  --dim-text: #8B4513;
-  --divider: #FAD7B5;
-  --block-bg-opacity: 0.1;
   --block-title-opacity: 0.25;
-  --edge-color: #432100;
-  /* Monochromatic Overrides */
-  --core-blue: #EE7F2D;
-  --core-green: #D24F01;
-  --core-red: #8B4513;
 }
 
-/* --- REVEAL.JS GLOBAL TYPOGRAPHY --- */
-.reveal {
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  transition: background-color 0.5s ease;
+/* DARK */
+body[data-theme="dark"] {
+  --bg: #191919;
+  --text: #ffffff;
+  --title: #ffffff;
+  --dim-text: #8b949e;
+  --divider: #30363d;
+
+  --link: #42affa;
+  --link-hover: #94d4ff;
+
+  --code-bg: #0d1117;
+  --code-text: #e6edf3;
+
+  --block-bg-opacity: 0.15;
+  --block-title-opacity: 0.35;
+
+  /* soften core colors */
+  --core-blue: #40a9ff;
+  --core-green: #4cd964;
+  --core-red: #ff5e6c;
 }
+
+/* MONO */
+body[data-theme="mono"] {
+  --bg: #fff9f5;
+  --text: #432100;
+  --title: var(--core-orange);
+  --dim-text: #8b4513;
+  --divider: #fad7b5;
+
+  --link: var(--core-orange);
+  --link-hover: #b85c1e;
+
+  --code-bg: #fff2e8;
+  --code-text: #432100;
+
+  --block-bg-opacity: 0.1;
+  --block-title-opacity: 0.3;
+
+  /* override core colors */
+  --core-blue: var(--core-orange);
+  --core-green: #d24f01;
+  --core-red: #8b4513;
+}
+
+/* -------------------------------------------------------
+ * REVEAL GLOBALS
+ * ----------------------------------------------------- */
+
+.reveal-viewport {
+  background: var(--bg);
+}
+
+.reveal {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  color: var(--text);
+}
+
+.reveal ::selection {
+  background: var(--link);
+  color: #fff;
+  text-shadow: none;
+}
+
+/* -------------------------------------------------------
+ * SLIDE CONTENT
+ * ----------------------------------------------------- */
+
+.reveal .slides section,
+.reveal .slides section > section {
+  line-height: 1.3;
+  font-weight: inherit;
+}
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  margin: var(--block-margin) 0;
+  max-width: 95%;
+  max-height: 95%;
+}
+
+/* -------------------------------------------------------
+ * HEADINGS
+ * ----------------------------------------------------- */
 
 .reveal h1,
 .reveal h2,
-.reveal h3 {
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin: 0 0 20px 0;
+  font-weight: var(--heading-weight);
+  line-height: var(--heading-line-height);
   color: var(--title);
-  font-weight: 700;
   text-transform: none;
-  margin-bottom: 0.5em;
+  text-shadow: none;
+  word-wrap: break-word;
 }
-/* --- BLOCK STYLING --- */
+
+.reveal h1 { font-size: 2.5em; }
+.reveal h2 { font-size: 1.6em; }
+.reveal h3 { font-size: 1.3em; }
+.reveal h4 { font-size: 1.0em; }
+
+/* -------------------------------------------------------
+ * TEXT & LISTS
+ * ----------------------------------------------------- */
+
+.reveal p {
+  margin: var(--block-margin) 0;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+.reveal em { font-style: italic; }
+
+.reveal ol,
+.reveal dl,
+.reveal ul {
+  display: inline-block;
+  text-align: left;
+  margin: 0 0 0 1em;
+}
+
+.reveal ol { list-style-type: decimal; }
+.reveal ul { list-style-type: disc; }
+.reveal ul ul { list-style-type: square; }
+.reveal ul ul ul { list-style-type: circle; }
+
+.reveal ul ul,
+.reveal ol ol,
+.reveal ul ol,
+.reveal ol ul {
+  display: block;
+  margin-left: 40px;
+}
+
+/* Definition lists */
+.reveal dt { font-weight: bold; }
+.reveal dd { margin-left: 40px; }
+
+/* Blockquotes */
+.reveal blockquote {
+  display: block;
+  position: relative;
+  width: 70%;
+  margin: var(--block-margin) auto;
+  padding: 8px 12px;
+  font-style: italic;
+  color: var(--text);
+  background: rgba(0, 0, 0, var(--block-bg-opacity));
+  border-left: 4px solid var(--divider);
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.reveal blockquote p:first-child,
+.reveal blockquote p:last-child {
+  display: inline-block;
+}
+
+/* Inline elements */
+.reveal q { font-style: italic; }
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+.reveal small {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1.2em;
+  vertical-align: top;
+}
+.reveal small * {
+  vertical-align: top;
+}
+
+/* -------------------------------------------------------
+ * CODE
+ * ----------------------------------------------------- */
+
+.reveal pre {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: var(--block-margin) auto;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-family: var(--font-code);
+  font-size: 0.55em;
+  line-height: 1.2em;
+  text-align: left;
+  overflow: auto;
+  border-radius: 6px;
+  word-wrap: break-word;
+}
+
+.reveal code {
+  font-family: var(--font-code);
+  text-transform: none;
+  tab-size: 2;
+}
+
+.reveal pre code {
+  display: block;
+  padding: 5px;
+  overflow: auto;
+  max-height: 400px;
+  word-wrap: normal;
+}
+
+.reveal .code-wrapper {
+  white-space: normal;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre;
+}
+
+/* -------------------------------------------------------
+ * LINKS
+ * ----------------------------------------------------- */
+
+.reveal a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--link-hover);
+  text-shadow: none;
+  border: none;
+}
+
+/* -------------------------------------------------------
+ * TABLES
+ * ----------------------------------------------------- */
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal th,
+.reveal td {
+  padding: 0.3em 0.6em;
+  border-bottom: 1px solid var(--divider);
+}
+
+.reveal table th[align=center],
+.reveal table td[align=center] {
+  text-align: center;
+}
+
+.reveal table th[align=right],
+.reveal table td[align=right] {
+  text-align: right;
+}
+
+.reveal table tbody tr:last-child th,
+.reveal table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* -------------------------------------------------------
+ * CUSTOM BLOCKS
+ * ----------------------------------------------------- */
+
 .block {
-  margin: 1em 0;
+  margin: var(--block-margin) 0;
   border-radius: 6px;
   overflow: hidden;
   text-align: left;
-  background: var(--bg);
   border: 1px solid var(--divider);
-  font-size: 0.85em;
 }
 
 .block-title {
@@ -83,119 +337,78 @@ body[data-theme="mono"] {
   font-weight: bold;
   font-size: 0.9em;
   color: #fff;
-  background: rgba(0, 0, 0, var(--block-title-opacity));
 }
 
 .block-body {
   padding: 12px 15px;
-  font-size: 0.85em;
   background: rgba(0, 0, 0, var(--block-bg-opacity));
 }
 
-/* Standard Block */
-.block-std {
-  border-color: var(--core-blue);
+/* Variants */
+.block-std { border-color: var(--core-blue); }
+.block-std .block-title { background: var(--core-blue); }
+
+.block-alert { border-color: var(--core-red); }
+.block-alert .block-title { background: var(--core-red); }
+
+.block-example { border-color: var(--core-green); }
+.block-example .block-title { background: var(--core-green); }
+
+/* -------------------------------------------------------
+ * CONTROLS & PROGRESS
+ * ----------------------------------------------------- */
+
+.reveal .controls {
+  color: var(--link);
 }
 
-.block-std .block-title {
-  background-color: var(--core-blue);
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--link);
 }
 
-/* Alert Block */
-.block-alert {
-  border-color: var(--core-red);
-}
+/* -------------------------------------------------------
+ * MODE TOGGLE
+ * ----------------------------------------------------- */
 
-.block-alert .block-title {
-  background-color: var(--core-red);
-}
-
-/* Example Block */
-.block-example {
-  border-color: var(--core-green);
-}
-
-.block-example .block-title {
-  background-color: var(--core-green);
-}
-
-/* --- TOGGLE --- */
 #mode-toggle-container {
   position: fixed;
   top: 25px;
   right: 25px;
   z-index: 1000;
   cursor: pointer;
-  /* Icon Colors based on theme */
-    color: var(--core-orange);
-    /* Default */
-  }
-  
-  /* Specific theme colors */
-  body[data-theme="light"] #theme-icon {
-    color: var(--core-orange);
-  }
-  
-  body[data-theme="mono"] #theme-icon {
-    color: #000000;
-  }
-  
-  body[data-theme="dark"] #theme-icon {
-    color: #FFFFFF;
-  }
-  
-  /* The Animation Trigger Class */
-  .clicked .frame-1 {
-    animation: slide-1 0.5s ease-in-out;
-  }
-  
-  .clicked .frame-2 {
-    animation: slide-2 0.5s ease-in-out 0.05s;
-  }
-  
-  .clicked .frame-3 {
-    animation: slide-3 0.5s ease-in-out 0.1s;
+  color: var(--title);
 }
 
-/* Keyframes that return to 0 at the end */
+/* Animation */
+.clicked .frame-1 { animation: slide-1 0.5s ease-in-out; }
+.clicked .frame-2 { animation: slide-2 0.5s ease-in-out 0.05s; }
+.clicked .frame-3 { animation: slide-3 0.5s ease-in-out 0.1s; }
+
 @keyframes slide-1 {
-  0% {
-    transform: translateX(0);
-  }
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
 
-    50% {
-      transform: translateX(-2px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-    }
-  
-    @keyframes slide-2 {
-      0% {
-        transform: translateX(0);
-      }
-  
-      50% {
-        transform: translateX(2px);
-  
-
-    100% {
-      transform: translateX(0);
-    }
+@keyframes slide-2 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes slide-3 {
-  0% {
-    transform: translateX(0);
+  0% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+/* -------------------------------------------------------
+ * PRINT
+ * ----------------------------------------------------- */
+
+@media print {
+  .backgrounds {
+    background-color: var(--bg);
   }
-
-    50% {
-      transform: translateX(4px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
 }
