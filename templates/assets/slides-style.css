@@ -10,12 +10,12 @@
                Roboto, Helvetica, Arial, sans-serif;
   --font-code: ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --font-size-base: 32px;
+  --font-size-base: 42px;
 
   --heading-weight: 600;
   --heading-line-height: 1.2;
 
-  --block-margin: 20px;
+  --block-margin: 1.0em;
 }
 
 /* -------------------------------------------------------
@@ -142,7 +142,7 @@ body[data-theme="mono"] {
 .reveal h4,
 .reveal h5,
 .reveal h6 {
-  margin: 0 0 20px 0;
+  margin: 0 0 var(--block-margin) 0;
   font-weight: var(--heading-weight);
   line-height: var(--heading-line-height);
   color: var(--title);
@@ -151,6 +151,7 @@ body[data-theme="mono"] {
   word-wrap: break-word;
 }
 
+/* Heading scale (relative to font size) */
 .reveal h1 { font-size: 2.5em; }
 .reveal h2 { font-size: 1.6em; }
 .reveal h3 { font-size: 1.3em; }
@@ -175,7 +176,7 @@ body[data-theme="mono"] {
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em;
+  margin: 0 0 0 var(--block-margin);
 }
 
 .reveal ol { list-style-type: decimal; }
@@ -188,12 +189,12 @@ body[data-theme="mono"] {
 .reveal ul ol,
 .reveal ol ul {
   display: block;
-  margin-left: 40px;
+  margin-left: calc(var(--block-margin) * 2);
 }
 
 /* Definition lists */
 .reveal dt { font-weight: bold; }
-.reveal dd { margin-left: 40px; }
+.reveal dd { margin-left: calc(var(--block-margin) * 2); }
 
 /* Blockquotes */
 .reveal blockquote {
