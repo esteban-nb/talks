@@ -90,3 +90,4 @@ for talk_dir in "${talk_dirs[@]}"; do
 done
 
 echo "${talk_count} talks validated"
+command -v tree &> /dev/null && tree "${TARGET_DIR}/"
