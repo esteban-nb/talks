@@ -502,6 +502,8 @@ body[data-theme="mono"] {
  * MODE TOGGLE
  * ----------------------------------------------------- */
 
+/* TODO. Change back the `color`:
+   orange when light, black when mono, white when dark */
 #mode-toggle-container {
   position: fixed;
   top: 25px;
