@@ -105,7 +105,7 @@ Display media including images, videos and animations.
 
 ## Two Columns Slides
 
-[//]: # (!!!)
+[//]: # "!!!"
 
 ## Background Images...
 
