@@ -66,6 +66,8 @@ $$
 $$
 
 A metric space $(X,d)$ is $complete$ if and only if every Cauchy sequence in $X$ converges in $X$.
+In particular, any metric space can be completed by adding the limits of all its Cauchy sequences.
+For example, real numbers are constructed by defining them as equivalence classes of Cauchy sequences of rational numbers (Cauchy reals), filling the gaps in $\mathbb{Q}$.
 
 **Property.**
 
@@ -78,6 +80,10 @@ $$
 **Exercise.**
 
 Show that $a_n = (-1)^n$ is bounded yet not Cauchy.
+
+**Theorem.**
+
+The Banach fixed-point theorem relies on constructing a Cauchy sequence of iterates that converges to a unique fixed point.
 
 [comment]: # "!!!"
 
