@@ -37,7 +37,7 @@ This is an example block.
 
 <!-- !!! -->
 
-## Lists
+## Easy Lists
 
 - First item
   - A subitem
@@ -101,7 +101,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Two Columns Slides
 
-[//]: # "!!!"
+[/]: # (!!!)
 
 ## Background Images...
 
