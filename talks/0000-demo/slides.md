@@ -51,7 +51,7 @@ And ordered lists:
    1. Subitem
    2. Subitem
 1. First item?
-3. Third item
+1. Third item
 
 <!-- !!! -->
 
@@ -93,7 +93,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
     return x, False
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Images
 
@@ -101,7 +101,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Two Columns Slides
 
-[//]: # (!!!)
+[//]: # "!!!"
 
 ## Background Images...
 
