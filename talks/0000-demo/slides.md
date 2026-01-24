@@ -57,17 +57,27 @@ And ordered lists:
 
 ## Math Rendering
 
+**Definition.**
+
 A sequence $(a_n)_{n=1}^\infty$ in a metric space $(X,d)$ is a _Cauchy sequence_ if
 
 $$
 \forall \varepsilon > 0, \ \exists N \in \mathbb{N} \ \text{s.t.} \ \forall m,n \geq N, \ d(a_m, a_n) < \varepsilon.
 $$
 
-For $\mathbb{R}^n$ with Euclidean norm $|\cdot|_2$, this becomes:
+A metric space $(X,d)$ is $complete$ if and only if every Cauchy sequence in $X$ converges in $X$.
+
+**Property.**
+
+Every Cauchy sequence is bounded:
 
 $$
-\forall \varepsilon > 0, \ \exists N \in \mathbb{N} \ \text{s.t.} \ \forall m,n \geq N, \ \|a_m - a_n\|_2 < \varepsilon.
+\text{Cauchy} \implies \exists M>0, \ \forall n, \ d(a_n, a_1) \le M
 $$
+
+**Exercise.**
+
+Show that $a_n = (-1)^n$ is bounded yet not Cauchy.
 
 [comment]: # "!!!"
 
