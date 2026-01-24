@@ -386,38 +386,95 @@ body[data-theme="mono"] {
 }
 
 /* -------------------------------------------------------
- * CUSTOM BLOCKS
+ * CUSTOM BLOCK BASE
  * ----------------------------------------------------- */
 
 .block {
   margin: var(--core-margin) 0;
+  border-left: 6px solid var(--icon-color);
   border-radius: 6px;
-  overflow: auto;
+  overflow: hidden;
   text-align: left;
-  border: 1px solid var(--divider);
+  background: rgba(0, 0, 0, var(--block-bg-opacity));
 }
 
 .block-title {
-  padding: 6px 15px;
-  font-weight: bold;
-  font-size: 0.9em;
+  display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    font-weight: 600;
   color: #fff;
+  background: var(--title-color);
 }
 
 .block-body {
   padding: 12px 15px;
-  background: rgba(0, 0, 0, var(--block-bg-opacity));
 }
 
-/* Variants */
-.block-std { border-color: var(--core-blue); }
-.block-std .block-title { background: var(--core-blue); }
+/* Shared icon rule */
+.block-title::before {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
 
-.block-alert { border-color: var(--core-red); }
-.block-alert .block-title { background: var(--core-red); }
+  /* Title background under the icon */
+  background-color: var(--title-color);
 
-.block-example { border-color: var(--core-green); }
-.block-example .block-title { background: var(--core-green); }
+  /* Mask setup */
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  /* Fill shape with icon color */
+  background: var(--icon-color);
+}
+
+/* -------------------------------------------------------
+ * THEMATIC BLOCKS
+ * ----------------------------------------------------- */
+
+/* NOTE (Green) */
+.block-note {
+  --icon-color: var(--core-green);
+  --title-color: color-mix(in srgb, var(--core-green) 25%, transparent);
+  --icon-src: url("icons/clipboard.svg");
+}
+
+/* INFO (Blue) */
+.block-info {
+  --icon-color: var(--core-blue);
+  --title-color: color-mix(in srgb, var(--core-blue) 25%, transparent);
+  --icon-src: url("icons/info.svg");
+}
+
+/* ZOOM (Purple) */
+.block-zoom {
+  --icon-color: var(--core-purple);
+  --title-color: color-mix(in srgb, var(--core-purple) 25%, transparent);
+  --icon-src: url("icons/magnifying-glass.svg");
+}
+
+/* PIN (Red) */
+.block-pin {
+  --icon-color: var(--core-red);
+  --title-color: color-mix(in srgb, var(--core-red) 25%, transparent);
+  --icon-src: url("icons/pin.svg");
+}
+
+/* ALERT (Orange) */
+.block-alert {
+  --icon-color: var(--core-orange);
+  --title-color: color-mix(in srgb, var(--core-orange) 25%, transparent);
+  --icon-src: url("icons/warning.svg");
+}
 
 /* -------------------------------------------------------
  * CONTROLS & PROGRESS
