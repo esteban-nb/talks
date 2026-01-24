@@ -35,7 +35,8 @@ ALL_TEMPLATES = [
     r"\[comment\]: # \({content}\)",
     r"\[comment\]: <> \({content}\)",
     r"\[comment\]: # \"{content}\"",
-    r"\[//\]: # \({content}\)"
+    r"\[//\]: # \({content}\)",
+    r"\[//\]: # \"{content}\""
 ]
 
 general_filler = r"\s*(.*?)\s*"
