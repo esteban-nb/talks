@@ -17,6 +17,8 @@ code_theme: "ir-black"
 
 ### Esteban NOCET-BINOIS
 
+This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
+
 <!-- !!! -->
 
 ## Different Blocks
@@ -32,6 +34,24 @@ This is an alert block.
 ::: example | Example Title
 This is an example block.
 :::
+
+<!-- !!! -->
+
+## Lists
+
+- First item
+  - A subitem
+    - A subsubitem
+- Second item
+- Third item
+
+And ordered lists:
+
+1. First item
+   1. Subitem
+   2. Subitem
+1. First item?
+3. Third item
 
 <!-- !!! -->
 
@@ -73,7 +93,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
     return x, False
 ```
 
-[comment]: # "!!!"
+[comment]: # (!!!)
 
 ## Images
 
@@ -81,7 +101,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Two Columns Slides
 
-[//]: # "!!!"
+[//]: # (!!!)
 
 ## Background Images...
 
@@ -100,5 +120,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 <!-- !!! -->
 
 ## Citation Footer
+
+<!-- !!! -->
 
 ## Keyboard Bindings
