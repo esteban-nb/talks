@@ -33,12 +33,11 @@ This is an alert block.
 This is an example block.
 :::
 
-
 <!-- !!! -->
 
 ## Math Rendering
 
-A sequence $(a_n)_{n=1}^\infty$ in a metric space $(X,d)$ is a *Cauchy sequence* if
+A sequence $(a_n)_{n=1}^\infty$ in a metric space $(X,d)$ is a _Cauchy sequence_ if
 
 $$
 \forall \varepsilon > 0, \ \exists N \in \mathbb{N} \ \text{s.t.} \ \forall m,n \geq N, \ d(a_m, a_n) < \varepsilon.
@@ -74,7 +73,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
     return x, False
 ```
 
-[comment]: # (!!!)
+[comment]: # "!!!"
 
 ## Images
 
@@ -82,7 +81,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Two Columns Slides
 
-[//]: # (!!!)
+[//]: # "!!!"
 
 ## Background Images...
 
