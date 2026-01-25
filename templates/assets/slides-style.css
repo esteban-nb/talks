@@ -232,6 +232,19 @@ body[data-theme="mono"] {
   margin-left: calc(var(--core-margin) * 2);
 }
 
+/* Colored lists */
+.reveal ul > li::marker,
+.reveal ol > li::marker {
+  color: var(--title);
+}
+
+.reveal ul ul > li::marker,
+.reveal ol ol > li::marker,
+.reveal ul ol > li::marker,
+.reveal ol ul > li::marker {
+  color: var(--title);
+}
+
 /* Definition lists */
 .reveal dt { font-weight: bold; }
 .reveal dd { margin-left: calc(var(--core-margin) * 2); }
