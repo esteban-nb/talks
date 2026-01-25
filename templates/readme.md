@@ -1,4 +1,5 @@
 Different blocks (from darkest to lightest mono):
+
 - Don't (red)
 - Alert (yellow)
 - Zoom (purple)
@@ -7,6 +8,7 @@ Different blocks (from darkest to lightest mono):
 - Note (slate)
 
 Maths:
+
 - Theorem
 - Definition
 - Proposition
@@ -14,6 +16,7 @@ Maths:
 - Corollaries
 
 Code highlight per mode:
+
 - Light: `monokai-sublime`
 - Mono: `github`
 - Dark: `ir-black`
