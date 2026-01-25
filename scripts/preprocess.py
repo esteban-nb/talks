@@ -103,7 +103,7 @@ def fmt_section_attrs(attr: str) -> str:
     if sattr.startswith("raw:"):
         raw_bool = True
         parts = sattr.removeprefix("raw:").strip()
-        merged = normalize_attrs(attr)
+        merged = normalize_attrs(parts)
     elif sattr.startswith("only:"):
         parts = sattr.removeprefix("only:").strip()
         merged = normalize_attrs(parts)
