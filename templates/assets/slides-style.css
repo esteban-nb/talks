@@ -1,9 +1,11 @@
 :root {
+  --core-red: #D55E00;
   --core-orange: #EE7F2D;
+  --core-yellow: #F0E442;
+  --core-purple: #CC79A7;
   --core-blue: #0072B2;
   --core-green: #009E73;
-  --core-red: #D55E00;
-  --core-purple: #CC79A7;
+  --core-slate: #4B5E66;
 
   --slide-gutter-x: 0.8em;
   --slide-gutter-y: 0.8em;
@@ -444,39 +446,46 @@ body[data-theme="mono"] {
  * THEMATIC BLOCKS
  * ----------------------------------------------------- */
 
-/* NOTE (Green) */
-.block-note {
-  --icon-color: var(--core-green);
-  --title-color: color-mix(in srgb, var(--core-green) 25%, transparent);
-  --icon-src: url("icons/clipboard.svg");
+/* DON'T (Red) */
+.block-donot {
+  --icon-color: var(--core-red);
+  --title-color: color-mix(in srgb, var(--core-red) 35%, transparent);
+  --icon-src: url("icons/do-not.svg");
 }
 
-/* INFO (Blue) */
-.block-info {
-  --icon-color: var(--core-blue);
-  --title-color: color-mix(in srgb, var(--core-blue) 25%, transparent);
-  --icon-src: url("icons/info.svg");
+/* ALERT (Yellow) */
+.block-alert {
+  --icon-color: var(--core-yellow);
+  --title-color: color-mix(in srgb, var(--core-yellow) 35%, transparent);
+  --icon-src: url("icons/warning.svg");
 }
 
 /* ZOOM (Purple) */
 .block-zoom {
   --icon-color: var(--core-purple);
-  --title-color: color-mix(in srgb, var(--core-purple) 25%, transparent);
+  --title-color: color-mix(in srgb, var(--core-purple) 35%, transparent);
   --icon-src: url("icons/magnifying-glass.svg");
 }
 
-/* PIN (Red) */
-.block-pin {
-  --icon-color: var(--core-red);
-  --title-color: color-mix(in srgb, var(--core-red) 25%, transparent);
-  --icon-src: url("icons/pin.svg");
+/* INFO (Blue) */
+.block-info {
+  --icon-color: var(--core-blue);
+  --title-color: color-mix(in srgb, var(--core-blue) 35%, transparent);
+  --icon-src: url("icons/info.svg");
 }
 
-/* ALERT (Orange) */
-.block-alert {
-  --icon-color: var(--core-orange);
-  --title-color: color-mix(in srgb, var(--core-orange) 25%, transparent);
-  --icon-src: url("icons/warning.svg");
+/* NOTE (Green) */
+.block-note {
+  --icon-color: var(--core-green);
+  --title-color: color-mix(in srgb, var(--core-green) 35%, transparent);
+  --icon-src: url("icons/clipboard.svg");
+}
+
+/* PIN (Slate) */
+.block-pin {
+  --icon-color: var(--core-slate);
+  --title-color: color-mix(in srgb, var(--core-slate) 35%, transparent);
+  --icon-src: url("icons/pin.svg");
 }
 
 /* -------------------------------------------------------
