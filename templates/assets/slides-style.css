@@ -392,10 +392,10 @@ body[data-theme="mono"] {
 .block {
   margin: var(--core-margin) 0;
   border-style: solid;
-  border-width: 1px 1px 1px 6px;
+  border-width: .5px .5px .5px 6px;
     /* top, right, bottom, left */
-  border-color: #e5e5e5 #e5e5e5 #e5e5e5 var(--icon-color);
-  border-radius: 3px;
+  border-color: #888888 #888888 #888888 var(--icon-color);
+    border-radius: 2px;
   overflow: hidden;
   text-align: left;
   background: rgba(0, 0, 0, var(--block-bg-opacity));
