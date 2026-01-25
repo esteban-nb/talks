@@ -2,19 +2,19 @@ name: Build and deploy slides
 
 # WIP
 on:
-  # push:
-  #   branches: [ main ]
-  #   paths:
-  #     - 'talks/**'
-  #     - 'templates/**'
-  #     - 'scripts/**'
-  #     - '.github/talks-config.yml'
-  # pull_request:
-  #   branches: [ main ]
-  #   paths:
-  #     - 'talks/**'
-  #     - 'templates/**'
-  #     - 'scripts/**'
+  push:
+    branches: [ main ]
+    paths:
+      - 'talks/**'
+      - 'templates/**'
+      - 'scripts/**'
+      - '.github/talks-config.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'talks/**'
+      - 'templates/**'
+      - 'scripts/**'
   workflow_dispatch:
     inputs:
       target_dir:
