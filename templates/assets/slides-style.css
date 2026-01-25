@@ -182,7 +182,7 @@ body[data-theme="mono"] {
 
   display: grid;
   grid-template-columns: var(--col1-width) var(--col2-width);
-  gap: var(--gap);
+  gap: var(--cols-gap);
   text-align: left;
 }
 
