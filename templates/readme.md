@@ -1,3 +1,5 @@
+Top-left layout with two footers (one with info, the other for citation/copyright).
+
 Different blocks (from darkest to lightest mono):
 
 - Don't (red)
@@ -21,3 +23,20 @@ Code highlight per mode:
 - Light: `monokai-sublime`
 - Mono: `github`
 - Dark: `ir-black`
+
+Two-column display. For example, to create a 2x3 grid:
+```md
+## Slide
+
+::: {layout="[[1, 1], [1, 1, 1]]"}
+
+<!-- @ -->
+
+Content
+
+<!-- @ -->
+
+Content
+
+<!-- @ -->
+```
