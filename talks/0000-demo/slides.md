@@ -245,6 +245,73 @@ We can also use HTML with a standard `<img>` tag.
 
 ## Keyboard Bindings
 
+<table>
+  <thead>
+    <tr>
+      <th>KEY</th>
+      <th>ACTION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>N, SPACE</td>
+      <td>Next slide</td>
+    </tr>
+    <tr>
+      <td>P, Shift SPACE</td>
+      <td>Previous slide</td>
+    </tr>
+    <tr>
+      <td>←, H</td>
+      <td>Navigate left</td>
+    </tr>
+    <tr>
+      <td>→, L</td>
+      <td>Navigate right</td>
+    </tr>
+    <tr>
+      <td>↑, K</td>
+      <td>Navigate up</td>
+    </tr>
+    <tr>
+      <td>↓, J</td>
+      <td>Navigate down</td>
+    </tr>
+    <tr>
+      <td>Alt + ←/↑/→/↓</td>
+      <td>Navigate without fragments</td>
+    </tr>
+    <tr>
+      <td>Shift + ←/↑/→/↓</td>
+      <td>Jump to first/last slide</td>
+    </tr>
+    <tr>
+      <td>B, .</td>
+      <td>Pause</td>
+    </tr>
+    <tr>
+      <td>F</td>
+      <td>Fullscreen</td>
+    </tr>
+    <tr>
+      <td>G</td>
+      <td>Jump to slide</td>
+    </tr>
+    <tr>
+      <td>ESC, O</td>
+      <td>Slide overview</td>
+    </tr>
+    <tr>
+      <td>S</td>
+      <td>Speaker notes view</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ||| -->
+
+## Keyboard Bindings
+
 To add a shortcut that isn't included by default, use the keyboard config option in initialization:
 
 ```javascript
