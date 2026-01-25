@@ -175,10 +175,14 @@ body[data-theme="mono"] {
  * TWO-COLUMN DISPLAY
  * ----------------------------------------------------- */
 
-.two-cols {
+ .two-cols {
+  --col1-width: 1fr;
+  --col2-width: 1fr;
+  --cols-gap: calc(var(--core-margin) * 2);
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2em;
+  grid-template-columns: var(--col1-width) var(--col2-width);
+  gap: var(--gap);
   text-align: left;
 }
 
