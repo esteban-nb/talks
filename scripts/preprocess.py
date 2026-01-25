@@ -20,7 +20,11 @@ import frontmatter
 ALLOW_DASH_DELIM = False
 DEFAULT_ATTRIBUTES = ""
 
-SECTION_MD = """<section{attrs}>
+SECTION_RAW = """<section {attrs}>
+{content}
+</section>"""
+
+SECTION_MD = """<section data-markdown {attrs}>
 <textarea data-template>
 {content}
 </textarea>
@@ -93,11 +97,20 @@ def fmt_section_attrs(attr: str) -> str:
       - default attributes come foirst, so they get
         overriden by local attributes (in case of conflict)
     """
-    merged = normalize_attrs(DEFAULT_ATTRIBUTES, attr)
-    if merged:
-        return f' data-markdown {merged}'
-    return ' data-markdown'
+    sattr = attr.strip()
+    raw_bool = False
 
+    if sattr.startswith("raw:"):
+        raw_bool = True
+        parts = sattr.removeprefix("raw:").strip()
+        merged = normalize_attrs(attr)
+    elif sattr.startswith("only:"):
+        parts = sattr.removeprefix("only:").strip()
+        merged = normalize_attrs(parts)
+    else:
+        merged = normalize_attrs(DEFAULT_ATTRIBUTES, sattr)
+
+    return raw_bool, merged
 
 
 # -------------------------------------------------
@@ -173,12 +186,22 @@ def outer_pipeline(
             return
 
         processed = inner_pipeline("\n".join(buffer))
-        h_stack.append(
-            SECTION_MD.format(
-                attrs=fmt_section_attrs(pending_attrs),
-                content=processed
+        raw, attrs = fmt_section_attrs(pending_attrs)
+
+        if raw:
+            h_stack.append(
+                SECTION_RAW.format(
+                    attrs=attrs,
+                    content=processed
+                )
             )
-        )
+        else:
+            h_stack.append(
+                SECTION_MD.format(
+                    attrs=attrs,
+                    content=processed
+                )
+            )
         buffer = []
         pending_attrs = ""
 

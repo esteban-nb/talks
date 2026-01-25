@@ -141,9 +141,9 @@ Display media including images, videos and animations.
 
 ![FP on sphere (from path)](../media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
-[comment]: <> (!!!)
+[comment]: <> (!!! raw:)
 
-## Two Columns Slides
+<h2>Two Columns Slides</h2>
 
 <div class="two-cols">
   <div data-markdown>
