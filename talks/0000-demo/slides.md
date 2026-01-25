@@ -24,23 +24,23 @@ This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
 ## Different Blocks (example|info|zoom|note|alert`)
 
 ::: example | Block Title
-This is a block.
+This is a `example` block.
 :::
 
 ::: info | Block Title
-This is a block.
+This is a `info` block.
 :::
 
 ::: zoom | Block Title
-This is a block.
+This is a `zoom` block.
 :::
 
 ::: note | Block Title
-This is a block.
+This is a `note` block.
 :::
 
-::: alert | Important Title
-This is an alert block.
+::: alert | Block Title
+This is a `alert` block.
 :::
 
 <!-- !!! -->
