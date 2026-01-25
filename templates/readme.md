@@ -24,20 +24,26 @@ Code highlight per mode:
 - Mono: `github`
 - Dark: `ir-black`
 
-Two-column display (see layouyt [here](https://rstudio-conf-2022.github.io/get-started-quarto/materials/07-plots-tables.html#/plots-graphics-and-tables)). For example, to create a 2x3 grid:
+Two-column display (see layouyt [here](https://rstudio-conf-2022.github.io/get-started-quarto/materials/07-plots-tables.html#/plots-graphics-and-tables)).
+For example, to create one row with 2 columns and another with 3:
 
 ```md
 ## Slide
 
-::: {layout="[[1, 1], [1, 1, 1]]"}
+::: layout="[[1, 1], [1, 1, 1]]"
+### Column 1
+<!-- <<EOC -->
 
-<!-- @ -->
+### Column 2
+<!-- <<EOC -->
 
-Content
+### Column A
+<!-- <<EOC -->
 
-<!-- @ -->
+### Column B
+<!-- <<EOC -->
 
-Content
-
-<!-- @ -->
+### Column C
+<!-- <<EOC -->
+:::
 ```
