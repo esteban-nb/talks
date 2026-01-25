@@ -140,13 +140,13 @@ Display media including images, videos and animations.
 ## Two Columns Slides
 
 <div class="two-cols">
-  <div>
+  <div data-markdown>
     ## Left Column
     - Item 1
     - Item 2
     - Item 3
   </div>
-  <div>
+  <div data-markdown>
     ## Right Column  
     - Item A
     - Item B
