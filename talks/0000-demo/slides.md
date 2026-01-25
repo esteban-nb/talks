@@ -131,9 +131,10 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Images
 
-![FP on sphere (from link))](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg)
-
-<figcaption>Visible Caption Text</figcaption>
+<figure>
+  ![FP on sphere (from link))](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg)
+  <figcaption>Visible Caption Text</figcaption>
+<figure>
 
 Display media including images, videos and animations.
 
@@ -154,16 +155,20 @@ Either use `https://raw.githubusercontent.com/` or append `?raw=true` at the end
 
 <div class="two-cols">
   <div data-markdown>
-    ### Left Column
-    - Item 1
-    - Item 2
-    - Item 3
+    <script type="text/template">
+      ### Left Column
+      - Item 1
+      - Item 2
+      - Item 3
+    </script>
   </div>
   <div data-markdown>
-    ### Right Column  
-    - Item A
-    - Item B
-    - Item C
+    <script type="text/template">
+      ### Right Column  
+      - Item A
+      - Item B
+      - Item C
+    </script>
   </div>
 </div>
 
