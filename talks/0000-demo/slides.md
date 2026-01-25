@@ -21,18 +21,26 @@ This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
 
 <!-- !!! -->
 
-## Different Blocks
+## Different Blocks (example|info|zoom|note|alert`)
 
-::: block | Block Title
+::: example | Block Title
+This is a block.
+:::
+
+::: info | Block Title
+This is a block.
+:::
+
+::: zoom | Block Title
+This is a block.
+:::
+
+::: note | Block Title
 This is a block.
 :::
 
 ::: alert | Important Title
 This is an alert block.
-:::
-
-::: example | Example Title
-This is an example block.
 :::
 
 <!-- !!! -->
