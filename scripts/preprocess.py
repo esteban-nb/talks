@@ -237,8 +237,7 @@ def process_markdown_to_html(md_path: str, template_path: str) -> str:
 
     # Reveal config
     exclude_keys = {
-        "title", "display_name", "date",
-        "template", "code_theme"
+        "title", "display_name", "date", "template"
     }
 
     reveal_config = {
@@ -265,11 +264,6 @@ def process_markdown_to_html(md_path: str, template_path: str) -> str:
     template = template.replace(
         "{{TITLE}}",
         metadata.get("title", "Presentation")
-    )
-
-    template = template.replace(
-        "{{HIGHLIGHT_THEME}}",
-        metadata.get("code_theme", "base16/zenburn")
     )
 
     template = template.replace("{{CONTENT}}", content_html)
