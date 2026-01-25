@@ -205,7 +205,6 @@ We can also use HTML with a standard `<img>` tag.
 
 ## ... and Background Videos
 
-
 <!-- !!! raw: data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI" data-background-interactive -->
 
 <h2 style="color: #fff;">Iframe Background</h2>
