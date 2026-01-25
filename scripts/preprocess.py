@@ -108,7 +108,7 @@ def transform_blocks(text: str) -> str:
     """
     Converts ::: block | Title syntax into HTML blocks.
     """
-    pattern = r":::\s*(example|info|zoom|note|alert)\s*\|\s*(.*?)\n(.*?)\n:::"
+    pattern = r":::\s*(donot|alert|zoom|info|example|note)\s*\|\s*(.*?)\n(.*?)\n:::"
 
     def replacer(match):
         b_type = match.group(1).lower()
@@ -116,11 +116,12 @@ def transform_blocks(text: str) -> str:
         body = match.group(3).strip()
 
         css_map = {
-            "example": "note",
-            "info": "info",
-            "zoom": "zoom",
-            "note": "pin",
+            "donot": "donot",
             "alert": "alert",
+            "zoom": "zoom",
+            "info": "info",
+            "example": "note",
+            "note": "pin",
         }
         cls = css_map.get(b_type, "std")
 
