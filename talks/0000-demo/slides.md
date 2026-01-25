@@ -250,8 +250,10 @@ To add a shortcut that isn't included by default, use the keyboard config option
 ```javascript
 Reveal.initialize({
   keyboard: {
-    13: 'next', // Enter key goes to next slide
-    67: () => { console.log('Custom action for C key'); } // Custom function
-  }
+    13: "next", // Enter key goes to next slide
+    67: () => {
+      console.log("Custom action for C key");
+    }, // Custom function
+  },
 });
 ```
