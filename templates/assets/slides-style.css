@@ -394,8 +394,8 @@ body[data-theme="mono"] {
   border-style: solid;
   border-width: .5px .5px .5px 6px;
     /* top, right, bottom, left */
-  border-color: #404040 #404040 #404040 var(--icon-color);
-  border-radius: 1px;
+  border-color: #666666 #666666 #666666 var(--icon-color);
+  border-radius: 2px;
   overflow: hidden;
   text-align: left;
   background: rgba(0, 0, 0, var(--block-bg-opacity));
