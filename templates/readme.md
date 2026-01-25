@@ -24,7 +24,7 @@ Code highlight per mode:
 - Mono: `github`
 - Dark: `ir-black`
 
-Two-column display. For example, to create a 2x3 grid:
+Two-column display (see layouyt [here](https://rstudio-conf-2022.github.io/get-started-quarto/materials/07-plots-tables.html#/plots-graphics-and-tables)). For example, to create a 2x3 grid:
 
 ```md
 ## Slide
