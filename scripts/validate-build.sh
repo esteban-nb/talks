@@ -52,6 +52,15 @@ if [[ ${#MISSING_ASSETS[@]} -ne 0 ]]; then
 fi
 echo "All ${#REQUIRED_SHARED[@]} shared assets present"
 
+# Also check media in case it exists
+MEDIA_SRC="media"
+MEDIA_DST="${TARGET_DIR}/media"
+
+if [ -d "$MEDIA_SRC" ] && [ ! -d "$MEDIA_DST" ]; then
+  echo "Error: media/ exists in project root but is missing in ${TARGET_DIR}" >&2
+  exit 1
+fi
+
 # 3. Validate each talk directory
 talk_dirs=("${TARGET_DIR}"/*/index.html)
 if [[ ${#talk_dirs[@]} -eq 0 ]] || [[ "${talk_dirs[0]}" == "${TARGET_DIR}/*/index.html" ]]; then

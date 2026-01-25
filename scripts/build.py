@@ -21,11 +21,13 @@ def setup_shared_vendor_assets():
     """
     reveal_src = VENDOR_DIR / "reveal.js"
     highlight_src = VENDOR_DIR / "highlightjs-cdn-release"
+    media_src = PROJECT_ROOT / "media"
 
     # Define Destinations
     shared_dist = OUTPUT_DIR / "dist"
     shared_plugin = OUTPUT_DIR / "plugin"
     shared_highlight = OUTPUT_DIR / "highlightjs"
+    shared_media = OUTPUT_DIR / "media"
 
     try:
         # Core Reveal.js
@@ -39,6 +41,9 @@ def setup_shared_vendor_assets():
 
         # Custom shared assets (Pyramid, CSS)
         shutil.copytree(PROJECT_ROOT / "templates/assets", OUTPUT_DIR / "assets", dirs_exist_ok=True)
+
+        if media_src.exists():
+            shutil.copytree(media_src, shared_media, dirs_exist_ok=True)
 
         print(f"Shared assets successfully deployed to {OUTPUT_DIR}")
 

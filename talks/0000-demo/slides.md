@@ -131,7 +131,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Images
 
-![FP on sphere](media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
+![FP on sphere](../media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
 Display media including images, videos and animations.
 
