@@ -25,6 +25,7 @@ Code highlight per mode:
 - Dark: `ir-black`
 
 Two-column display. For example, to create a 2x3 grid:
+
 ```md
 ## Slide
 
