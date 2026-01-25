@@ -31,19 +31,26 @@ For example, to create one row with 2 columns and another with 3:
 ## Slide
 
 ::: layout="[[1, 1], [1, 1, 1]]"
+
 ### Column 1
+
 <!-- <<EOC -->
 
 ### Column 2
+
 <!-- <<EOC -->
 
 ### Column A
+
 <!-- <<EOC -->
 
 ### Column B
+
 <!-- <<EOC -->
 
 ### Column C
+
 <!-- <<EOC -->
+
 :::
 ```
