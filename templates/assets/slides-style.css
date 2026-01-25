@@ -395,7 +395,7 @@ body[data-theme="mono"] {
   border-width: .5px .5px .5px 6px;
     /* top, right, bottom, left */
   border-color: #404040 #404040 #404040 var(--icon-color);
-    border-radius: 1px;
+  border-radius: 1px;
   overflow: hidden;
   text-align: left;
   background: rgba(0, 0, 0, var(--block-bg-opacity));
@@ -403,10 +403,10 @@ body[data-theme="mono"] {
 
 .block-title {
   display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    font-weight: 600;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-weight: 600;
   color: var(--text);
   background: var(--title-color);
 }
