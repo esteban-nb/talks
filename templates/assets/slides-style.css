@@ -162,7 +162,7 @@ body[data-theme="mono"] {
  .two-cols {
   --col1-width: 1fr;
   --col2-width: 1fr;
-  --cols-gap: calc(var(--core-margin) * 2);
+  --cols-gap: 2em;
 
   display: grid;
   grid-template-columns: var(--col1-width) var(--col2-width);
