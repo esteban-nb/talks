@@ -154,6 +154,21 @@ Display media including images, videos and animations.
   </div>
 </div>
 
+<div class="two-cols" style="--col1-width: 30%; --col2-width: 70%; --cols-gap:5em">
+  <div data-markdown>
+    ## Left Column @30%
+    - Item 1
+    - Item 2
+    - Item 3
+  </div>
+  <div data-markdown>
+    ## Right Column @70%
+    - Item A
+    - Item B
+    - Item C
+  </div>
+</div>
+
 [//]: # "!!!"
 
 ## Background Images...
