@@ -25,9 +25,9 @@ SECTION_RAW = """<section {attrs}>
 </section>"""
 
 SECTION_MD = """<section data-markdown {attrs}>
-<textarea data-template>
+<script type="text/template">
 {content}
-</textarea>
+</script>
 </section>"""
 
 SECTION_VERTICAL_WRAPPER = """<section>
