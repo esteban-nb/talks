@@ -14,6 +14,7 @@ Maths:
 - Lemmas (LEM, purple)
 - Corollaries (COR, blue)
 - Definition (DEF, green)
+- Exercise (slate)
 
 Code highlight per mode:
 
