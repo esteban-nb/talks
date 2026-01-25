@@ -135,24 +135,6 @@ body[data-theme="mono"] {
   font-weight: inherit;
 }
 
-/* Ensure certain elements are never larger than the slide itself */
-.reveal img,
-.reveal video,
-.reveal iframe {
-  margin: var(--core-margin) 0;
-  max-width: 95%;
-  max-height: 95%;
-}
-
-.reveal img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-}
-
 /* -------------------------------------------------------
  * TOP-LEFT LAYOUT
  * ----------------------------------------------------- */
@@ -303,6 +285,43 @@ body[data-theme="mono"] {
 }
 .reveal small * {
   vertical-align: top;
+}
+
+/* -------------------------------------------------------
+ * IMAGES & MEDIA
+ * ----------------------------------------------------- */
+
+/* Ensure certain elements are never larger than the slide itself */
+.reveal img,
+.reveal video,
+.reveal iframe {
+  margin: var(--core-margin) 0;
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.reveal img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.reveal figcaption, 
+.reveal .caption {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Center the italic line only if it follows an image */
+.reveal img + em {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
 }
 
 /* -------------------------------------------------------
