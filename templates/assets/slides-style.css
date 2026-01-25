@@ -63,9 +63,13 @@ body[data-theme="dark"] {
   --block-title-opacity: 0.3;
 
   /* soften core colors */
-  --core-blue: #4fc1ff;
-  --core-green: #6a9955;
-  --core-red: #f44747;
+  --core-red: #ff8a50;
+  --core-orange: #ffb366;
+  --core-yellow: #ffe370;
+  --core-purple: #e0a0d0;
+  --core-blue: #66b3ff;
+  --core-green: #80d0a0;
+  --core-slate: #a0b8c8;
 }
 
 /* MONO */
