@@ -21,7 +21,7 @@ This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
 
 <!-- !!! -->
 
-## Different Blocks (example|info|zoom|note|alert`)
+## Different Blocks
 
 ::: example | Block Title
 This is a `example` block.
@@ -34,6 +34,10 @@ This is a `info` block.
 ::: zoom | Block Title
 This is a `zoom` block.
 :::
+
+<!-- ||| -->
+
+## Different Blocks
 
 ::: note | Block Title
 This is a `note` block.
