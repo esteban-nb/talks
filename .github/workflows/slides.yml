@@ -67,6 +67,9 @@ jobs:
           sudo snap install tree
           scripts/validate-build.sh "${{ env.TARGET_DIR }}"
 
+      - name: Display demo HTML
+        run: cat ./${{ env.TARGET_DIR }}/0000-demo/index.html
+
       - name: Generate index
         run: scripts/generate-index.sh
         env:
@@ -98,12 +101,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  display-demo:
-    needs: build
-    runs-on: ubuntu-latest
-    env:
-      TARGET_DIR: ${{ github.event.inputs.target_dir || 'slides' }}
-    steps:
-      - name: Display demo HTML
-        run: cat ./${{ env.TARGET_DIR }}/0000-demo/index.html
