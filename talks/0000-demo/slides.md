@@ -132,7 +132,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 ## Images
 
 <figure>
-  ![FP on sphere (from link))](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg)
+  ![FP on sphere (from link)](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg)
   <figcaption>Visible Caption Text</figcaption>
 <figure>
 
@@ -142,6 +142,17 @@ Display media including images, videos and animations.
 Do not use the blob https://github.com/esteban-nb/talks/blob/main/media/images/fokker-planck-wuerzburg.jpg to insert the image.
 Either use `https://raw.githubusercontent.com/` or append `?raw=true` at the end.
 :::
+
+[comment]: # "!!!"
+
+## Images
+
+<figure>
+  <img src="https://github.com/esteban-nb/talks/blob/main/media/images/fokker-planck-wuerzburg.jpg?raw=true" alt="FP on sphere (from link)">
+  <figcaption>Visible Caption Text</figcaption>
+</figure>
+
+We can also use HTML with a standard `<img>` tag.
 
 [comment]: # "!!!"
 
