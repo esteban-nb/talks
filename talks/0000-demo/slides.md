@@ -137,7 +137,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 Display media including images, videos and animations.
 
-::: info |
+::: info | ^@
 Do not use the blob https://github.com/esteban-nb/talks/blob/main/media/images/fokker-planck-wuerzburg.jpg to insert the image.
 Either use `https://raw.githubusercontent.com/` or append `?raw=true` at the end.
 :::
