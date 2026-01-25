@@ -129,7 +129,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 [comment]: # "!!!"
 
-## Images
+## Images from URL
 
 ![FP on sphere (from link)](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg)
 
@@ -142,9 +142,9 @@ Do not use the blob https://github.com/esteban-nb/talks/blob/main/media/images/f
 Either use `https://raw.githubusercontent.com/` or append `?raw=true` at the end.
 :::
 
-[comment]: # "!!!"
+[comment]: # "|||"
 
-## Images
+## Images from URL
 
 <figure>
   <img src="https://github.com/esteban-nb/talks/blob/main/media/images/fokker-planck-wuerzburg.jpg?raw=true" alt="FP on sphere (from link)">
@@ -153,9 +153,9 @@ Either use `https://raw.githubusercontent.com/` or append `?raw=true` at the end
 
 We can also use HTML with a standard `<img>` tag.
 
-[comment]: # "!!!"
+[comment]: # "|||"
 
-## Images
+## Images from Path
 
 ![FP on sphere (from path)](../media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
@@ -184,13 +184,13 @@ We can also use HTML with a standard `<img>` tag.
 
 <div class="two-cols" style="--col1-width: 30%; --col2-width: 70%; --cols-gap:5em">
   <div data-markdown>
-    ## Left Column @30%
+    ### Left Column @30%
     - Item 1
     - Item 2
     - Item 3
   </div>
   <div data-markdown>
-    ## Right Column @70%
+    ### Right Column @70%
     - Item A
     - Item B
     - Item C
@@ -204,6 +204,11 @@ We can also use HTML with a standard `<img>` tag.
 <!-- !!! -->
 
 ## ... and Background Videos
+
+
+<!-- !!! raw: data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI" data-background-interactive -->
+
+<h2 style="color: #fff;">Iframe Background</h2>
 
 <!-- !!! -->
 
