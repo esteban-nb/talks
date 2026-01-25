@@ -51,7 +51,6 @@ This is a `example` block.
 This is a `note` block.
 :::
 
-
 <!-- !!! -->
 
 ## Easy Lists
