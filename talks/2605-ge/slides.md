@@ -10,7 +10,6 @@ hash: true
 transition: "slide"
 zoom: true
 fragments: true
-code_theme: "github"
 ---
 
 ## General Examination

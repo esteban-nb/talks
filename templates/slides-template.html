@@ -15,8 +15,8 @@
   <!-- Custom assets -->
   <link rel="stylesheet" href="../assets/slides-style.css">
 
-  <!-- Highlight.js code theme -->
-  <link rel="stylesheet" href="../highlightjs/styles/{{HIGHLIGHT_THEME}}.min.css" id="highlight-theme">
+  <!-- Highlight.js code theme (default fallback) -->
+  <link rel="stylesheet" href="../highlightjs/styles/github.min.css" id="highlight-theme">
 </head>
 
 <body data-theme="light">
@@ -57,6 +57,47 @@
   <!-- Shared theme toggle logic -->
   <script src="../assets/ldm-toggle.js"></script>
 
+  <!-- Highlight theme mode sync -->
+  <script>
+  (() => {
+    const HIGHLIGHT_BY_MODE = {
+      light: 'monokai-sublime',
+      mono:  'github',
+      dark:  'ir-black'
+    };
+
+    const link = document.getElementById('highlight-theme');
+
+    function applyHighlightTheme(mode) {
+      const theme = HIGHLIGHT_BY_MODE[mode];
+      if (!theme) return;
+
+      const href = `../highlightjs/styles/${theme}.min.css`;
+      if (link.getAttribute('href') === href) return;
+
+      link.setAttribute('href', href);
+
+      if (window.hljs) {
+        document
+          .querySelectorAll('pre code')
+          .forEach(block => hljs.highlightElement(block));
+      }
+    }
+
+    // Initial sync
+    applyHighlightTheme(document.body.dataset.theme);
+
+    // Watch for data-theme changes
+    new MutationObserver(mutations => {
+      for (const m of mutations) {
+        if (m.attributeName === 'data-theme') {
+          applyHighlightTheme(document.body.dataset.theme);
+        }
+      }
+    }).observe(document.body, { attributes: true });
+  })();
+  </script>
+
   <!-- Reveal initialization -->
   <script>
     const config = {{CONFIG}} || {
@@ -80,7 +121,7 @@
     Reveal.initialize(config);
   </script>
 
-  <!-- Copy button -->
+  <!-- Copy code button -->
   <script>
   document.querySelectorAll('.reveal pre').forEach(pre => {
     const btn = document.createElement('button');
