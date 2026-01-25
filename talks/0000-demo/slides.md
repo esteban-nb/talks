@@ -131,9 +131,15 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Images
 
-![FP on sphere](../media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
+![FP on sphere (from link))](https://github.com/esteban-nb/talks/blob/main/media/images/fokker-planck-wuerzburg.jpg)
 
 Display media including images, videos and animations.
+
+[comment]: # "!!!"
+
+## Images
+
+![FP on sphere (from path)](../media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
 [comment]: <> (!!!)
 
