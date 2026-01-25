@@ -40,13 +40,20 @@ The file `build.py` on the other hand contains the function that gathers all sli
 The layout is:
 
 ```bash
-TARGET_OUTPUT/dist/...
-TARGET_OUTPUT/plugin/...
-TARGET_OUTPUT/highlightjs/highlight.js
 TARGET_OUTPUT/assets/...
+TARGET_OUTPUT/dist/...
+TARGET_OUTPUT/highlightjs/highlight.js
+TARGET_OUTPUT/media/...
+TARGET_OUTPUT/plugin/...
 TARGET_OUTPUT/<talk_name>/index.html
+TARGET_OUTPUT/index.html
 ```
 
+This has to be kept in mind when referencing to a specific asset (inside a talk index, or inside the home index).
+For example writing in a specific `slides.md` `![FP on sphere](media/images/fokker-plank-wuerzburg.jpg)` emits this verbatim into HTML: `<img src="media/images/fokker-plank-wuerzburg.jpg">
+`. However that path is interpreted as `<location of slide index.html>/media/images/...`. Therefore, one should use `../media/images/fokker-plank-wuerzburg.jpg`, or prepend that adjustement.
+
+When
 ## User Guide
 
 1. Install Python libraries.
