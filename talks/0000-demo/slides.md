@@ -235,7 +235,7 @@ We can also use HTML with a standard `<img>` tag.
 - **B**: Pause/resume presentation (or period `.`)
 - **M**: Navigation menu (if the `reveal.js-menu` plugin is installed)
 - **N**: Next slide navigation
-- **?**: Help overlay with all available shortcuts
+- **?**: Help overlay with all available shortcuts (or `Fn+1`)
 - **Ctrl + Click**: Zoom into a specific element
 - **Space**: Next slide or fragment
 - **Shift + Arrows**: Jump to the first or last slide in that direction
