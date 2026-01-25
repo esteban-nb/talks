@@ -224,3 +224,34 @@ We can also use HTML with a standard `<img>` tag.
 <!-- !!! -->
 
 ## Keyboard Bindings
+
+- **O**: Overview mode (or `Esc`)
+- **P**: Previous slide navigation
+- **S**: Speaker view window
+- **F**: Full screen mode (if not already full screan via browser shortcut, e.g., `Fn+11`)
+- **G**: Jump to slide prompt (indicate slide number, use slash `/` to specify vertical slides)
+- **H**: Left slide navigation (Vim-style)
+- **L**: Right slide navigation (Vim-style)
+- **B**: Pause/resume presentation (or period `.`)
+- **M**: Navigation menu (if the `reveal.js-menu` plugin is installed)
+- **N**: Next slide navigation
+- **?**: Help overlay with all available shortcuts
+- **Ctrl + Click**: Zoom into a specific element
+- **Space**: Next slide or fragment
+- **Shift + Arrows**: Jump to the first or last slide in that direction
+- **Alt + Arrows**: Skip all fragments on a slide and jump directly to the next/previous slide
+
+<!-- ||| -->
+
+## Keyboard Bindings
+
+To add a shortcut that isn't included by default, use the keyboard config option in initialization:
+
+```javascript
+Reveal.initialize({
+  keyboard: {
+    13: 'next', // Enter key goes to next slide
+    67: () => { console.log('Custom action for C key'); } // Custom function
+  }
+});
+```
