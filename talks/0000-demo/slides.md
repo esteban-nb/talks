@@ -23,12 +23,12 @@ This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
 
 ## Different Blocks
 
-::: example | Block Title
-This is a `example` block.
+::: donot | Block Title
+This is a `donot` block.
 :::
 
-::: info | Block Title
-This is a `info` block.
+::: alert | Block Title
+This is a `alert` block.
 :::
 
 ::: zoom | Block Title
@@ -39,13 +39,18 @@ This is a `zoom` block.
 
 ## Different Blocks
 
+::: info | Block Title
+This is a `info` block.
+:::
+
+::: example | Block Title
+This is a `example` block.
+:::
+
 ::: note | Block Title
 This is a `note` block.
 :::
 
-::: alert | Block Title
-This is a `alert` block.
-:::
 
 <!-- !!! -->
 
