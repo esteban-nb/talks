@@ -102,6 +102,8 @@ jobs:
   display-demo:
     needs: build
     runs-on: ubuntu-latest
+    env:
+      TARGET_DIR: ${{ github.event.inputs.target_dir || 'slides' }}
     steps:
       - name: Display demo HTML
         run: cat ./${{ env.TARGET_DIR }}/0000-demo/index.html
