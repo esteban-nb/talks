@@ -98,3 +98,10 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  display-demo:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display demo HTML
+        run: cat ./${{ env.TARGET_DIR }}/0000-demo/index.html
