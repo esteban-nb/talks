@@ -54,6 +54,7 @@ For example writing in a specific `slides.md` `![FP on sphere](media/images/fokk
 `. However that path is interpreted as `<location of slide index.html>/media/images/...`. Therefore, one should use `../media/images/fokker-plank-wuerzburg.jpg`, or prepend that adjustement.
 
 When
+
 ## User Guide
 
 1. Install Python libraries.
