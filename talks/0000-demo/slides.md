@@ -147,13 +147,13 @@ Display media including images, videos and animations.
 
 <div class="two-cols">
   <div data-markdown>
-    ## Left Column
+    ### Left Column
     - Item 1
     - Item 2
     - Item 3
   </div>
   <div data-markdown>
-    ## Right Column  
+    ### Right Column  
     - Item A
     - Item B
     - Item C
