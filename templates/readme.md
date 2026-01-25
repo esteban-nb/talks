@@ -9,11 +9,11 @@ Different blocks (from darkest to lightest mono):
 
 Maths:
 
-- Theorem (THM)
-- Definition (DEF)
-- Proposition (PRP)
-- Lemmas (LEM)
-- Corollaries (COR)
+- Theorem (THM, red)
+- Proposition (PRP, yellow)
+- Lemmas (LEM, purple)
+- Corollaries (COR, blue)
+- Definition (DEF, green)
 
 Code highlight per mode:
 
