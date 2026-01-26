@@ -8,15 +8,15 @@
   <title>{{TITLE}}</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- Reveal.js core CSS (shared at ../ level) -->
-  <link rel="stylesheet" href="../dist/reset.css">
-  <link rel="stylesheet" href="../dist/reveal.css">
+  <!-- Reveal.js core CSS -->
+  <link rel="stylesheet" href="@dist/reset.css">
+  <link rel="stylesheet" href="@dist/reveal.css">
 
   <!-- Custom assets -->
-  <link rel="stylesheet" href="../assets/slides-style.css">
+  <link rel="stylesheet" href="@assets/slides-style.css">
 
   <!-- Highlight.js code theme (default fallback) -->
-  <link rel="stylesheet" href="../highlightjs/styles/github.min.css" id="highlight-theme">
+  <link rel="stylesheet" href="@highlightjs/styles/github.min.css" id="highlight-theme">
 </head>
 
 <body data-theme="light">
@@ -40,22 +40,22 @@
     </div>
   </div>
 
-  <!-- Reveal.js core JS (shared at ../ level) -->
-  <script src="../dist/reveal.js"></script>
+  <!-- Reveal.js core JS -->
+  <script src="@dist/reveal.js"></script>
 
   <!-- Essential plugins -->
-  <script src="../plugin/notes/notes.js"></script>
-  <script src="../plugin/search/search.js"></script>
-  <script src="../plugin/markdown/markdown.js"></script>
-  <script src="../plugin/highlight/highlight.js"></script>
-  <script src="../plugin/math/math.js"></script>
-  <script src="../plugin/zoom/zoom.js"></script>
+  <script src="@plugin/notes/notes.js"></script>
+  <script src="@plugin/search/search.js"></script>
+  <script src="@plugin/markdown/markdown.js"></script>
+  <script src="@plugin/highlight/highlight.js"></script>
+  <script src="@plugin/math/math.js"></script>
+  <script src="@plugin/zoom/zoom.js"></script>
 
   <!-- Shared highlight.js engine -->
-  <script src="../highlightjs/highlight.js"></script>
+  <script src="@highlightjs/highlight.js"></script>
 
   <!-- Shared theme toggle logic -->
-  <script src="../assets/ldm-toggle.js"></script>
+  <script src="@assets/ldm-toggle.js"></script>
 
   <!-- Highlight theme mode sync -->
   <script>
@@ -72,7 +72,7 @@
       const theme = HIGHLIGHT_BY_MODE[mode];
       if (!theme) return;
 
-      const href = `../highlightjs/styles/${theme}.min.css`;
+      const href = `@highlightjs/styles/${theme}.min.css`;
       if (link.getAttribute('href') === href) return;
 
       link.setAttribute('href', href);

@@ -83,6 +83,9 @@ def build_all_talks():
             print(f"Skipping: {talk_name} (no slides.md or excluded)")
             continue
 
+        rel_depth = len(talk_path.relative_to(TALKS_DIR).parts)
+        depth = "../" * rel_depth
+
         # Output dir (unhashed)
         target_dir = OUTPUT_DIR / talk_name
         target_dir.mkdir(parents=True, exist_ok=True)
@@ -91,6 +94,14 @@ def build_all_talks():
 
         # Preprocessing (blocks, yaml, delimiters)
         html_content = process_markdown_to_html(md_file, TEMPLATE_PATH)
+        
+        # Situate shared elements (media, assets, dist, plugin) 
+        html_content = html_content.replace("@media", f"{depth}media")
+        html_content = html_content.replace("@assets", f"{depth}assets")
+        html_content = html_content.replace("@dist", f"{depth}dist")
+        html_content = html_content.replace("@plugin", f"{depth}plugin")
+        html_content = html_content.replace("@highlightjs", f"{depth}highlightjs")
+
         (target_dir / "index.html").write_text(html_content)
 
         # Extract display name from YAML frontmatter for generate-index.sh
