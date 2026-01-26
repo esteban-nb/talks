@@ -338,7 +338,8 @@ body[data-theme="mono"] {
   margin-right: auto !important;
   font-size: 0.55em;
   line-height: 1.2em;
-  text-align: left;
+  align-self: center;
+  text-align: left !important;
   overflow: auto;
   border-radius: 3px;
   word-wrap: break-word;
@@ -362,6 +363,7 @@ body[data-theme="mono"] {
 }
 
 .reveal pre code {
+  text-align: left !important;
   display: block;
   padding: 5px;
   overflow: auto;
