@@ -175,7 +175,7 @@ We can also use HTML with a standard `<img>` tag.
   <p>Click the image above to visit <a href="https://doi.org/10.1007/978-1-4939-3028-9" target="_blank">Healy et al.</a>.</p>
 </section>
 
-[comment]: <> (||| raw:)
+[comment]: <> (!!! raw:)
 
 <h2>Grid Layout</h2>
 
