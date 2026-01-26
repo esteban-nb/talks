@@ -135,7 +135,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 [comment]: # "!!!"
 
-## Images from URL
+## Image from URL
 
 ![FP on sphere (from link)](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg)
 
@@ -150,7 +150,7 @@ Either use `https://raw.githubusercontent.com/` or append `?raw=true` at the end
 
 [comment]: # "|||"
 
-## Images from URL
+## Image from URL
 
 <figure>
   <img src="https://github.com/esteban-nb/talks/blob/main/media/images/fokker-planck-wuerzburg.jpg?raw=true" alt="FP on sphere (from link)">
@@ -161,9 +161,19 @@ We can also use HTML with a standard `<img>` tag.
 
 [comment]: # "|||"
 
-## Images from Path
+## Image from Path
 
 ![FP on sphere (from path)](../media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
+
+[comment]: # "||| raw:"
+
+<section>
+  <h2>Clickable Image</h2>
+  <a href="https://link.springer.com/book/10.1007/978-1-4939-3028-9" target="_blank" rel="noopener noreferrer">
+    <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-1-4939-3028-9?as=webp" alt="Linear Canonical Transforms Book Cover" style="max-width: 25%; height: auto;">
+  </a>
+  <p>Click the image above to visit [Healy et al.](https://doi.org/10.1007/978-1-4939-3028-9).</p>
+</section>
 
 [comment]: <> (!!! raw:)
 
