@@ -331,8 +331,10 @@ body[data-theme="mono"] {
 .reveal pre {
   display: block;
   position: relative;
-  width: 90%;
-  margin: var(--core-margin) auto;
+  width: fit-content; 
+  min-width: 30ch;
+  max-width: 90%;
+  margin: auto;
   font-size: 0.55em;
   line-height: 1.2em;
   text-align: left;
@@ -368,6 +370,9 @@ body[data-theme="mono"] {
 
 .reveal .code-wrapper {
   white-space: normal;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .reveal .code-wrapper code {
