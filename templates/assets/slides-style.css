@@ -413,7 +413,8 @@ body[data-theme="mono"] {
  * ----------------------------------------------------- */
 
 .reveal table {
-  margin: auto;
+  margin: 0 auto !important;
+  display: table !important;
   border-collapse: collapse;
   border-spacing: 0;
 }
