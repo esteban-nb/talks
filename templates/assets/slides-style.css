@@ -159,22 +159,12 @@ body[data-theme="mono"] {
  * GRID DISPLAY
  * ----------------------------------------------------- */
 
- .two-cols {
-  --col1-width: 1fr;
-  --col2-width: 1fr;
-  --cols-gap: 2em;
-
-  display: grid;
-  grid-template-columns: var(--col1-width) var(--col2-width);
-  gap: var(--cols-gap);
-  text-align: left;
-}
-
 .grid {
   display: grid;
   grid-template-columns: var(--cols, 1fr);
   column-gap: var(--gap-cols, 2em);
   row-gap: var(--gap-rows, 1em);
+  text-align: left;
   align-items: start;
   width: 100%;
 }
