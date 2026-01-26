@@ -156,7 +156,7 @@ body[data-theme="mono"] {
 }
 
 /* -------------------------------------------------------
- * TWO-COLUMN DISPLAY
+ * GRID DISPLAY
  * ----------------------------------------------------- */
 
  .two-cols {
@@ -168,6 +168,15 @@ body[data-theme="mono"] {
   grid-template-columns: var(--col1-width) var(--col2-width);
   gap: var(--cols-gap);
   text-align: left;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--cols, 1fr);
+  column-gap: var(--gap-cols, 2em);
+  row-gap: var(--gap-rows, 1em);
+  align-items: start;
+  width: 100%;
 }
 
 /* -------------------------------------------------------
