@@ -323,6 +323,10 @@ body[data-theme="mono"] {
   font-style: italic;
 }
 
+.reveal .backgrounds video {
+  object-fit: cover;
+}
+
 /* -------------------------------------------------------
  * CODE
  * ----------------------------------------------------- */
