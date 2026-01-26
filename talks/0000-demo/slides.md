@@ -165,6 +165,8 @@ We can also use HTML with a standard `<img>` tag.
 
 ![FP on sphere (from path)](@media/images/fokker-planck-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
+Use `@media` to refer to the shared folder.
+
 [comment]: # "||| raw:"
 
 <section>
