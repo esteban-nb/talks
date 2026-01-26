@@ -163,7 +163,7 @@ We can also use HTML with a standard `<img>` tag.
 
 ## Image from Path
 
-![FP on sphere (from path)](@media/images/fokker-plank-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
+![FP on sphere (from path)](@media/images/fokker-planck-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
 
 [comment]: # "||| raw:"
 
