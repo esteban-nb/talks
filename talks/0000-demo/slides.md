@@ -229,19 +229,19 @@ Use &commat;media to refer to the shared folder.
 
 <!-- !!! data-background-color="#ff0000" -->
 
-## Bacground Color...
+## Bacground Color... <!-- .element: style="color: white;" -->
 
 <!-- !!! data-background-image="@media/images/fokker-planck-wuerzburg.jpg" -->
 
 ## ...Background Image... <!-- .element: style="color: black;" -->
 
-<!-- !!! data-background-video="@media/videos/moving-dots.mp4" -->
+<!-- !!! data-background-video="@media/videos/moving-dots.mp4" data-background-video-loop -->
 
 ## ...and Background Video <!-- .element: style="color: black;" -->
 
-<!-- !!! raw: data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI" data-background-interactive -->
+<!-- !!! data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI" data-background-interactive -->
 
-<h2 style="color: #fff;">Iframe Background</h2>
+## Iframe Background <!-- .element: style="color: white;" -->
 
 <!-- !!! -->
 
