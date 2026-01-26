@@ -223,13 +223,21 @@ Use &commat;media to refer to the shared folder.
   </div>
 </div>
 
-[//]: # "!!!"
+[//]: # "|||"
 
-## Background Images...
+## Color Themes
 
-<!-- !!! -->
+<!-- !!! data-background-color="#ff0000" -->
 
-## ... and Background Videos
+## Bacground Color...
+
+<!-- !!! data-background-image="@media/images/fokker-planck-wuerzburg.jpg" -->
+
+## ...Background Image...
+
+<!-- !!! data-background-video="@media/videos/moving-dots.mp4" -->
+
+## ...and Background Video
 
 <!-- !!! raw: data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI" data-background-interactive -->
 
