@@ -232,7 +232,6 @@ We can also use HTML with a standard `<img>` tag.
   </div>
 </div>
 
-
 [//]: # "!!!"
 
 ## Background Images...
