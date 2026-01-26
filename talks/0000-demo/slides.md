@@ -175,62 +175,49 @@ We can also use HTML with a standard `<img>` tag.
   <p>Click the image above to visit <a href="https://doi.org/10.1007/978-1-4939-3028-9" target="_blank">Healy et al.</a>.</p>
 </section>
 
-[comment]: <> (!!! raw:)
-
-<h2>Two Columns Slides</h2>
-
-<div class="two-cols">
-  <div data-markdown>
-    <script type="text/template">
-      ### Left Column
-      - Item 1
-      - Item 2
-      - Item 3
-    </script>
-  </div>
-  <div data-markdown>
-    <script type="text/template">
-      ### Right Column  
-      - Item A
-      - Item B
-      - Item C
-    </script>
-  </div>
-</div>
-
-<div class="two-cols" style="--col1-width: 30%; --col2-width: 70%; --cols-gap:5em">
-  <div data-markdown>
-    ### Left Column @30%
-    - Item 1
-    - Item 2
-    - Item 3
-  </div>
-  <div data-markdown>
-    ### Right Column @70%
-    - Item A
-    - Item B
-    - Item C
-  </div>
-</div>
-
 [comment]: <> (||| raw:)
 
-<h2>Custom Grid Layout</h2>
+<h2>Grid Layout</h2>
 
 <!-- Root Grid: One column by default (acts as a vertical stack) -->
 <div class="grid" style="--gap-rows: 2em;">
 
   <!-- "Row 1": 30/70 split -->
   <div class="grid" style="--cols: 0.3fr 0.7fr;">
-    <div>Left Content</div>
-    <div>Right Content</div>
+    <div data-markdown>
+      Left Content
+      - Item 1
+      - Item 2
+      - Item 3
+    </div>
+    <div data-markdown>
+      Right Content
+      - Item 1
+      - Item 2
+      - Item 3
+    </div>
   </div>
 
   <!-- "Row 2": three equal columns -->
   <div class="grid" style="--cols: 1fr 1fr 1fr;">
-    <div>Box A</div>
-    <div>Box B</div>
-    <div>Box C</div>
+    <div data-markdown>
+      Box A
+      - Item A
+      - Item B
+      - Item C
+    </div>
+    <div data-markdown>
+      Box B
+      - Item A
+      - Item B
+      - Item C
+    </div>
+    <div data-markdown>
+      Box C
+      - Item A
+      - Item B
+      - Item C
+    </div>
   </div>
 </div>
 
