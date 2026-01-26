@@ -16,7 +16,7 @@ CONFIG_PATH = PROJECT_ROOT / ".github/talks-config.yml"
 
 def setup_shared_vendor_assets():
     """
-    Copies required assets from Git submodules into the root of the slides directory.
+    Copies required assets from Git submodules into the root of the output directory.
     Retains your defensive logic to ensure submodules exist.
     """
     reveal_src = VENDOR_DIR / "reveal.js"
@@ -54,7 +54,7 @@ def setup_shared_vendor_assets():
 
 def build_all_talks():
     """
-    Build unhashed directories (slides/talk_name/index.html).
+    Build unhashed directories (OUTPUT_DIR/talk_name/index.html).
     Hashing/indexing done by generate-index.sh.
     """
     # Load CI config
@@ -90,7 +90,7 @@ def build_all_talks():
         target_dir = OUTPUT_DIR / talk_name
         target_dir.mkdir(parents=True, exist_ok=True)
 
-        print(f"Building: {talk_name} -> slides/{talk_name}/")
+        print(f"Building: {talk_name} -> {TARGET_OUTPUT}/{talk_name}/")
 
         # Preprocessing (blocks, yaml, delimiters)
         html_content = process_markdown_to_html(md_file, TEMPLATE_PATH)
