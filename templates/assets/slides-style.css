@@ -290,21 +290,15 @@ body[data-theme="mono"] {
  * IMAGES & MEDIA
  * ----------------------------------------------------- */
 
-/* Ensure certain elements are never larger than the slide itself */
 .reveal img,
-.reveal video,
-.reveal iframe {
-  margin: var(--core-margin) 0;
-  max-width: 95%;
-  max-height: 95%;
-}
-
-.reveal img {
+.reveal video {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: auto;
   height: auto;
+  max-width: 95%;
+  max-height: 95%;
   object-fit: contain;
 }
 
@@ -323,8 +317,23 @@ body[data-theme="mono"] {
   font-style: italic;
 }
 
-.reveal .backgrounds video {
-  object-fit: cover;
+/* Backgrounds */
+.reveal .backgrounds video,
+.reveal .backgrounds img {
+  object-fit: cover !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+.reveal .backgrounds iframe {
+  width: 100vw !important;
+  height: 100vh !important;
+  border: none;
+  margin: 0 !important;
+}
+
+.reveal .backgrounds {
+  background-color: transparent !important;
 }
 
 /* -------------------------------------------------------
