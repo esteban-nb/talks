@@ -172,7 +172,7 @@ We can also use HTML with a standard `<img>` tag.
   <a href="https://link.springer.com/book/10.1007/978-1-4939-3028-9" target="_blank" rel="noopener noreferrer">
     <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-1-4939-3028-9?as=webp" alt="Linear Canonical Transforms Book Cover" style="max-width: 25%; height: auto;">
   </a>
-  <p>Click the image above to visit [Healy et al.](https://doi.org/10.1007/978-1-4939-3028-9).</p>
+  <p>Click the image above to visit <a href="https://doi.org/10.1007/978-1-4939-3028-9" target="_blank">Healy et al.</a>.</p>
 </section>
 
 [comment]: <> (!!! raw:)
