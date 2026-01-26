@@ -103,7 +103,7 @@ This will only appear in the speaker view!
 In particular, any metric space can be completed by adding the limits of all its Cauchy sequences.
 For example, real numbers are constructed by defining them as equivalence classes of Cauchy sequences of rational numbers (Cauchy reals), filling the gaps in $\mathbb{Q}$.
 
-<!-- !!! -->
+<!-- ||| -->
 
 ## Math Blocks
 
