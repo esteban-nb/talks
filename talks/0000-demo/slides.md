@@ -163,9 +163,9 @@ We can also use HTML with a standard `<img>` tag.
 
 ## Image from Path
 
-![FP on sphere (from path)](@media/images/fokker-planck-wuerzburg.jpg) <!-- .element: style="height:50vh; max-width:80vw; image-rendering: crisp-edges;" -->
+![FP on sphere (from path)](@media/images/fokker-planck-wuerzburg.jpg) <!-- .element: style="width: 70%; max-height: 400px; image-rendering: crisp-edges;" -->
 
-Use `@media` to refer to the shared folder.
+Use &commat;media to refer to the shared folder.
 
 [comment]: # "||| raw:"
 
