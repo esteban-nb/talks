@@ -213,6 +213,26 @@ We can also use HTML with a standard `<img>` tag.
   </div>
 </div>
 
+[comment]: <> (||| raw:)
+
+<h2>Custom Grid Layout</h2>
+
+<div class="custom-grid" style="--gap-cols: 2em; --gap-rows: 1em;">
+  <!-- Row 1: [.3, .7] -->
+  <div class="grid-row" style="--cols: 0.3fr 0.7fr;">
+    <div class="grid-item">Row 1 - Col 1 (30%)</div>
+    <div class="grid-item">Row 1 - Col 2 (70%)</div>
+  </div>
+
+  <!-- Row 2: [1, 1, 1] -->
+  <div class="grid-row" style="--cols: 1fr 1fr 1fr;">
+    <div class="grid-item">Row 2 - Col 1 (33%)</div>
+    <div class="grid-item">Row 2 - Col 2 (33%)</div>
+    <div class="grid-item">Row 2 - Col 3 (33%)</div>
+  </div>
+</div>
+
+
 [//]: # "!!!"
 
 ## Background Images...
