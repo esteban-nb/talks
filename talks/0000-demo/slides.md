@@ -68,12 +68,12 @@ And ordered lists:
 1. First item?
 1. Third item
 
-
 <!-- !!! -->
 
 ## Slide Delimiters
 
 ### Horizontal Slides
+
 - &lt;&excl;&ndash;&ndash; &excl;&excl;&excl; &ndash;&ndash;&gt;
 - &lbrack;comment&rbrack;&colon; &num; &quot;&excl;&excl;&excl;&quot;
 - &lbrack;comment&rbrack;&colon; &num; &lpar;&excl;&excl;&excl;&rpar;
