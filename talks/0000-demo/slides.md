@@ -258,7 +258,7 @@ Use &commat;media to refer to the shared folder.
 
 ## Color Themes
 
-[//]: # (!!!)
+[//]: # "!!!"
 
 ## Fragments
 
@@ -271,7 +271,7 @@ Use &commat;media to refer to the shared folder.
 - Finally, this is the main focus.
 <!-- .element: class="fragment" -->
 
-[//]: # (|||)
+[//]: # "|||"
 
 ## Fragments
 
@@ -286,7 +286,7 @@ Use &commat;media to refer to the shared folder.
 - I also appear first
 <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
 
-[//]: # (|||)
+[//]: # "|||"
 
 ## Fragments
 
@@ -299,13 +299,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <div class="fragment semi-fade-out" data-fragment-index="2">
 
 ### Group Title
+
 - Line one
 - Line two
 - Line three
 
 </div>
 
-[//]: # (|||)
+[//]: # "|||"
 
 ## Fragments
 
@@ -319,7 +320,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
   </span>
 </span>
 
-[//]: # (|||)
+[//]: # "|||"
 
 ## Fragments
 
