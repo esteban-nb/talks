@@ -206,7 +206,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 ```js [1-2|3|4]
 let a = 1;
 let b = 2;
-let c = x => 1 + 2 + x;
+let c = (x) => 1 + 2 + x;
 c(3);
 ```
 
