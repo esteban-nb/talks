@@ -68,6 +68,28 @@ And ordered lists:
 1. First item?
 1. Third item
 
+
+<!-- !!! -->
+
+## Slide Delimiters
+
+### Horizontal Slides
+- &lt;&excl;&ndash;&ndash; &excl;&excl;&excl; &ndash;&ndash;&gt;
+- &lbrack;comment&rbrack;&colon; &num; &quot;&excl;&excl;&excl;&quot;
+- &lbrack;comment&rbrack;&colon; &num; &lpar;&excl;&excl;&excl;&rpar;
+- &lbrack;comment&rbrack;&colon; &lt;&gt; &lpar;&excl;&excl;&excl;&rpar;
+- &lbrack;&sol;&sol;&rbrack;&colon; &num; &quot;&excl;&excl;&excl;&quot;
+- &lbrack;&sol;&sol;&rbrack;&colon; &num; &lpar;&excl;&excl;&excl;&rpar;
+
+### Vertical Slides
+
+- &lt;&excl;&ndash;&ndash; &vert;&vert;&vert; &ndash;&ndash;&gt;
+- &lbrack;comment&rbrack;&colon; &num; &quot;&vert;&vert;&vert;&quot;
+- &lbrack;comment&rbrack;&colon; &num; &lpar;&vert;&vert;&vert;&rpar;
+- &lbrack;comment&rbrack;&colon; &lt;&gt; &lpar;&vert;&vert;&vert;&rpar;
+- &lbrack;&sol;&sol;&rbrack;&colon; &num; &quot;&vert;&vert;&vert;&quot;
+- &lbrack;&sol;&sol;&rbrack;&colon; &num; &lpar;&vert;&vert;&vert;&rpar;
+
 <!-- !!! -->
 
 ## Math Rendering
