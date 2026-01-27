@@ -199,6 +199,19 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 [comment]: # "!!!"
 
+## Code Blocks
+
+### Sequential Display
+
+```js [1-2|3|4]
+let a = 1;
+let b = 2;
+let c = x => 1 + 2 + x;
+c(3);
+```
+
+[comment]: # "!!!"
+
 ## Image from URL
 
 ![FP on sphere (from link)](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg) <!-- .element: style="width: 70%;" -->
