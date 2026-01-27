@@ -1,6 +1,6 @@
 ## Reveal.js and HTML Crash Course
 
-Add HTML attributes (like classes, IDs, or fragments) directly to Markdown elements using a special trailing syntax: 
+Add HTML attributes (like classes, IDs, or fragments) directly to Markdown elements using a special trailing syntax:
 
 ```
 <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -19,11 +19,11 @@ Use HTML line breaks:
 - For precise control, use an HTML element like a `<div>` or `<span>` with inline styles to define a specific height: `<div style="height:100px"></div>`.
 - To automatically push other content apart by filling all available remaining space on the slide, use the .r-stretch class: `<!-- .element: class="r-stretch" -->`.
 
-Indeed, Reveal.js provides built-in CSS classes to handle common layout challenges: 
+Indeed, Reveal.js provides built-in CSS classes to handle common layout challenges:
 
 - `.r-stretch`: Automatically resizes an element (like an image or iframe) to fill the remaining vertical space on the slide.
 - `.r-stack`: Centers multiple elements on top of one another, which is ideal for showing images or text sequentially using fragments.
-- `.r-fit-text`: Scales text to be as large as possible without overflowing the slide. 
+- `.r-fit-text`: Scales text to be as large as possible without overflowing the slide.
 
 Use HTML tables, links, figures, etc.
 
