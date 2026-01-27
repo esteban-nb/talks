@@ -266,6 +266,7 @@ Use &commat;media to refer to the shared folder.
 <!-- !!! data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI?rel=0&modestbranding=1" data-background-interactive -->
 
 <!-- .slide: style="color: white;" -->
+
 ## Iframe Background
 
 Use `?rel=0&modestbranding=1` at the end of the link to limits the related videos and remove the YouTube logo from the control bar.
