@@ -70,6 +70,14 @@ And ordered lists:
 
 <!-- !!! -->
 
+## Internal slide Links
+
+- Use hash:
+  <a href="#/6/3" target="_self">Go to slide</a>
+- Use labels:
+
+<!-- !!! -->
+
 ## Slide Delimiters
 
 ### Horizontal Slides
