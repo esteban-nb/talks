@@ -74,7 +74,6 @@ And ordered lists:
 
 - Use hash:
   <a href="#/6/3" target="_self">Go to slide</a>
-  Don't for get to add `target="_self"` since by default, it will open a new tab: <a href="#/6/3">Go to slide</a>
 - Use labels:
 
 <!-- !!! -->
