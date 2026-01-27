@@ -152,10 +152,19 @@ body[data-theme="mono"] {
 .reveal .slides section {
   padding: var(--slide-gutter-y) var(--slide-gutter-x);
   box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
-  align-items: flex-start;     /* horizontal */
-  justify-content: flex-start; /* vertical */
+
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  top: 0 !important;
+  transform: none !important;
+}
+
+.reveal .slides section > :first-child {
+  margin-top: 0;
 }
 
 .reveal ::selection {
