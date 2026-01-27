@@ -163,6 +163,39 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
     return x, False
 ```
 
+[comment]: # "|||"
+
+## Code Blocks
+
+### Sequential Display
+
+```python [1-2|11,13-14|6-9|12,15-16|17]
+def newton_update(f, J; x0, tol=1e-10, max_iter=50):
+    """Perform Newton update for solving f(x) = 0 where f: R^n -> R^n."""
+    x = x0.copy()
+    for i in range(max_iter):
+        fx = f(x)
+        res_norm = np.linalg.norm(fx)
+        if res_norm < tol:
+            return x, True
+
+        Jx = J(x)
+        try:
+            delta = solve(Jx, -fx)  # Solve J δ = -f(x)
+            x += delta
+        except np.linalg.LinAlgError:
+            return x, False
+
+    return x, False
+```
+
+### How this works:
+*   **Step 1 (`1-2`):** Defines the inputs ($f$, the Jacobian $J$, and initial guess $x_0$).
+*   **Step 2 (`10,12-13`):** Jumps straight to the main part of the algorithm, highlighting lines 11, 13, and 14.
+*   **Step 3 (`5-8`):** Explains the convergence check ($|f(x)| < \text{tol}$) after the student understands how $x$ is updated.
+*   **Step 4 (`11,14-15`):** Introduces real-world robustness (the `try/except` block) only after the ideal case is understood.
+*   **Step 5 (`17`):** Returns.
+
 [comment]: # "!!!"
 
 ## Image from URL
