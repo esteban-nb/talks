@@ -614,8 +614,6 @@ body[data-theme="mono"] {
  * MODE TOGGLE
  * ----------------------------------------------------- */
 
-/* TODO. Change back the `color`:
-   orange when light, black when mono, white when dark */
 #mode-toggle-container {
   position: fixed;
   top: 25px;
@@ -623,6 +621,17 @@ body[data-theme="mono"] {
   z-index: 1000;
   cursor: pointer;
   color: var(--title);
+}
+
+/* Icon color update */
+body[data-theme="light"] #theme-icon {
+  color: var(--core-orange);
+}
+body[data-theme="mono"] #theme-icon {
+  color: #000000;
+} 
+body[data-theme="dark"] #theme-icon {
+  color: #FFFFFF;
 }
 
 /* Animation */
