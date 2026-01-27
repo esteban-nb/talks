@@ -271,6 +271,7 @@ Use &commat;media to refer to the shared folder.
 
 Use `?rel=0&modestbranding=1` at the end of the link to limits the related videos and remove the YouTube logo from the control bar.
 For complete control, use `enablejsapi=1` to use the YouTube IFrame Player API to detect when a video ends and hide the iframe.
+See more on the [media](https://revealjs.com/media/) and [backgrounds](https://revealjs.com/backgrounds/) documentation.
 
 <!-- !!! -->
 
