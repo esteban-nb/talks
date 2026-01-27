@@ -368,22 +368,18 @@ body[data-theme="mono"] {
 }
 
 /* Backgrounds */
-.reveal .backgrounds video,
-.reveal .backgrounds img {
-  object-fit: cover !important;
-  width: 100vw !important;
-  height: 100vh !important;
+.reveal .backgrounds {
+  background-color: transparent !important;
 }
 
+.reveal .backgrounds video,
+.reveal .backgrounds img,
 .reveal .backgrounds iframe {
+  object-fit: cover !important;
   width: 100vw !important;
   height: 100vh !important;
   border: none;
   margin: 0 !important;
-}
-
-.reveal .backgrounds {
-  background-color: transparent !important;
 }
 
 /* -------------------------------------------------------
