@@ -269,9 +269,17 @@ Use &commat;media to refer to the shared folder.
 
 ## Iframe Background
 
-Use `?rel=0&modestbranding=1` at the end of the link to limits the related videos and remove the YouTube logo from the control bar.
+- `rel=0`: Limits suggestions to your own channel.
+- `modestbranding=1`: Removes the YouTube logo from the control bar.
+- `controls=0`: Hides playback controls to reduce UI noise.
+- `iv_load_policy=3`: Hides video annotations.
+
 For complete control, use `enablejsapi=1` to use the YouTube IFrame Player API to detect when a video ends and hide the iframe.
 See more on the [media](https://revealjs.com/media/) and [backgrounds](https://revealjs.com/backgrounds/) documentation.
+
+<!-- !!! data-background-iframe="https://peertube.tv/videos/embed/d2bf34fc-6cee-455e-86dc-b7e8979fd1a2" data-background-interactive -->
+
+Explore different hosting platforms and frontend options (e.g., PeerTube, AVideo, Odysee, Invidious, Piped, etc.)
 
 <!-- !!! -->
 
