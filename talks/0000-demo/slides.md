@@ -263,9 +263,13 @@ Use &commat;media to refer to the shared folder.
 
 ## ...and Background Video <!-- .element: style="color: black;" -->
 
-<!-- !!! data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI" data-background-interactive -->
+<!-- !!! data-background-iframe="https://www.youtube.com/embed/h1_nyI3z8gI?rel=0&modestbranding=1" data-background-interactive -->
 
-## Iframe Background <!-- .element: style="color: white;" -->
+<!-- .slide: style="color: white;" -->
+## Iframe Background
+
+Use `?rel=0&modestbranding=1` at the end of the link to limits the related videos and remove the YouTube logo from the control bar.
+For complete control, use `enablejsapi=1` to use the YouTube IFrame Player API to detect when a video ends and hide the iframe.
 
 <!-- !!! -->
 
