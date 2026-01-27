@@ -160,6 +160,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 ## Image from URL
 
 ![FP on sphere (from link)](https://raw.githubusercontent.com/esteban-nb/talks/main/media/images/fokker-planck-wuerzburg.jpg) <!-- .element: style="width: 70%;" -->
+
 <figcaption>Visible Caption Text</figcaption>
 
 Display media including images, videos and animations.
