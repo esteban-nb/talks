@@ -81,7 +81,7 @@ And ordered lists:
 - &lbrack;&sol;&sol;&rbrack;&colon; &num; &quot;&excl;&excl;&excl;&quot;
 - &lbrack;&sol;&sol;&rbrack;&colon; &num; &lpar;&excl;&excl;&excl;&rpar;
 
-<br><br>
+<br>
 
 ### Vertical Slides
 
