@@ -258,6 +258,79 @@ Use &commat;media to refer to the shared folder.
 
 ## Color Themes
 
+[//]: # (!!!)
+
+## Fragments
+
+- First, we look at this.
+<!-- .element: class="fragment semi-fade-out" -->
+
+- Then, this appears and the first one dims.
+<!-- .element: class="fragment semi-fade-out" -->
+
+- Finally, this is the main focus.
+<!-- .element: class="fragment" -->
+
+[//]: # (|||)
+
+## Fragments
+
+### Custom Order
+
+- I appear first
+<!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+- I appear second
+<!-- .element: class="fragment semi-fade-out" data-fragment-index="2" -->
+
+- I also appear first
+<!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+
+[//]: # (|||)
+
+## Fragments
+
+### Grouped Fragments
+
+::: {.fragment .fade-out data-fragment-index="1"}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+:::
+
+<div class="fragment semi-fade-out" data-fragment-index="2">
+
+### Group Title
+- Line one
+- Line two
+- Line three
+
+</div>
+
+[//]: # (|||)
+
+## Fragments
+
+### Use `span`
+
+<span class="fragment fade-in" data-fragment-index="2">
+  <span class="fragment fade-out" data-fragment-index="1">
+    
+    ![FP on sphere](https://www.mathematik.uni-wuerzburg.de/fileadmin/_processed_/5/6/csm_LS09-t014_Forschung-FokkerPlanck_ccdd328e7b.jpg) <!-- .element: style="width: 70%;" -->
+    
+  </span>
+</span>
+
+[//]: # (|||)
+
+## Fragments
+
+### Use `r-stack`
+
+<div class="r-stack">
+  ![Figure A](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp) <!-- .element: class="fragment fade-out" data-fragment-index="1" -->
+  ![Figure B](https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp) <!-- .element: class="fragment" data-fragment-index="1" -->
+  ![Figure C](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp) <!-- .element: class="fragment" data-fragment-index="3" -->
+</div>
+
 <!-- !!! data-background-color="#ff0000" -->
 
 ## Bacground Color... <!-- .element: style="color: white;" -->
