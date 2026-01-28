@@ -361,9 +361,31 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 ## Stacks
 
 <div class="r-stack">
-  ![Figure A](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp) <!-- .element: class="fragment fade-out" data-fragment-index="1" -->
-  ![Figure B](https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp) <!-- .element: class="fragment" data-fragment-index="1" -->
-  ![Figure C](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp) <!-- .element: class="fragment" data-fragment-index="3" -->
+  <img class="fragment" data-fragment-index="1" 
+       src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp" 
+       style="width: 40%;">
+       
+  <img class="fragment" data-fragment-index="2" 
+       src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp" 
+       style="width: 40%;">
+       
+  <img class="fragment" data-fragment-index="3" 
+       src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
+       style="width: 40%;">
+</div>
+
+[//]: # "|||"
+
+## Stacks
+
+Same with markdown data:
+
+<div class="r-stack" data-markdown>
+  <script type="text/template">
+    ![Figure A](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp) <!-- .element: class="fragment" data-fragment-index="1" style="width: 40%;" -->
+    ![Figure B](https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp) <!-- .element: class="fragment" data-fragment-index="2" style="width: 40%;" -->
+    ![Figure C](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp) <!-- .element: class="fragment" data-fragment-index="3" style="width: 40%;" -->
+  </script>
 </div>
 
 <!-- !!! data-background-color="#ff0000" -->
