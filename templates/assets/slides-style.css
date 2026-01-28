@@ -309,7 +309,7 @@ body[data-theme="mono"] {
   font-style: italic;
 }
 
-mark {
+.reveal mark {
   color: var(--base-highlight-color);
   background-color: transparent;
   font-weight: inherit;
