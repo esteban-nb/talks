@@ -308,29 +308,59 @@ Use &commat;media to refer to the shared folder.
 
 ## Fragments
 
-- First, we look at this.
-<!-- .element: class="fragment semi-fade-out" -->
+- Line one <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+- Line two <!-- .element: class="fragment" data-fragment-index="2" -->
+- Line three <!-- .element: class="fragment" data-fragment-index="3" -->
 
-- Then, this appears and the first one dims.
-<!-- .element: class="fragment semi-fade-out" -->
+[//]: # "!!!"
 
-- Finally, this is the main focus.
-<!-- .element: class="fragment" -->
+## Fragments
+
+- Line one
+- Line two <!-- .element: class="fragment grow" data-fragment-index="2" -->
+- Line three
+
+- I appear first
+
+- I appear second
+
+- I also appear first
 
 [//]: # "|||"
 
 ## Fragments
 
-### Custom Order
+<!-- First: visible initially, fades out on step 2 -->
+<div class="fragment fade-out" data-fragment-index="2">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+</div>
 
-- I appear first
-<!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+<!-- Second: appears on step 2, stays visible -->
+<div class="fragment fade-in" data-fragment-index="2">
+  ### Group Title
+  - Line one
+  - Line two
+  - Line three
+</div>
 
-- I appear second
-<!-- .element: class="fragment semi-fade-out" data-fragment-index="2" -->
+[//]: # "|||"
 
-- I also appear first
-<!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+## Fragments
+
+<!-- First: visible initially, then fades out completely -->
+<div class="fragment fade-out" data-fragment-index="2">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+</div>
+  
+<!-- Second: appears faded on step 1, then full on step 2 -->
+<div class="fragment semi-fade-out" data-fragment-index="1">
+  <div class="fragment fade-in" data-fragment-index="2">
+  ### Group Title
+  - Line one
+  - Line two
+  - Line three
+  </div>
+</div>
 
 [//]: # "|||"
 
