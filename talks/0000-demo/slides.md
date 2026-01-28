@@ -308,7 +308,9 @@ Use &commat;media to refer to the shared folder.
 
 ## Fragments
 
-- Line one <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+### Single Line Fragments
+
+- Line one <!-- .element: class="fragment" data-fragment-index="1" -->
 - Line two <!-- .element: class="fragment" data-fragment-index="2" -->
 - Line three <!-- .element: class="fragment" data-fragment-index="3" -->
 
@@ -316,27 +318,39 @@ Use &commat;media to refer to the shared folder.
 
 ## Fragments
 
+### Single Line Fragments
+
 - Line one
-- Line two <!-- .element: class="fragment grow" data-fragment-index="2" -->
+- Line two <!-- .element: class="fragment" data-fragment-index="2" -->
 - Line three
-
-- I appear first
-
-- I appear second
-
-- I also appear first
 
 [//]: # "|||"
 
 ## Fragments
 
-<!-- First: visible initially, fades out on step 2 -->
-<div class="fragment fade-out" data-fragment-index="2">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+### Inline Fragments
+
+This is a 
+  <span class="fragment" data-fragment-index="1">fragment</span> 
+inside a sentence.
+
+Using `div` instead results in:
+
+  This is a 
+    <div class="fragment" data-fragment-index="1">fragment</div> 
+  inside a sentence.
+
+[//]: # "|||"
+
+## Fragments
+
+### Division-level Fragments
+
+<div class="fragment" data-fragment-index="1">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </div>
 
-<!-- Second: appears on step 2, stays visible -->
-<div class="fragment fade-in" data-fragment-index="2">
+<div class="fragment" data-fragment-index="2">
   ### Group Title
   - Line one
   - Line two
@@ -345,62 +359,7 @@ Use &commat;media to refer to the shared folder.
 
 [//]: # "|||"
 
-## Fragments
-
-<!-- First: visible initially, then fades out completely -->
-<div class="fragment fade-out" data-fragment-index="2">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-</div>
-  
-<!-- Second: appears faded on step 1, then full on step 2 -->
-<div class="fragment semi-fade-out" data-fragment-index="1">
-  <div class="fragment fade-in" data-fragment-index="2">
-  ### Group Title
-  - Line one
-  - Line two
-  - Line three
-  </div>
-</div>
-
-[//]: # "|||"
-
-## Fragments
-
-### Grouped Fragments
-
-::: {.fragment .fade-out data-fragment-index="1"}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-:::
-
-<div class="fragment semi-fade-out" data-fragment-index="2">
-
-### Group Title
-
-- Line one
-- Line two
-- Line three
-
-</div>
-
-[//]: # "|||"
-
-## Fragments
-
-### Use `span`
-
-<span class="fragment fade-in" data-fragment-index="2">
-  <span class="fragment fade-out" data-fragment-index="1">
-    
-    ![FP on sphere](https://www.mathematik.uni-wuerzburg.de/fileadmin/_processed_/5/6/csm_LS09-t014_Forschung-FokkerPlanck_ccdd328e7b.jpg) <!-- .element: style="width: 70%;" -->
-    
-  </span>
-</span>
-
-[//]: # "|||"
-
-## Fragments
-
-### Use `r-stack`
+## Stacks
 
 <div class="r-stack">
   ![Figure A](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp) <!-- .element: class="fragment fade-out" data-fragment-index="1" -->
