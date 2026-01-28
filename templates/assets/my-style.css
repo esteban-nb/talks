@@ -203,7 +203,7 @@ section[data-markdown] pre {
 section[data-markdown] pre code {
   background: none;
   color: inherit;
-  text-align: left;
+  text-align: left !important;
   display: block;
   white-space: pre-wrap;
 }
