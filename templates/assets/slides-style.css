@@ -470,6 +470,13 @@ body[data-theme="mono"] {
   text-align: left;
 }
 
+.reveal section[data-markdown] pre {
+  margin: var(--space-sm) auto !important;
+  align-self: center !important;
+  width: fit-content !important;
+  max-width: var(--content-max-width) !important;
+}
+
 .reveal code {
   font-family: var(--font-code);
   color: var(--code-text);
