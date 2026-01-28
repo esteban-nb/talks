@@ -236,7 +236,7 @@ body[data-theme="mono"] {
 }
 
 /* -------------------------------------------------------
- * FRAGMENTS
+ * FRAGMENTS & STACKS
  * ----------------------------------------------------- */
 
 .reveal .slides section .fragment {
@@ -259,6 +259,15 @@ body[data-theme="mono"] {
 
 .fragment.highlight.visible {
   color: var(--highlight-color, --core-red);
+}
+
+.r-stack .fragment:not(.visible) {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+.r-stack .fragment.visible {
+    visibility: visible;
 }
 
 /* -------------------------------------------------------
