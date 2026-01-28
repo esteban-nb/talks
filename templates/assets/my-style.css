@@ -462,22 +462,40 @@ section[data-markdown] figcaption {
   opacity: 0.3;
 }
 
-.fragment.highlight {
-  opacity: 1;
-  visibility: inherit;
+
+/* =======================================================
+ * R-STACK
+ * ======================================================= */
+
+.reveal .r-stack {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.fragment.highlight.visible {
-  color: var(--base-highlight-color);
-}
-
-.r-stack .fragment:not(.visible) {
+/* Hidden fragments */
+.reveal .r-stack .fragment:not(.current-fragment) {
   opacity: 0 !important;
   visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 1;
 }
 
-.r-stack .fragment.visible {
-  visibility: visible;
+/* Current fragment */
+.reveal .r-stack .fragment.current-fragment {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  z-index: 100;
+}
+
+/* Links/images inside current fragment */
+.reveal .r-stack .fragment.current-fragment a,
+.reveal .r-stack .fragment.current-fragment img,
+.reveal .r-stack .fragment.current-fragment * {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 
