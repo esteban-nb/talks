@@ -149,34 +149,53 @@ body[data-theme="mono"] {
   text-align: left;
 }
 
+/* -------------------------------------------------------
+ * RESET REVEAL POSITIONING
+ * ----------------------------------------------------- */
+
 .reveal .slides section {
-  padding: var(--slide-gutter-y) var(--slide-gutter-x);
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-
-  align-items: flex-start;
-  justify-content: flex-start;
 
   top: 0 !important;
   transform: none !important;
 }
 
+/* -------------------------------------------------------
+ * SLIDE LAYOUT
+ * ----------------------------------------------------- */
+
+/* Horizontal slides */
+.reveal .slides > section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Vertical slides (actual content) */
+.reveal .slides > section > section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Apply padding ONLY to real slides (not stack containers) */
+.reveal .slides > section:not(:has(section)),
+.reveal .slides > section > section {
+  padding: var(--slide-gutter-y) var(--slide-gutter-x);
+}
+
+/* Normalize first element to avoid vertical drift */
 .reveal .slides section > :first-child {
   margin-top: 0;
 }
 
-.reveal ::selection {
-  background: var(--link);
-  color: #fff;
-  text-shadow: none;
-}
-
-.reveal ::-moz-selection {
-  background: var(--link);
-  color: #fff;
-  text-shadow: none;
+/* Force all direct children to align to the same left edge */
+.reveal .slides section > * {
+  margin-left: 0;
 }
 
 /* -------------------------------------------------------
@@ -649,7 +668,7 @@ body[data-theme="mono"] {
 }
 
 /* -------------------------------------------------------
- * CONTROLS & PROGRESS
+ * CONTROLS, PROGRESS, ...
  * ----------------------------------------------------- */
 
 .reveal .controls {
@@ -659,6 +678,18 @@ body[data-theme="mono"] {
 .reveal .progress {
   background: rgba(0, 0, 0, 0.2);
   color: var(--link);
+}
+
+.reveal ::selection {
+  background: var(--link);
+  color: #fff;
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  background: var(--link);
+  color: #fff;
+  text-shadow: none;
 }
 
 /* Not working: do slide numbers by hand, integrated with footer(s) */
