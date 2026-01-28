@@ -334,11 +334,8 @@ This is a
 <span class="fragment" data-fragment-index="1">fragment</span>
 inside a sentence.
 
-Using `div` instead results in:
-
-This is a
-<div class="fragment" data-fragment-index="1">fragment</div>
-inside a sentence.
+This turns <span class="fragment highlight" data-fragment-index="2" style="--highlight-color: green;">green</span>,
+and this defaults to <span class="fragment highlight" data-fragment-index="3">red</span>.
 
 [//]: # "|||"
 
