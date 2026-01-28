@@ -1,76 +1,574 @@
-/* CORE VARIABLES */
+/* =======================================================
+ *  Reveal.js custom stylesheet — my-style.css
+ *  Author: Esteban Nocet-Binois
+ *  Description: Enforces left-aligned textual layout and
+ *  centered media (code, tables, figures, figcaptions),
+ *  consistent across nested and markdown-based slides.
+ * ======================================================= */
+
+/* VARIABLES */
 :root {
-  --bg: #ffffff; --text: #1a1a1a; --title: #EE7F2D; --dim-text: #666;
-  --divider: #e5e5e5; --link: #0072B2; --link-hover: #004f8a;
-  --code-bg: #f6f8fa; --code-text: #24292e;
-  --core-red: #D55E00; --core-orange: #EE7F2D; --core-yellow: #F0E442;
-  --core-blue: #0072B2; --core-green: #009E73; --core-slate: #4B5E66;
-  --space-xs: 0.4em; --space-sm: 0.8em; --space-md: 1.2em; --space-lg: 2em;
-  --slide-gutter: 0.8em; --font-main: -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  --font-code: ui-monospace,SFMono-Regular,Menlo,monospace; --font-size-base: 22px;
+  /* =======================================================
+   * CORE COLORS
+   * ======================================================= */
+
+  --core-red: #D55E00;
+  --core-orange: #EE7F2D;
+  --core-yellow: #F0E442;
+  --core-purple: #CC79A7;
+  --core-blue: #0072B2;
+  --core-green: #009E73;
+  --core-slate: #4B5E66;
+
+  /* =======================================================
+   * LAYOUT & SPACING
+   * ======================================================= */
+
+  --slide-gutter-x: 0.8em;
+  --slide-gutter-y: 0.8em;
+
+  --space-xs: 0.4em;
+  --space-sm: 0.8em;
+  --space-md: 1.2em;
+  --space-lg: 2em;
+
+  /* =======================================================
+   * TYPOGRAPHY
+   * ======================================================= */
+
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, Helvetica, Arial, sans-serif;
+  --font-code: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --font-size-base: 22px;
+  --font-size-h1: 2.5em;
+  --font-size-h2: 1.6em;
+  --font-size-h3: 1.3em;
+  --font-size-h4: 1.0em;
+
+  --font-size-code: 0.8em;
+  --font-size-code-ui: 0.4em;
+  --font-size-caption: 0.7em;
+  --font-size-small: 0.6em;
+  --line-height: 1.3;
+  --line-height-small: 1.2;
+
+  --blockquote-max-width: 70%;
+  --blockquote-border-width: 4px;
+
+  --heading-weight: 600;
+  --heading-line-height: 1.2;
+
+  --base-highlight-color: var(--core-red);
+
+  /* =======================================================
+   * BLOCKS & CODE
+   * ======================================================= */
+
+  --block-radius: 3px;
+  --block-border-width: 6px;
+  --code-border-alpha: 0.04;
+  --code-line-height: 1.25;
+  --code-max-height: 60vh;
+  --content-min-ch: 80ch;
+  --content-max-width: 90%;
 }
 
-/* GLOBAL */
-* { box-sizing: border-box; }
-body { margin: 0; font-family: var(--font-main); }
+/* THEME MODES */
+body[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --title: var(--core-orange);
+  --dim-text: #666;
+  --divider: #e5e5e5;
 
-/* SLIDE SYSTEM - ALL NESTED LEVELS */
-.reveal .slides, .reveal .slides > section, .reveal .slides > section > section {
-  display: flex !important; flex-direction: column !important; align-items: flex-start !important;
-  width: 100%; height: 100vh; padding: var(--slide-gutter); margin: 0 !important; top: 0 !important;
+  --link: var(--core-blue);
+  --link-hover: #004f8a;
+
+  --code-bg: #f6f8fa;
+  --code-text: #24292e;
+  --block-bg-opacity: 0.08;
 }
 
-/* LEAF SLIDES ONLY */
-.reveal .slides > section:not(:has(section)), .reveal .slides > section > section:not(:has(section)) {
-  padding: var(--slide-gutter);
+body[data-theme="dark"] {
+  --bg: #2a2a2a;
+  --text: #d4d4d4;
+  --title: #ffffff;
+  --dim-text: #9da5b4;
+  --divider: #3d3d3d;
+
+  --link: #4fc1ff;
+  --link-hover: #9cdcfe;
+
+  --code-bg: #202020;
+  --code-text: #d4d4d4;
+  --block-bg-opacity: 0.12;
 }
-.reveal .slides section > :first-child { margin-top: 0; }
-.reveal .slides section > * { margin-left: 0; }
 
-/* TYPOGRAPHY */
-.reveal h1 { font-size: 2.5em; margin: var(--space-lg) 0 var(--space-md) 0; }
-.reveal h2 { font-size: 1.6em; margin: var(--space-md) 0 var(--space-sm) 0; }
-.reveal h3 { font-size: 1.3em; margin: var(--space-sm) 0; }
-.reveal h1,h2,h3,h4,h5,h6 { font-weight: 600; line-height: 1.2; color: var(--title); text-align: left; }
-.reveal p { margin: var(--space-sm) 0; text-align: left; line-height: 1.3; }
+body[data-theme="mono"] {
+  --bg: #fff9f5;
+  --text: #432100;
+  --title: var(--core-orange);
+  --dim-text: #8b4513;
+  --divider: #fad7b5;
 
-/* LISTS */
-.reveal ul, .reveal ol { margin: var(--space-sm) 0 var(--space-sm) var(--space-md); text-align: left; }
-.reveal ul { list-style: disc; } .reveal ol { list-style: decimal; }
-.reveal ul ul { list-style: square; } .reveal ul ul ul { list-style: circle; }
-.reveal ul > li::marker, .reveal ol > li::marker { color: var(--title); }
+  --link: var(--core-orange);
+  --link-hover: #b85c1e;
 
-/* CODE */
-.reveal pre, section[data-markdown] pre {
-  display: block !important; width: fit-content; max-width: 90%; margin: var(--space-sm) auto;
-  padding: var(--space-sm); font-family: var(--font-code); font-size: 0.8em; line-height: 1.25;
-  background: var(--code-bg) !important; border-radius: 6px; border: 1px solid rgba(0,0,0,0.04);
-  overflow: auto; max-height: 60vh; white-space: pre-wrap;
+  --code-bg: #fff2e8;
+  --code-text: #432100;
+  --block-bg-opacity: 0.1;
 }
-.reveal pre code, section[data-markdown] pre code { background: none !important; padding: 0 !important; }
 
-/* MARKDOWN */
-section[data-markdown] { text-align: left; }
-section[data-markdown] :first-child { margin-top: 0; }
-section[data-markdown] .r:last-child pre { margin: var(--space-sm) auto !important; max-width: 90% !important; }
-section[data-markdown] .fragment { opacity: 0.5; }
-section[data-markdown] .fragment.current-fragment { opacity: 1; }
 
-/* IMAGES & MATH */
-.reveal img, section[data-markdown] img {
-  display: block; margin: var(--space-md) auto; max-width: 90%; max-height: 90%; object-fit: contain;
+/* =======================================================
+ * REVEAL GLOBALS
+ * ======================================================= */
+
+.reveal-viewport {
+  background: var(--bg);
 }
-section[data-markdown] figcaption { margin-top: var(--space-xs); text-align: center; font-size: 0.7em; color: var(--dim-text); }
-section[data-markdown] [class*="math"] { font-size: 1.1em; text-align: center; margin: var(--space-md) 0; }
 
-/* TABLES */
-.reveal table, section[data-markdown] table {
-  margin: var(--space-md) auto; border-collapse: collapse; max-width: 90%;
+.reveal {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  color: var(--text);
+  line-height: var(--line-height);
 }
-.reveal th, .reveal td { padding: var(--space-xs) var(--space-sm); border-bottom: 1px solid var(--divider); text-align: left; }
-.reveal table tbody tr:last-child th, .reveal table tbody tr:last-child td { border-bottom: none; }
 
-/* LINKS */
-.reveal a { color: var(--link); text-decoration: none; transition: color 0.15s; }
-.reveal a:hover { color: var(--link-hover); }
-.reveal ::selection { background: var(--link); color: #fff; }
+.reveal .slides {
+  text-align: left;
+}
+
+
+/* =======================================================
+ * SLIDE SYSTEM - FLEX RESET
+ * ======================================================= */
+
+.reveal .slides,
+.reveal .slides > section,
+.reveal .slides > section > section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--slide-gutter-y) var(--slide-gutter-x);
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+/* Leaf slides */
+.reveal .slides > section:not(:has(section)),
+.reveal .slides > section > section:not(:has(section)) {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Ensure first child starts at top */
+.reveal .slides section > :first-child {
+  margin-top: 0;
+}
+
+/* Default all content inside slides */
+.reveal .slides section > * {
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-left: 0;
+}
+
+
+/* =======================================================
+ * CODE BLOCKS
+ * ======================================================= */
+
+.reveal pre,
+section[data-markdown] pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--block-radius);
+  line-height: var(--code-line-height);
+  font-family: var(--font-code);
+  font-size: var(--font-size-code);
+  text-align: left;
+  overflow-x: auto;
+  margin: var(--space-md) auto;
+  max-width: 90%;
+  min-width: 60%;
+}
+
+.reveal pre code,
+section[data-markdown] pre code {
+  background: none;
+  color: inherit;
+  text-align: left;
+  display: block;
+  white-space: pre-wrap;
+}
+
+/* Code lines and highlighting */
+.reveal code {
+  font-family: var(--font-code);
+  font-size: var(--font-size-code);
+  background-color: color-mix(in srgb, var(--code-bg) 90%, transparent);
+  color: var(--code-text);
+  padding: 0.1em 0.3em;
+  border-radius: var(--block-radius);
+}
+
+/* Inline code */
+.reveal p code, 
+.reveal li code {
+  display: inline;
+}
+
+
+/* =======================================================
+ * TABLES
+ * ======================================================= */
+
+.reveal table,
+section[data-markdown] table {
+  margin: var(--space-md) auto;
+  border-collapse: collapse;
+  max-width: 90%;
+  text-align: center;
+}
+
+.reveal table th,
+.reveal table td,
+section[data-markdown] table th,
+section[data-markdown] table td {
+  border: 1px solid var(--divider);
+  padding: var(--space-xs) var(--space-sm);
+  vertical-align: middle;
+}
+
+.reveal table thead {
+  background: color-mix(in srgb, var(--divider) 30%, var(--bg));
+  font-weight: bold;
+}
+
+
+/* =======================================================
+ * MEDIA (FIGURES, IMAGES, CAPTIONS)
+ * ======================================================= */
+
+.reveal video,
+.reveal img,
+section[data-markdown] video,
+section[data-markdown] img {
+  display: block;
+  margin: var(--space-md) auto;
+  text-align: center;
+  max-width: 90%;
+}
+
+.reveal figcaption,
+.reveal .caption,
+section[data-markdown] figcaption {
+  font-size: var(--font-size-caption);
+  text-align: center;
+  color: var(--dim-text);
+  margin-top: var(--space-xs);
+}
+
+/* Center the italic line only if it follows an image */
+.reveal img + em {
+  display: block;
+  text-align: center;
+  margin-top: var(--space-xs);
+  font-style: italic;
+}
+
+/* Backgrounds */
+.reveal .backgrounds {
+  background-color: transparent !important;
+}
+
+.reveal .backgrounds video,
+.reveal .backgrounds img,
+.reveal .backgrounds iframe {
+  object-fit: cover !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  border: none;
+  margin: 0 !important;
+}
+
+
+/* =======================================================
+ * TEXT & LISTS
+ * ======================================================= */
+
+.reveal p {
+  margin: var(--space-sm) 0;
+  text-align: left;
+}
+
+.reveal strong,
+.reveal b {
+  font-weight: bold;
+}
+
+.reveal em {
+  font-style: italic;
+}
+
+.reveal mark {
+  color: var(--base-highlight-color);
+  background-color: transparent;
+  font-weight: inherit;
+}
+
+.reveal ul,
+.reveal ol,
+.reveal dl {
+  margin: var(--space-sm) 0 var(--space-sm) var(--space-md);
+  text-align: left;
+}
+
+.reveal ol { list-style-type: decimal; }
+.reveal ul { list-style-type: disc; }
+.reveal ul ul { list-style-type: square; }
+.reveal ul ul ul { list-style-type: circle; }
+
+.reveal ul ul,
+.reveal ol ol,
+.reveal ul ol,
+.reveal ol ul {
+  margin-left: var(--space-md);
+}
+
+.reveal ul > li::marker,
+.reveal ol > li::marker {
+  color: var(--title);
+}
+
+.reveal dt { font-weight: bold; }
+.reveal dd { margin-left: var(--space-md); }
+
+
+/* =======================================================
+ * BLOCKQUOTES
+ * ======================================================= */
+
+.reveal blockquote {
+  position: relative;
+  display: block;
+
+  max-width: var(--blockquote-max-width);
+  margin: var(--space-md) auto;
+  padding: var(--space-sm) var(--space-md);
+
+  font-style: italic;
+  text-align: left;
+
+  background: rgba(0, 0, 0, var(--block-bg-opacity));
+  border-left: var(--blockquote-border-width) solid var(--divider);
+}
+
+
+/* =======================================================
+ * INLINE ELEMENTS
+ * ======================================================= */
+
+.reveal q {
+  font-style: italic;
+}
+
+.reveal sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+.reveal sub {
+  vertical-align: sub;
+  font-size: smaller;
+}
+
+.reveal small {
+  display: inline-block;
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  vertical-align: top;
+}
+
+.reveal small * {
+  vertical-align: top;
+}
+
+
+/* =======================================================
+ * HEADINGS
+ * ======================================================= */
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-weight: var(--heading-weight);
+  line-height: var(--heading-line-height);
+  color: var(--title);
+  text-align: left;
+  font-family: var(--font-main);
+}
+
+.reveal h1 {
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-h1);
+}
+
+.reveal h2 {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-h2);
+}
+
+.reveal h3 {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-h3);
+}
+
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-xs);
+  font-size: var(--font-size-h4);
+}
+
+
+/* =======================================================
+ * FRAGMENTS & STACKS
+ * ======================================================= */
+
+.reveal .slides section .fragment {
+  opacity: 0.3;
+  visibility: visible;
+}
+
+.reveal .slides section .fragment.current-fragment {
+  opacity: 1;
+}
+
+.reveal .slides section .fragment.visible:not(.current-fragment) {
+  opacity: 0.3;
+}
+
+.fragment.highlight {
+  opacity: 1;
+  visibility: inherit;
+}
+
+.fragment.highlight.visible {
+  color: var(--base-highlight-color);
+}
+
+.r-stack .fragment:not(.visible) {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.r-stack .fragment.visible {
+  visibility: visible;
+}
+
+
+/* =======================================================
+ * LINKS
+ * ======================================================= */
+
+.reveal a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.reveal a:hover {
+  color: var(--link-hover);
+  text-shadow: none;
+  border: none;
+}
+
+
+/* =======================================================
+ * CONTROLS, PROGRESS, ...
+ * ======================================================= */
+
+.reveal .controls {
+  color: var(--link);
+}
+
+.reveal .progress {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--link);
+}
+
+.reveal ::selection {
+  background: var(--link);
+  color: #fff;
+  text-shadow: none;
+}
+
+.reveal ::-moz-selection {
+  background: var(--link);
+  color: #fff;
+  text-shadow: none;
+}
+
+
+/* =======================================================
+ * MARKDOWN SLIDES AND DIVISIONS
+ * ======================================================= */
+
+section[data-markdown] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+section[data-markdown] :first-child {
+  margin-top: 0;
+}
+
+section[data-markdown] pre:last-child {
+  margin: var(--space-sm) auto !important;
+  max-width: 90% !important;
+}
+
+section[data-markdown] pre,
+section[data-markdown] pre code,
+section[data-markdown] table,
+section[data-markdown] img,
+section[data-markdown] figcaption,
+section[data-markdown] [class*="math"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+section[data-markdown] .fragment {
+  opacity: 0.5;
+  visibility: visible;
+}
+
+
+/* =======================================================
+ * PRINT
+ * ======================================================= */
+
+@media print {
+  .backgrounds {
+    background-color: var(--bg);
+  }
+}
