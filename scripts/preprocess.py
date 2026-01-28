@@ -152,12 +152,22 @@ def transform_blocks(text: str) -> str:
 
 def handle_fragments(text: str) -> str:
     """
-    Converts [f] shorthand into Reveal.js fragment comments.
+    Converts <f> shorthand into Reveal.js fragment comments.
     """
-    return text.replace(
-        " [f]",
+    text.replace(
+        " <f>",
         ' <!-- .element: class="fragment" -->'
     )
+
+    pattern = r"<f:([\d, ]+)>"
+
+    def format_fragment(match):
+        indices = match.group(1)
+        clean_indices = ",".join(i.strip() for i in indices.split(','))
+
+        return f'<!-- .element: class="fragment" data-fragment-index="{clean_indices}" -->'
+
+    return re.sub(pattern, format_fragment, text)
 
 
 def inner_pipeline(content: str) -> str:
