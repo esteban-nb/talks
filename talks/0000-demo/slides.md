@@ -358,17 +358,23 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 ## Stacks
 
 <div class="r-stack">
-  <img class="fragment" data-fragment-index="1" 
-       src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp" 
-       style="width: 40%;">
-       
-  <img class="fragment" data-fragment-index="2" 
-       src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp" 
-       style="width: 40%;">
-       
-  <img class="fragment" data-fragment-index="3" 
-       src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
-       style="width: 40%;">
+  <a href="https://link.springer.com/book/10.1007/978-3-031-80165-5">
+    <img class="fragment" data-fragment-index="1" 
+         src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp" 
+         style="width: 40%;">
+  </a>
+
+  <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
+    <img class="fragment" data-fragment-index="2" 
+         src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp" 
+         style="width: 40%;">
+  </a>
+
+  <a href="https://link.springer.com/book/10.1007/978-3-031-68566-8">
+    <img class="fragment" data-fragment-index="3" 
+         src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
+         style="width: 40%;">
+  </a>
 </div>
 
 <!-- !!! data-background-color="#ff0000" -->
