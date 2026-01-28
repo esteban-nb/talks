@@ -164,6 +164,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 ```
 
 [comment]: # "||| raw: data-markdown"
+
 <textarea data-template>
 
 ## Code Blocks
@@ -204,7 +205,7 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 ## Code Blocks
 
-Use `data-noescape` to put HTML tags inside the code block. 
+Use `data-noescape` to put HTML tags inside the code block.
 
 [comment]: # "!!!"
 
