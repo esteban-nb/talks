@@ -553,6 +553,11 @@ body[data-theme="mono"] {
   align-self: center;
 }
 
+.reveal section[data-markdown] table {
+  margin: var(--space-md) auto !important;
+  max-width: 90%;
+}
+
 .reveal table th {
   font-weight: bold;
 }
