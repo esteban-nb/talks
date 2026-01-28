@@ -17,7 +17,7 @@ Useful HTML tags:
 - `<details>` and `<summary>` create a native collapsible section.
 - `<mark>` applies a yellow background by default (here it changes the color only).
 - `<span>` applies a specific style, inline.
-- `<div>` applied a specific style to a block (a division). 
+- `<div>` applied a specific style to a block (a division).
 
 Use HTML line breaks:
 
