@@ -1,10 +1,7 @@
-/* GRID */
-.grid {
-  display: grid; grid-template-columns: var(--cols, 1fr);
-  gap: var(--gap-cols, 2em) var(--gap-rows, 1.2em); width: 100%; align-items: start;
-}
+/* -------------------------------------------------------
+ * HIGHLIGHT FRAGMENT
+ * ----------------------------------------------------- */
 
-/* HIGHLIGHT FRAGMENT */
 .fragment.highlight {
   opacity: 1;
   visibility: inherit;
@@ -14,33 +11,152 @@
   color: var(--highlight-color, --base-highlight-color);
 }
 
-/* COLORED BLOCKS */
+/* -------------------------------------------------------
+ * CUSTOM BLOCK BASE
+ * ----------------------------------------------------- */
+
 .block {
-  margin: 1.2em auto; border: 0.5px solid var(--divider, #e5e5e5);
-  border-left-width: 6px; border-radius: 3px; overflow: hidden;
-  background: rgba(0,0,0,0.08);
+  margin: var(--space-md) auto;
+  border-style: solid;
+  border-width: .5px .5px .5px var(--block-border-width);
+    /* top, right, bottom, left */
+  border-color: var(--divider) var(--divider) var(--divider) var(--icon-color);
+  border-radius: var(--block-radius);
+  overflow: hidden;
+  text-align: left;
+  background: rgba(0, 0, 0, var(--block-bg-opacity));
 }
+
 .block-title {
-  display: flex; align-items: center; gap: 0.8em; padding: 0.8em;
-  font-weight: 600; color: var(--text); background: var(--title-color);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  font-weight: 600;
+  color: var(--text);
+  background: var(--title-color);
 }
+
+.block-body {
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* Shared icon rule */
 .block-title::before {
-  content: ""; width: 1.2em; height: 1.2em; flex-shrink: 0;
-  background-color: var(--title-color); background: var(--icon-color);
-  -webkit-mask: var(--icon-src); mask: var(--icon-src); mask-size: contain;
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+
+  /* Title background under the icon */
+  background-color: var(--title-color);
+
+  /* Mask setup */
+  -webkit-mask-image: var(--icon-src);
+  mask-image: var(--icon-src);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+
+  /* Fill shape with icon color */
+  background: var(--icon-color);
 }
-.block-body { padding: 0.8em 1.2em; }
 
-.block-donot  { --icon-color: #D55E00; --title-color: rgba(213,94,0,0.15); --icon-src: url("icons/do-not.svg"); }
-.block-alert  { --icon-color: #F0E442; --title-color: rgba(240,228,66,0.15); --icon-src: url("icons/warning.svg"); }
-.block-zoom   { --icon-color: #CC79A7; --title-color: rgba(204,121,167,0.15); --icon-src: url("icons/magnifying-glass.svg"); }
-.block-info   { --icon-color: #0072B2; --title-color: rgba(0,114,178,0.15); --icon-src: url("icons/info.svg"); }
-.block-note   { --icon-color: #009E73; --title-color: rgba(0,158,115,0.15); --icon-src: url("icons/clipboard.svg"); }
-.block-pin    { --icon-color: #4B5E66; --title-color: rgba(75,94,102,0.15); --icon-src: url("icons/pin.svg"); }
 
-/* CODE COPY BUTTON */
-pre[data-id] .copy-code {
-  position: absolute; top: 0.4em; right: 0.4em; font-size: 0.4em;
-  padding: 0.4em 0.8em; background: rgba(255,255,255,0.8); border-radius: 3px;
-  cursor: pointer; border: none; font-family: var(--font-code);
+/* -------------------------------------------------------
+ * THEMATIC BLOCKS
+ * ----------------------------------------------------- */
+
+/* DON'T (Red) */
+.block-donot {
+  --icon-color: var(--core-red);
+  --title-color: color-mix(in srgb, var(--core-red) 15%, transparent);
+  --icon-src: url("icons/do-not.svg");
+}
+
+/* ALERT (Yellow) */
+.block-alert {
+  --icon-color: var(--core-yellow);
+  --title-color: color-mix(in srgb, var(--core-yellow) 15%, transparent);
+  --icon-src: url("icons/warning.svg");
+}
+
+/* ZOOM (Purple) */
+.block-zoom {
+  --icon-color: var(--core-purple);
+  --title-color: color-mix(in srgb, var(--core-purple) 15%, transparent);
+  --icon-src: url("icons/magnifying-glass.svg");
+}
+
+/* INFO (Blue) */
+.block-info {
+  --icon-color: var(--core-blue);
+  --title-color: color-mix(in srgb, var(--core-blue) 15%, transparent);
+  --icon-src: url("icons/info.svg");
+}
+
+/* NOTE (Green) */
+.block-note {
+  --icon-color: var(--core-green);
+  --title-color: color-mix(in srgb, var(--core-green) 15%, transparent);
+  --icon-src: url("icons/clipboard.svg");
+}
+
+/* PIN (Slate) */
+.block-pin {
+  --icon-color: var(--core-slate);
+  --title-color: color-mix(in srgb, var(--core-slate) 15%, transparent);
+  --icon-src: url("icons/pin.svg");
+}
+
+
+/* -------------------------------------------------------
+ * MODE TOGGLE
+ * ----------------------------------------------------- */
+
+#mode-toggle-container {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 1000;
+  cursor: pointer;
+  color: var(--title);
+}
+
+/* Icon color update */
+body[data-theme="light"] #theme-icon {
+  color: var(--core-orange);
+}
+body[data-theme="mono"] #theme-icon {
+  color: #000000;
+} 
+body[data-theme="dark"] #theme-icon {
+  color: #FFFFFF;
+}
+
+/* Animation */
+.clicked .frame-1 { animation: slide-1 0.5s ease-in-out; }
+.clicked .frame-2 { animation: slide-2 0.5s ease-in-out 0.05s; }
+.clicked .frame-3 { animation: slide-3 0.5s ease-in-out 0.1s; }
+
+@keyframes slide-1 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-2 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes slide-3 {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
 }
