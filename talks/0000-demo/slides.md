@@ -8,8 +8,6 @@ progress: true
 center: true
 hash: true
 transition: "slide"
-zoom: true
-fragments: true
 ---
 
 ## Slide Template
