@@ -1,4 +1,19 @@
 /* -------------------------------------------------------
+ * GRID DISPLAY
+ * ----------------------------------------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--cols, 1fr);
+  column-gap: var(--gap-cols, var(--space-lg));
+  row-gap: var(--gap-rows, var(--space-md));
+  text-align: left;
+  align-items: start;
+  width: 100%;
+}
+
+
+/* -------------------------------------------------------
  * HIGHLIGHT FRAGMENT
  * ----------------------------------------------------- */
 
