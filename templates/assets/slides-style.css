@@ -247,6 +247,15 @@ body[data-theme="mono"] {
     opacity: 1;
 }
 
+.fragment.highlight {
+  opacity: 1;
+  visibility: inherit;
+}
+
+.fragment.highlight.visible {
+  color: var(--highlight-color, --core-red);
+}
+
 /* -------------------------------------------------------
  * TEXT & LISTS
  * ----------------------------------------------------- */
