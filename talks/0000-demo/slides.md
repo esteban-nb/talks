@@ -330,15 +330,15 @@ Use &commat;media to refer to the shared folder.
 
 ### Inline Fragments
 
-This is a 
-  <span class="fragment" data-fragment-index="1">fragment</span> 
+This is a
+<span class="fragment" data-fragment-index="1">fragment</span>
 inside a sentence.
 
 Using `div` instead results in:
 
-  This is a 
-    <div class="fragment" data-fragment-index="1">fragment</div> 
-  inside a sentence.
+This is a
+<div class="fragment" data-fragment-index="1">fragment</div>
+inside a sentence.
 
 [//]: # "|||"
 
