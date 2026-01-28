@@ -337,11 +337,11 @@ inside a sentence.
 This turns <span class="fragment highlight" data-fragment-index="2" style="--highlight-color: green;">green</span>,
 and this defaults to <span class="fragment highlight" data-fragment-index="3">red</span>.
 
-[//]: # "|||"
+[//]: # "||| raw:"
 
-## Fragments
+<h2>Fragments</h2>
 
-### Division-level Fragments
+<h3>Division-level Fragments</h3>
 
 <div class="fragment" data-fragment-index="1">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -372,20 +372,6 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
   <img class="fragment" data-fragment-index="3" 
        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
        style="width: 40%;">
-</div>
-
-[//]: # "|||"
-
-## Stacks
-
-Same with markdown data:
-
-<div class="r-stack" data-markdown>
-  <script type="text/template">
-    ![Figure A](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp) <!-- .element: class="fragment" data-fragment-index="1" style="width: 40%;" -->
-    ![Figure B](https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp) <!-- .element: class="fragment" data-fragment-index="2" style="width: 40%;" -->
-    ![Figure C](https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp) <!-- .element: class="fragment" data-fragment-index="3" style="width: 40%;" -->
-  </script>
 </div>
 
 <!-- !!! data-background-color="#ff0000" -->
