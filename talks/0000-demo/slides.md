@@ -163,7 +163,8 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
     return x, False
 ```
 
-[comment]: # "|||"
+[comment]: # "||| raw: data-markdown"
+<textarea data-template>
 
 ## Code Blocks
 
@@ -197,18 +198,13 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 - **Step 4 (`11,14-15`):** Introduces real-world robustness (the `try/except` block) only after the ideal case is understood.
 - **Step 5 (`17`):** Returns.
 
+</textarea>
+
 [comment]: # "!!!"
 
 ## Code Blocks
 
-### Sequential Display
-
-```js [1-2|3|4]
-let a = 1;
-let b = 2;
-let c = (x) => 1 + 2 + x;
-c(3);
-```
+Use `data-noescape` to put HTML tags inside the code block. 
 
 [comment]: # "!!!"
 
