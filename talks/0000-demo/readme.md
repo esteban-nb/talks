@@ -6,11 +6,18 @@ Add HTML attributes (like classes, IDs, or fragments) directly to Markdown eleme
 <!-- .element: class="fragment" data-fragment-index="1" -->
 ```
 
-Apply attributes to the parent slide (the <section>) from within the Markdown:
+Apply attributes to the parent slide (the `<section>`) from within the Markdown:
 
 ```
 <!-- .slide: data-background="#ff0000" -->
 ```
+
+Useful HTML tags:
+
+- `<details>` and `<summary>` create a native collapsible section.
+- `<mark>` applies a yellow background by default (here it changes the color only).
+- `<span>` applies a specific style, inline.
+- `<div>` applied a specific style to a block (a division). 
 
 Use HTML line breaks:
 
