@@ -73,3 +73,14 @@ htmlcov/
 !**/tex/**/*.bib
 !**/tex/**/*.sty
 !**/tex/**/*.cls
+
+
+# --------------------------------------------------
+# Ignore Media
+# --------------------------------------------------
+
+media/**
+!media/images/fokker-planck-wuerzburg.jpg
+!media/logos/princeton-logo-shield-bw.pdf
+!media/videos/moving-dots.mp4
+!media/html/bifurcation_static.html
