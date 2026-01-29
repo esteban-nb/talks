@@ -60,16 +60,16 @@ htmlcov/
 # Script Rules
 # --------------------------------------------------
 
-scripts/**
-!scripts/**/*.py
-!scripts/**/*.sh
-!scripts/**/*.md
+**/scripts/**
+!**/scripts/**/*.py
+!**/scripts/**/*.sh
+!**/scripts/**/*.md
 
-py/**
-!py/**/*.py
+**/py/**
+!**/py/**/*.py
 
-tex/**
-!tex/**/*.tex
-!tex/**/*.bib
-!tex/**/*.sty
-!tex/**/*.cls
+**/tex/**
+!**/tex/**/*.tex
+!**/tex/**/*.bib
+!**/tex/**/*.sty
+!**/tex/**/*.cls
