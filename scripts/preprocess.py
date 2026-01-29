@@ -30,7 +30,7 @@ SECTION_MD = """<section data-markdown {attrs}>
 </script>
 </section>"""
 
-DIVISION_MD = """<div data-markdown class="tight-block" {attrs}>
+DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
 <textarea data-template">
 {content}
 </textarea>
