@@ -54,8 +54,6 @@ COMMENT_PATTERN = "|".join(
 )
 FRAGMENT_PATTERN = r"<f:([\d, ]+)>"
 
-# pattern = r":::\s*(donot|alert|zoom|info|example|note)\s*\|\s*(.*?)\n(.*?)\n:::"
-
 comment_re = re.compile(COMMENT_PATTERN, re.DOTALL | re.MULTILINE)
 block_re = re.compile(BLOCK_PATTERN, re.DOTALL | re.MULTILINE)  
 mdiv_re = re.compile(MD_PATTERN, re.DOTALL | re.MULTILINE)
