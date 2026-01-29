@@ -315,6 +315,7 @@ Use &commat;media to refer to the shared folder.
 <!-- !!! -->
 
 ## HTML Figure
+
 This is a standard figure embedded within the slide content.
 
 ![static](@media/html/bifurcation_static.html)
@@ -322,6 +323,7 @@ This is a standard figure embedded within the slide content.
 <!-- ||| -->
 
 ## HTML Figure
+
 This animation starts as soon as the slide is shown.
 
 ![autoplay](@media/html/bifurcation_autoplay.html)
@@ -329,6 +331,7 @@ This animation starts as soon as the slide is shown.
 <!-- ||| -->
 
 ## HTML Figure
+
 This animation is interactive.
 
 ![dynamic](@media/html/bifurcation_interactive.html)
