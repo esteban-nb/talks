@@ -68,12 +68,12 @@ And ordered lists:
 
 <!-- !!! -->
 
-## Internal slide Links
+## Internal Slide Links
 
 - Use hash:
   <a href="#/6/3" target="_self">Go to slide</a>
 - Use labels:
-  TODO
+  TODO...
 
 <!-- !!! -->
 
