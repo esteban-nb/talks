@@ -188,6 +188,7 @@ def replace_md_divisions(text: str) -> str:
 def inner_pipeline(content: str) -> str:
     content = transform_blocks(content)
     content = handle_fragments(content)
+    content = replace_md_divisions(content)
     return content
 
 
