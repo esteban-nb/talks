@@ -39,7 +39,7 @@ This is fully markdown.
     This is now `md`.
     ### Markdown Subheader
     - [Link to Google](https://google.com)
-    - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png)
+    - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png) <!-- .element: style="height: auto;" -->
   </textarea>
 </div>
 
