@@ -57,6 +57,9 @@ FRAGMENT_PATTERN = r"<f:([\d, ]+)>"
 # pattern = r":::\s*(donot|alert|zoom|info|example|note)\s*\|\s*(.*?)\n(.*?)\n:::"
 
 comment_re = re.compile(COMMENT_PATTERN, re.DOTALL | re.MULTILINE)
+block_re = re.compile(BLOCK_PATTERN, re.DOTALL | re.MULTILINE)  
+mdiv_re = re.compile(MD_PATTERN, re.DOTALL | re.MULTILINE)
+frag_re = re.compile(FRAGMENT_PATTERN, re.DOTALL | re.MULTILINE)
 
 # -------------------------------------------------
 # Helpers
@@ -152,7 +155,7 @@ def transform_blocks(text: str) -> str:
             f'</div>'
         )
 
-    return re.sub(BLOCK_PATTERN, replacer, text, flags=re.DOTALL)
+    return block_re.sub(replacer, text)
 
 
 def handle_fragments(text: str) -> str:
@@ -170,7 +173,7 @@ def handle_fragments(text: str) -> str:
 
         return f'<!-- .element: class="fragment" data-fragment-index="{clean_indices}" -->'
 
-    return re.sub(FRAGMENT_PATTERN, format_fragment, text)
+    return frag_re.sub(format_fragment, text)
 
 
 def replace_md_divisions(text: str) -> str:
