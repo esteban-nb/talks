@@ -436,7 +436,7 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
          style="width: 40%;">
   </a>
   <!-- Second fragment -->
-  <div class="fragment" data-fragment-index="2" style="position: relative; width: 100%;">
+  <div class="fragment" data-fragment-index="2" data-markdown style="position: relative; width: 100%;">
     <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
       <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp"
            style="width: 40%;">
