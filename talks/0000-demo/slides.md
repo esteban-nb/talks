@@ -49,14 +49,12 @@ This is fully markdown.
 
 <p>This is regular HTML.</p>
 
-<div data-markdown style="display: inline-block; margin: 0; padding: 0;">
-  <textarea data-template>
-    This is now `md`.
+<md>
+    This is now `md`, using `<md>`.
     ### Markdown Subheader
     - [Link to Google](https://google.com)
     - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png)
-  </textarea>
-</div>
+</md>
 
 <!-- !!! -->
 
