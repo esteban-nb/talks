@@ -50,8 +50,8 @@ This is fully markdown.
 <p>This is regular HTML.</p>
 
 <div data-markdown class="tight-block">
-  <textarea text/template">
-    This is now `md` in a tight block.
+  <textarea data-template>
+    This is now `md` in a tight block (using `data-template`).
     ### Markdown Subheader
     - [Link to Google](https://google.com)
     - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png) <!-- .element: style="height: auto;" -->
