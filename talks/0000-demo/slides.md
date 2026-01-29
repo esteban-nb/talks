@@ -436,12 +436,14 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
          style="width: 40%;">
   </a>
   <!-- Second fragment -->
-  <div class="fragment" data-fragment-index="2" data-markdown style="position: relative; width: 100%;">
-    <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
-      <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp"
-           style="width: 40%;">
-    </a>
-    Including a chapter on [Transformations of Functions and Signals](https://link.springer.com/chapter/10.1007/978-3-031-68566-8_5)
+  <div class="fragment" data-fragment-index="2" data-markdown>
+    <textarea data-template>
+      <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
+        <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp"
+             style="width: 40%;">
+      </a>
+      Including a chapter on [Transformations of Functions and Signals](https://link.springer.com/chapter/10.1007/978-3-031-68566-8_5)!
+    </textarea>
   </div>
   <!-- Third fragment -->
   <a href="https://link.springer.com/book/10.1007/978-3-031-68566-8" 
