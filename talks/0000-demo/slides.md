@@ -50,7 +50,7 @@ This is fully markdown.
 <p>This is regular HTML.</p>
 
 <md>
-    This is now `<md>` (using the `seamless-block` class).
+    This is now `<md>` (using the seamless-block class).
     ### Markdown Subheader
     - [Link to Google](https://google.com)
     - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png)
