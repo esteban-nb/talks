@@ -474,15 +474,15 @@ section[data-markdown] figcaption {
   opacity: 0.3;
 }
 
-.r-stack .fragment:not(.visible) {
+.reveal .r-stack .fragment:not(.visible) {
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-.r-stack .fragment.visible {
+.reveal .r-stack .fragment.visible {
     visibility: visible;
-    opacity: 1 !important;
+    opacity: 1;
     pointer-events: auto !important;
 }
 
