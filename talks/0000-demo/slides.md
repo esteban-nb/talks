@@ -36,7 +36,7 @@ This is fully markdown.
 
 <div data-markdown>
   <textarea data-template>
-    This is now `md`.
+    This is now markdown.
     ### Markdown Subheader
     - [Link to Google](https://google.com)
     - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png) <!-- .element: style="height: auto;" -->
