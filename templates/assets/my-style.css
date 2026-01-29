@@ -482,13 +482,6 @@ section[data-markdown] figcaption {
     visibility: visible;
 }
 
-.reveal .r-stack .fragment.current-fragment a,
-.reveal .r-stack .fragment.current-fragment img,
-.reveal .r-stack .fragment.current-fragment * {
-  pointer-events: auto;
-  cursor: pointer;
-}
-
 
 /* =======================================================
  * LINKS
