@@ -429,7 +429,7 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
     
 ### With Image & Text
 
-New try with md-div.
+New try with md-div and template.
 </md>
 
 <div class="r-stack">
@@ -441,7 +441,7 @@ New try with md-div.
   </a>
   <!-- Second fragment -->
   <div class="fragment" data-fragment-index="2" data-markdown>
-    <textarea data-template>
+    <textarea text/template">
       <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
         <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp"
              style="width: 40%;">
