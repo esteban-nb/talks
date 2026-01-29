@@ -429,7 +429,7 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
     
 ### With Image & Text
 
-New try with md-div and template.
+New try with md-div twice.
 </md>
 
 <div class="r-stack">
@@ -440,14 +440,14 @@ New try with md-div and template.
          style="width: 40%;">
   </a>
   <!-- Second fragment -->
-  <div class="fragment" data-fragment-index="2" data-markdown>
-    <textarea text/template">
-      <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
+  <div class="fragment" data-fragment-index="2">
+    <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3">
         <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp"
              style="width: 40%;">
-      </a>
+    </a>
+    <md>
       Including a chapter on [Transformations of Functions and Signals](https://link.springer.com/chapter/10.1007/978-3-031-68566-8_5)!
-    </textarea>
+    </md>
   </div>
   <!-- Third fragment -->
   <a href="https://link.springer.com/book/10.1007/978-3-031-68566-8" 
