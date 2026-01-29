@@ -47,8 +47,8 @@ COMMENT_TEMPLATES = [
 
 blocks = ["donot", "alert", "zoom", "info", "example", "note"]
 
-BLOCK_PATTERN = rf":::\s*({'|'.join(blocks)})\s*\|\s*(.*?)\n(.*?)\n\s*:::"
-MD_PATTERN = rf"<md(?:\\s+(.*))?>\\s*(.*?)\\s*</md>"
+BLOCK_PATTERN = rf":::\s*(?P<type>{'|'.join(blocks)})\s*\|\s*(?P<title>.*?)\n(?P<body>.*?)\n\s*:::"
+MD_PATTERN = r"<md(?P<attrs>[^>]*)>(?P<content>.*?)</md>"
 COMMENT_PATTERN = "|".join(
     t.format(content=r"\s*(.*?)\s*") for t in COMMENT_TEMPLATES
 )
@@ -130,9 +130,9 @@ def transform_blocks(text: str) -> str:
     Converts ::: block | Title syntax into HTML blocks.
     """
     def replacer(match):
-        b_type = match.group(1).lower()
-        title = match.group(2).strip()
-        body = match.group(3).strip()
+        b_type = match.group('type').lower()
+        title = match.group('title').strip()
+        body = match.group('body').strip()
 
         css_map = {
             "donot": "donot",
@@ -179,8 +179,8 @@ def replace_md_divisions(text: str) -> str:
     Replace <md attrs>content</md> blocks with markdown div template.
     """
     def md_replacement(match):
-        attrs = match.group(1) or ""
-        content = match.group(2).strip()
+        attrs = match.group('attrs').strip()
+        content = match.group('content').strip()
         return DIVISION_MD.format(attrs=attrs, content=content)
     
     return mdiv_re.sub(md_replacement, text)
