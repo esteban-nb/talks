@@ -1,24 +1,39 @@
 /* -------------------------------------------------------
- * TIGHT BLOCK
+ * SEAMLESS BLOCK
  * ----------------------------------------------------- */
 
-.tight-block {
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: 100%;
-    max-height: 90vh;
-    height: auto;
-    width: auto;
-    overflow: hidden;
-    /* This targets *all* elements inside this specific block */
-    * {
-        margin: 0 !important;
-        padding: 0 !important;
-        max-width: 100% !important; 
-        max-height: 100% !important;
-    }
+.seamless-block {
+    display: contents !important;
+    
+    /* 
+       Note: Properties like background, border, margin, and padding 
+       do NOT apply to display: contents.
+    */
+}
+
+.seamless-block > * {
+    width: 100% !important;
+    max-width: var(--content-max-width) !important;
+    margin-left: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.seamless-block img,
+.seamless-block video {
+    max-width: 100% !important;
+    max-height: 90vh !important;
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain;
+    display: block;
+}
+
+.seamless-block > *:first-child {
+    margin-top: 0 !important;
+}
+
+.seamless-block > *:last-child {
+    margin-bottom: 0 !important;
 }
 
 
