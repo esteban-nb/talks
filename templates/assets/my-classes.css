@@ -2,7 +2,7 @@
  * MARKDOWN BLOCK
  * ----------------------------------------------------- */
 
-.markdown-block {
+.tight-block {
     display: inline-block;
     vertical-align: top;
     margin: 0 !important;
