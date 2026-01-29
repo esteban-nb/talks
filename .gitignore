@@ -79,8 +79,11 @@ htmlcov/
 # Ignore Media
 # --------------------------------------------------
 
-media/**
+media/images/*
 !media/images/fokker-planck-wuerzburg.jpg
+media/logos/*
 !media/logos/princeton-logo-shield-bw.pdf
+media/videos/*
 !media/videos/moving-dots.mp4
+media/html/*
 !media/html/bifurcation_static.html
