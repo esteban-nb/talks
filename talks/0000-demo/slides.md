@@ -18,6 +18,32 @@ This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
 
 <!-- !!! -->
 
+## Basic Use
+
+This is fully markdown.
+
+<!-- ||| raw: -->
+
+<h2>Basic Use</h2>
+
+<p>This is regular HTML.</p>
+
+<!-- ||| raw: -->
+
+<h2>Basic Use</h2>
+
+<p>This is regular HTML.</p>
+
+<div data-markdown>
+  <textarea data-template>
+    ### Markdown Subheader
+    - [Link to Google](https://google.com)
+    - ![Lenna](https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png)
+  </textarea>
+</div>
+
+<!-- !!! -->
+
 ## Different Blocks
 
 ::: donot | Block Title
