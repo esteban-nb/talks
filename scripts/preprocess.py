@@ -56,12 +56,13 @@ FRAGMENT_PATTERN = r"<f:([\d, ]+)>"
 
 # pattern = r":::\s*(donot|alert|zoom|info|example|note)\s*\|\s*(.*?)\n(.*?)\n:::"
 
+comment_re = re.compile(COMMENT_PATTERN, re.DOTALL | re.MULTILINE)
+
 # -------------------------------------------------
 # Helpers
 # -------------------------------------------------
 
 def get_comment(line: str) -> str | None:
-    comment_re = re.compile(COMMENT_PATTERN, re.DOTALL | re.MULTILINE)
     match = comment_re.search(line)
     if not match:
         return None
