@@ -378,6 +378,8 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 
 ## Stacks
 
+### Image Stack
+
 <div class="r-stack">
   <img class="fragment" data-fragment-index="1" 
        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp" 
