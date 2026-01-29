@@ -192,7 +192,6 @@ def newton_update(f, J; x0, tol=1e-10, max_iter=50):
 
 </textarea>
 
-
 [comment]: # "::: raw: data-markdown"
 
 <textarea data-template>
