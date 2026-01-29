@@ -34,7 +34,7 @@ This is fully markdown.
 
 <p>This is regular HTML.</p>
 
-<div data-markdown>
+<div data-markdown class="seamless-block">
   <textarea data-template>
     This is now markdown.
     ### Markdown Subheader
@@ -316,25 +316,12 @@ Use &commat;media to refer to the shared folder.
 
 ## HTML Figure
 
-This is a standard figure embedded within the slide content.
+We can use HTML figures as well (including dynamic ones).
 
-![static](@media/html/bifurcation_static.html)
-
-<!-- ||| -->
-
-## HTML Figure
-
-This animation starts as soon as the slide is shown.
-
-![autoplay](@media/html/bifurcation_autoplay.html)
-
-<!-- ||| -->
-
-## HTML Figure
-
-This animation is interactive.
-
-![dynamic](@media/html/bifurcation_interactive.html)
+<figure>
+  <object data="@media/html/bifurcation_static.html" width="700" height="400"></object>
+  <figcaption>Static Bifurcation Map</figcaption>
+</figure>
 
 [comment]: <> (!!! raw:)
 
