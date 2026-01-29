@@ -47,13 +47,14 @@ COMMENT_TEMPLATES = [
 
 blocks = ["donot", "alert", "zoom", "info", "example", "note"]
 
-BLOCK_PATTERN = rf":::\s*({'|'.join(blocks)})\s*\| \s*(.*?)\n(.*?) \n\s*:::"
+BLOCK_PATTERN = rf":::\s*({'|'.join(blocks)})\s*\|\s*(.*?)\n(.*?)\n\s*:::"
 MD_PATTERN = rf"<md(?:\\s+(.*))?>\\s*(.*?)\\s*</md>"
 COMMENT_PATTERN = "|".join(
     t.format(content=r"\s*(.*?)\s*") for t in COMMENT_TEMPLATES
 )
 FRAGMENT_PATTERN = r"<f:([\d, ]+)>"
 
+# pattern = r":::\s*(donot|alert|zoom|info|example|note)\s*\|\s*(.*?)\n(.*?)\n:::"
 
 # -------------------------------------------------
 # Helpers
