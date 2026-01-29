@@ -30,11 +30,11 @@ SECTION_MD = """<section data-markdown {attrs}>
 </script>
 </section>"""
 
-DIVISION_MD = """<div data-markdown {attrs}>
+DIVISION_MD = """<span data-markdown {attrs} style="display: inline-block;">
 <textarea text/template">
 {content}
 </textarea>
-</div>"""
+</span>"""
 
 COMMENT_TEMPLATES = [
     r"<!-- {content} -->",
