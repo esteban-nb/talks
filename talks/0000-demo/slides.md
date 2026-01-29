@@ -424,16 +424,13 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 
 [//]: # "||| raw:"
 
-<div data-markdown>
-  <textarea data-template>
-    ## Stacks
+<md>
+## Stacks
     
-    ### With Image & Text
+### With Image & Text
 
-    New try.
-
-  </textarea>
-</div>
+New try with md.
+</md>
 
 <div class="r-stack">
   <!-- First fragment -->
