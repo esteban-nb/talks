@@ -312,6 +312,27 @@ Use &commat;media to refer to the shared folder.
   <p>Click the image above to visit <a href="https://doi.org/10.1007/978-1-4939-3028-9" target="_blank">Healy et al. (2016)</a>.</p>
 </section>
 
+<!-- !!! -->
+
+## HTML Figure
+This is a standard figure embedded within the slide content.
+
+![static](@media/html/bifurcation_static.html)
+
+<!-- ||| -->
+
+## HTML Figure
+This animation starts as soon as the slide is shown.
+
+![autoplay](@media/html/bifurcation_autoplay.html)
+
+<!-- ||| -->
+
+## HTML Figure
+This animation is interactive.
+
+![dynamic](@media/html/bifurcation_interactive.html)
+
 [comment]: <> (!!! raw:)
 
 <h2>Grid Layout</h2>
