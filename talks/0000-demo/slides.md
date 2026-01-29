@@ -383,13 +383,14 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-80165-5?as=webp" 
        style="width: 40%;">
 
-  <img class="fragment" data-fragment-index="2" 
+<img class="fragment" data-fragment-index="2" 
        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp" 
        style="width: 40%;">
 
-  <img class="fragment" data-fragment-index="3" 
+<img class="fragment" data-fragment-index="3" 
        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
        style="width: 40%;">
+
 </div>
 
 ## Stacks
@@ -403,18 +404,20 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
          style="width: 40%;">
   </a>
 
-  <a href="https://link.springer.com/book/10.1007/978-0-387-22757-3" 
+<a href="https://link.springer.com/book/10.1007/978-0-387-22757-3" 
      class="fragment current-visible" data-fragment-index="2">
-    <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp" 
+<img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-0-387-22757-3?as=webp" 
          style="width: 40%;">
-  </a>
+</a>
 
   <!-- Third link: visible from index 3 onwards -->
-  <a href="https://link.springer.com/book/10.1007/978-3-031-68566-8" 
+
+<a href="https://link.springer.com/book/10.1007/978-3-031-68566-8" 
      class="fragment" data-fragment-index="3">
-    <img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
+<img src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
          style="width: 40%;">
-  </a>
+</a>
+
 </div>
 
 <!-- !!! data-background-color="#ff0000" -->
