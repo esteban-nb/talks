@@ -390,6 +390,7 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 <img class="fragment" data-fragment-index="3" 
        src="https://media.springernature.com/full/springer-static/cover-hires/book/978-3-031-68566-8?as=webp" 
        style="width: 40%;">
+
 </div>
 
 [//]: # "|||"
