@@ -185,6 +185,7 @@ body[data-theme="mono"] {
 
 .reveal pre,
 section[data-markdown] pre {
+  position: relative;
   background-color: var(--code-bg);
   color: var(--code-text);
   padding: var(--space-sm) var(--space-md);
