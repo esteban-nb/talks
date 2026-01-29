@@ -30,11 +30,13 @@ SECTION_MD = """<section data-markdown {attrs}>
 </script>
 </section>"""
 
-SECTION_VERTICAL_WRAPPER = """<section>
+DIVISION_MD = """<div data-markdown {attrs}>
+<textarea text/template">
 {content}
-</section>"""
+</textarea>
+</div>"""
 
-ALL_TEMPLATES = [
+COMMENT_TEMPLATES = [
     r"<!-- {content} -->",
     r"\[comment\]: # \({content}\)",
     r"\[comment\]: <> \({content}\)",
@@ -43,12 +45,14 @@ ALL_TEMPLATES = [
     r"\[//\]: # \"{content}\""
 ]
 
-general_filler = r"\s*(.*?)\s*"
-MASTER_PATTERN = "|".join(
-    t.format(content=general_filler) for t in ALL_TEMPLATES
-)
+blocks = ["donot", "alert", "zoom", "info", "example", "note"]
 
-comment_re = re.compile(MASTER_PATTERN, re.DOTALL | re.MULTILINE)
+BLOCK_PATTERN = rf":::\s*({'|'.join(blocks)})\s*\| \s*(.*?)\n(.*?) \n\s*:::"
+MD_PATTERN = rf"<md(?:\\s+(.*))?>\\s*(.*?)\\s*</md>"
+COMMENT_PATTERN = "|".join(
+    t.format(content=r"\s*(.*?)\s*") for t in COMMENT_TEMPLATES
+)
+FRAGMENT_PATTERN = r"<f:([\d, ]+)>"
 
 
 # -------------------------------------------------
@@ -56,6 +60,7 @@ comment_re = re.compile(MASTER_PATTERN, re.DOTALL | re.MULTILINE)
 # -------------------------------------------------
 
 def get_comment(line: str) -> str | None:
+    comment_re = re.compile(COMMENT_PATTERN, re.DOTALL | re.MULTILINE)
     match = comment_re.search(line)
     if not match:
         return None
@@ -121,8 +126,6 @@ def transform_blocks(text: str) -> str:
     """
     Converts ::: block | Title syntax into HTML blocks.
     """
-    pattern = r":::\s*(donot|alert|zoom|info|example|note)\s*\|\s*(.*?)\n(.*?)\n:::"
-
     def replacer(match):
         b_type = match.group(1).lower()
         title = match.group(2).strip()
@@ -147,7 +150,7 @@ def transform_blocks(text: str) -> str:
             f'</div>'
         )
 
-    return re.sub(pattern, replacer, text, flags=re.DOTALL)
+    return re.sub(BLOCK_PATTERN, replacer, text, flags=re.DOTALL)
 
 
 def handle_fragments(text: str) -> str:
@@ -159,15 +162,25 @@ def handle_fragments(text: str) -> str:
         ' <!-- .element: class="fragment" -->'
     )
 
-    pattern = r"<f:([\d, ]+)>"
-
     def format_fragment(match):
         indices = match.group(1)
         clean_indices = ",".join(i.strip() for i in indices.split(','))
 
         return f'<!-- .element: class="fragment" data-fragment-index="{clean_indices}" -->'
 
-    return re.sub(pattern, format_fragment, text)
+    return re.sub(FRAGMENT_PATTERN, format_fragment, text)
+
+
+def replace_md_divisions(text: str) -> str:
+    """
+    Replace <md attrs>content</md> blocks with markdown div template.
+    """
+    def md_replacement(match):
+        attrs = match.group(1) or ""
+        content = match.group(2).strip()
+        return DIVISION_MD.format(attrs=attrs, content=content)
+    
+    return mdiv_re.sub(md_replacement, text)
 
 
 def inner_pipeline(content: str) -> str:
@@ -224,7 +237,8 @@ def outer_pipeline(
             slides.append(h_stack[0])
         else:
             slides.append(
-                SECTION_VERTICAL_WRAPPER.format(
+                SECTION_RAW.format(
+                    attrs="",
                     content="\n".join(h_stack)
                 )
             )
