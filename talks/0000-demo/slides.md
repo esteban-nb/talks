@@ -431,15 +431,15 @@ For example:
 
 ### Single Line Fragments
 
-- Line one <!-- .element: class="fragment grow" data-fragment-index="1" -->
-- Line two <!-- .element: class="fragment grow" data-fragment-index="2" -->
-- Line three <!-- .element: class="fragment grow" data-fragment-index="3" -->
+- Line one <!-- .element: class="fragment shrink" data-fragment-index="1" -->
+- Line two <!-- .element: class="fragment shrink" data-fragment-index="2" -->
+- Line three <!-- .element: class="fragment shrink" data-fragment-index="3" -->
 
 But also:
 
-- Line one <!-- .element: class="fragment highlight-current-red" data-fragment-index="1" -->
-- Line two <!-- .element: class="fragment highlight-current-red" data-fragment-index="2" -->
-- Line three <!-- .element: class="fragment highlight-current-red" data-fragment-index="3" -->
+- Line one <!-- .element: class="fragment highlight-current-red" data-fragment-index="4" -->
+- Line two <!-- .element: class="fragment highlight-current-red" data-fragment-index="5" -->
+- Line three <!-- .element: class="fragment highlight-current-red" data-fragment-index="6" -->
 
 [//]: # "||||"
 
