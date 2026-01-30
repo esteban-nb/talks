@@ -65,6 +65,31 @@
   color: var(--highlight-color, --base-highlight-color);
 }
 
+
+/* =======================================================
+ * REACTIVATE FRAGMENT
+ * ======================================================= */
+
+.dynamic-opacity.fragment {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+}
+.dynamic-opacity.fragment.current-fragment {
+  opacity: 1 !important;
+}
+
+/* Support multiple indices via data-active-steps="0,3" */
+.dynamic-opacity.fragment[data-active-steps*="0"].current-fragment,
+.dynamic-opacity.fragment[data-active-steps*="1"].current-fragment,
+.dynamic-opacity.fragment[data-active-steps*="2"].current-fragment,
+.dynamic-opacity.fragment[data-active-steps*="3"].current-fragment,
+.dynamic-opacity.fragment[data-active-steps*="4"].current-fragment,
+.dynamic-opacity.fragment[data-active-steps*="5"].current-fragment,
+.dynamic-opacity.fragment[data-active-steps*="6"].current-fragment {
+  opacity: 1;
+}
+
+
 /* -------------------------------------------------------
  * CUSTOM BLOCK BASE
  * ----------------------------------------------------- */
