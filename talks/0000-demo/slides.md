@@ -129,6 +129,8 @@ And ordered lists:
   <a href="#/6/3" target="_self">Go to slide</a>
 - Use labels:
   [Go to slide](#/math-rendering)
+- Or using HTML:
+  <a href="#/math-rendering">Jump to the slide</a>
 
 <!-- !!! -->
 
@@ -152,9 +154,9 @@ And ordered lists:
 - &lbrack;&sol;&sol;&rbrack;&colon; &num; &quot;&vert;&vert;&vert;&quot;
 - &lbrack;&sol;&sol;&rbrack;&colon; &num; &lpar;&vert;&vert;&vert;&rpar;
 
-<!-- !!! -->
+<!-- !!! id="math-rendering" -->
 
-## Math Rendering {#math-rendering}
+## Math Rendering
 
 **Definition.**
 
