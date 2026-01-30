@@ -338,6 +338,15 @@ We can use HTML figures as well (including dynamic ones).
   <figcaption>Static Bifurcation Map</figcaption>
 </figure>
 
+We use `<img>` strictly for images (JPG, PNG, GIF, SVG). To render HTML markup or scripts; use `<iframe>` or `<object>` instead.
+For PDF use `<embed>`, `<object>`, or `<iframe>` (e.g., `<object data="file.pdf">`); amd while SVG are fully supported by `<img>`, `<object>` or `<iframe>` allows interactive/scripted SVGs.
+
+<figure>
+  <object data="@media/logos/princeton-logo-shield-bw.pdf" type="application/pdf" width="700" height="400">
+    <a href="https://raw.githubusercontent.com/esteban-nb/talks/main/media/logos/princeton-logo-shield-bw.pdf">View PDF</a>
+  </object>
+  <figcaption>Princeton Logo (PDF)</figcaption>
+<\figure>
 [comment]: <> (!!! raw:)
 
 <h2>Grid Layout</h2>
