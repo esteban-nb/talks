@@ -242,10 +242,9 @@ section[data-markdown] pre code {
  * ======================================================= */
 
 .reveal table {
+  display: table;
   margin: var(--space-md) auto;
   border-collapse: collapse;
-  max-width: 90%;
-  display: table;
   border-spacing: 0;
 }
 
@@ -285,7 +284,7 @@ section[data-markdown] table td {
 
 .reveal figure,
 section[data-markdown] figure {
-  text-align: center;
+  margin: var(--space-md) auto !important;
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
