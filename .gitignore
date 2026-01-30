@@ -76,13 +76,14 @@ htmlcov/
 
 
 # --------------------------------------------------
-# Ignore Media
+# Ignore Media (except demo on GH Actions)
 # --------------------------------------------------
 
 media/images/*
 !media/images/fokker-planck-wuerzburg.jpg
 media/logos/*
 !media/logos/princeton-logo-shield-bw.pdf
+!media/logos/princeton-logo-shield-bw.svg
 media/videos/*
 !media/videos/moving-dots.mp4
 media/html/*
