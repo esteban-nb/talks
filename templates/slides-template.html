@@ -122,6 +122,21 @@
     ];
 
     Reveal.initialize(config);
+
+    Reveal.on('fragmentshown', function(event) {
+      const el = event.fragment;
+      if (el.classList.contains('dynamic-opacity')) {
+        const activeSteps = el.dataset.activeSteps?.split(',').map(Number);
+        if (activeSteps.includes(Reveal.getState().fragment)) {
+          el.classList.add('active-step');
+        }
+      }
+    });
+    Reveal.on('fragmenthidden', function(event) {
+      const el = event.fragment;
+      el.classList.remove('active-step');
+    });
+
   </script>
 
   <!-- Copy code button -->
