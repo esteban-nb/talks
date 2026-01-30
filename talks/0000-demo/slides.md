@@ -128,7 +128,7 @@ And ordered lists:
 - Use hash:
   <a href="#/6/3" target="_self">Go to slide</a>
 - Use labels:
-  TODO...
+  [Go to slide](#/math-rendering)
 
 <!-- !!! -->
 
@@ -154,7 +154,7 @@ And ordered lists:
 
 <!-- !!! -->
 
-## Math Rendering
+## Math Rendering {#math-rendering}
 
 **Definition.**
 
