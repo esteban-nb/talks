@@ -268,18 +268,24 @@ section[data-markdown] table td {
  * MEDIA (FIGURES, IMAGES, CAPTIONS)
  * ======================================================= */
 
-.reveal video,
+.reveal object,
+.reveal embed,
+.reveal iframe,
 .reveal img,
-section[data-markdown] video,
-section[data-markdown] img {
+.reveal video {
   display: block;
   margin: var(--space-md) auto;
+}
+
+.reveal figure,
+section[data-markdown] figure {
   text-align: center;
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
   height: auto;
   width: auto;
+  background-color: transparent;
 }
 
 .reveal figcaption,
