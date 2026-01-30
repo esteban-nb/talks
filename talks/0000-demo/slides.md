@@ -496,7 +496,7 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 </div>
 
 Use sequences of `fade-out` (to start visible), paired with new fragment using `current-visible`.
-Use a plain fragment (without extra classes like `current-visible` or `fade-out`) for the sequence endpoint so it appears on its `data-fragment-index` step and stays visible indefinitely as the top stack layer. 
+Use a plain fragment (without extra classes like `current-visible` or `fade-out`) for the sequence endpoint so it appears on its `data-fragment-index` step and stays visible indefinitely as the top stack layer.
 
 [//]: # "|||"
 
@@ -524,7 +524,6 @@ Use a plain fragment (without extra classes like `current-visible` or `fade-out`
     <img src="https://picsum.photos/400/400" width="450" height="300" />
   </div>
 </div>
-
 
 [//]: # "|||"
 
