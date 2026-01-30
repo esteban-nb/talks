@@ -421,9 +421,9 @@ For example:
 ### Single Line Fragments
 
 - Element 1 <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
-- Element 2 <!-- .element: class="fragment current-visible" data-fragment-index="1" -->
+- Element 2 <!-- .element: class="fragment fade-in-then-semi-out" data-fragment-index="0" -->
 - Element 3 <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
-- Last element <!-- .element: class="fragment" data-fragment-index="2" -->
+- Last element <!-- .element: class="fragment" data-fragment-index="1" -->
 
 [//]: # "||||"
 
@@ -431,9 +431,15 @@ For example:
 
 ### Single Line Fragments
 
-- Line one
-- Line two <!-- .element: class="fragment current-visible" data-fragment-index="1" -->
-- Line three
+- Line one <!-- .element: class="fragment grow" data-fragment-index="1" -->
+- Line two <!-- .element: class="fragment grow" data-fragment-index="2" -->
+- Line three <!-- .element: class="fragment grow" data-fragment-index="3" -->
+
+But also:
+
+- Line one <!-- .element: class="fragment highlight-current-red" data-fragment-index="1" -->
+- Line two <!-- .element: class="fragment highlight-current-red" data-fragment-index="2" -->
+- Line three <!-- .element: class="fragment highlight-current-red" data-fragment-index="3" -->
 
 [//]: # "||||"
 
