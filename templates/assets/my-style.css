@@ -489,17 +489,19 @@ section[data-markdown] figcaption {
   opacity: 0.3;
 }
 
-.reveal .r-stack .fragment:not(.visible) {
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
+.r-stack {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.reveal .r-stack .fragment.visible {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto !important;
+.r-stack > * {
+  position: absolute;
+  inset: 0;
+  margin: auto;
 }
+
 
 
 /* =======================================================
