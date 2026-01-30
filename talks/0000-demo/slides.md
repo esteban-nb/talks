@@ -339,6 +339,9 @@ We can use HTML figures as well (including dynamic ones).
 </figure>
 
 We use `<img>` strictly for images (JPG, PNG, GIF, SVG). To render HTML markup or scripts; use `<iframe>` or `<object>` instead.
+
+<!-- ||| -->
+
 For PDF use `<embed>`, `<object>`, or `<iframe>` (e.g., `<object data="file.pdf">`); amd while SVG are fully supported by `<img>`, `<object>` or `<iframe>` allows interactive/scripted SVGs.
 
 <figure>
