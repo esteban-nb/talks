@@ -420,10 +420,10 @@ For example:
 
 ### Single Line Fragments
 
-- Element 1 (full at step 0) <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
-- Element 2 (full at step 1) <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
-- Element 3 (full at step 0) <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
-- Last element <!-- .element: class="fragment" -->
+- Element 1 <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
+- Element 2 <!-- .element: class="fragment current-visible" data-fragment-index="1" -->
+- Element 3 <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
+- Last element <!-- .element: class="fragment" data-fragment-index="2" -->
 
 [//]: # "||||"
 
@@ -432,7 +432,7 @@ For example:
 ### Single Line Fragments
 
 - Line one
-- Line two <!-- .element: class="fragment" data-fragment-index="1" -->
+- Line two <!-- .element: class="fragment current-visible" data-fragment-index="1" -->
 - Line three
 
 [//]: # "||||"
