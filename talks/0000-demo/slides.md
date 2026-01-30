@@ -358,7 +358,7 @@ Retains vector quality if SVG output.
 
 For example:
 
-![FP on sphere (from path)](@media/images/fokker-planck-wuerzburg.jpg)
+![FP on sphere (from path)](@media/logos/princeton-logo-shield-bw.svg) <!-- .element: style="width: 20%;" -->
 
 <figcaption>Princeton Logo (SVG)</figcaption>
 
