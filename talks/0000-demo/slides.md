@@ -420,9 +420,10 @@ For example:
 
 ### Single Line Fragments
 
-- Line one <!-- .element: class="fragment" data-fragment-index="1" -->
-- Line two <!-- .element: class="fragment" data-fragment-index="2" -->
-- Line three <!-- .element: class="fragment" data-fragment-index="3" -->
+- Element 1 (full at step 0) <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
+- Element 2 (full at step 1) <!-- .element: class="fragment semi-fade-out" data-fragment-index="1" -->
+- Element 3 (full at step 0) <!-- .element: class="fragment semi-fade-out" data-fragment-index="0" -->
+- Last element <!-- .element: class="fragment" -->
 
 [//]: # "||||"
 
@@ -431,8 +432,18 @@ For example:
 ### Single Line Fragments
 
 - Line one
-- Line two <!-- .element: class="fragment" data-fragment-index="2" -->
+- Line two <!-- .element: class="fragment" data-fragment-index="1" -->
 - Line three
+
+[//]: # "||||"
+
+## Fragments
+
+### Dynamic Fragments
+
+- Element 1 (full at step 0 & 3) <!-- .element: class="fragment dynamic-opacity" data-active-steps="0,3" -->
+- Element 2 (full at step 1) <!-- .element: class="fragment dynamic-opacity" data-active-steps="1" -->
+- Element 3 (full at step 0) <!-- .element: class="fragment dynamic-opacity" data-active-steps="0" -->
 
 [//]: # "|||"
 
@@ -453,11 +464,11 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
 
 <h3>Division-level Fragments</h3>
 
-<div class="fragment" data-fragment-index="1">
+<div class="fragment" data-fragment-index="0">
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </div>
 
-<div class="fragment" data-markdown data-fragment-index="2">
+<div class="fragment" data-markdown data-fragment-index="1">
   <script type="data-template">
     ### Group Title
     - Line one
