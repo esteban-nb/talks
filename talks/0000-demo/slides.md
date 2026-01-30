@@ -447,9 +447,9 @@ But also:
 
 ### Dynamic Fragments
 
-- Element 1 (full at step 0 & 3) <!-- .element: class="fragment dynamic-opacity" data-active-steps="0,3" -->
-- Element 2 (full at step 1) <!-- .element: class="fragment dynamic-opacity" data-active-steps="1" -->
-- Element 3 (full at step 0) <!-- .element: class="fragment dynamic-opacity" data-active-steps="0" -->
+- Element 1 (full at step 0 & 3) <!-- .element: class="fragment custom activate" data-fragment-index="0" -->
+- Element 2 (full at step 1) <!-- .element: class="fragment custom activate" data-fragment-index="1" -->
+- Element 3 (full at step 0) <!-- .element: class="fragment custom activate" data-fragment-index="0,2" -->
 
 [//]: # "|||"
 
