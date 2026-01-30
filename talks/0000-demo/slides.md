@@ -354,6 +354,13 @@ For PDF use `<embed>`, `<object>`, or `<iframe>` (e.g., `<object data="file.pdf"
 To avoids the viewer UI, convert PDF to PNG/JPG/SVG then use `<img src="logo.png" alt="Princeton Logo">` inside `<figure>`.
 Retains vector quality if SVG output.
 
+<!-- ||| -->
+
+For example:
+
+![FP on sphere (from path)](@media/images/fokker-planck-wuerzburg.jpg) 
+<figcaption>Princeton Logo (SVG)</figcaption>
+
 [comment]: <> (!!! raw:)
 
 <h2>Grid Layout</h2>
