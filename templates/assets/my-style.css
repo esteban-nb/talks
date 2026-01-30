@@ -241,12 +241,18 @@ section[data-markdown] pre code {
  * TABLES
  * ======================================================= */
 
-.reveal table,
-section[data-markdown] table {
+.reveal table {
   margin: var(--space-md) auto;
   border-collapse: collapse;
   max-width: 90%;
-  text-align: center;
+  display: table;
+  border-spacing: 0;
+}
+
+.reveal section table,
+section[data-markdown] table {
+  align-self: center;
+  max-width: 90%;
 }
 
 .reveal table th,
