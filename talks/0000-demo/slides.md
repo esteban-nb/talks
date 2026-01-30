@@ -466,11 +466,42 @@ and this defaults to <span class="fragment highlight" data-fragment-index="3">re
   </script>
 </div>
 
+[//]: # ":::"
+
+## Stacks
+
+### Image Stack
+
+<div class="r-stack">
+  <img
+    class="fragment fade-out"
+    data-fragment-index="0"
+    src="https://picsum.photos/450/300"
+    width="450"
+    height="300"
+  />
+  <img
+    class="fragment current-visible"
+    data-fragment-index="0"
+    src="https://picsum.photos/300/450"
+    width="300"
+    height="450"
+  />
+  <img
+    class="fragment"
+    src="https://picsum.photos/400/400"
+    width="400"
+    height="400"
+  />
+</div>
+
 [//]: # "|||"
 
 ## Stacks
 
 ### Image Stack
+
+Using only fragment:
 
 <div class="r-stack">
   <!-- First fragment -->
