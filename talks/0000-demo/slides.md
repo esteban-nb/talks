@@ -126,10 +126,10 @@ And ordered lists:
 ## Internal Slide Links
 
 - Use hash:
-  <a href="#/6/3" target="_self">Go to slide</a>
+  [Go to slide](#/6/1)
 - Use labels:
   [Go to slide](#/math-rendering)
-- Or using HTML:
+- Or using HTML's `<a>` tag:
   <a href="#/math-rendering">Jump to the slide</a>
 
 <!-- !!! -->
