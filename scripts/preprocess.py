@@ -25,13 +25,13 @@ SECTION_RAW = """<section {attrs}>
 </section>"""
 
 SECTION_MD = """<section data-markdown {attrs}>
-<script type="data-template">
+<script type="text/template">
 {content}
 </script>
 </section>"""
 
 DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
-<textarea data-template">
+<textarea data-template>
 {content}
 </textarea>
 </div>"""
