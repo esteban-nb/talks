@@ -349,7 +349,11 @@ For PDF use `<embed>`, `<object>`, or `<iframe>` (e.g., `<object data="file.pdf"
     <a href="https://raw.githubusercontent.com/esteban-nb/talks/main/media/logos/princeton-logo-shield-bw.pdf">View PDF</a>
   </object>
   <figcaption>Princeton Logo (PDF)</figcaption>
-<\figure>
+</figure>
+
+To avoids the viewer UI, convert PDF to PNG/JPG/SVG then use `<img src="logo.png" alt="Princeton Logo">` inside `<figure>`.
+Retains vector quality if SVG output.
+
 [comment]: <> (!!! raw:)
 
 <h2>Grid Layout</h2>
