@@ -522,15 +522,19 @@ Use a plain fragment (without extra classes like `current-visible` or `fade-out`
 ### Mixed Stack
 
 <div class="r-stack">
-  <!-- Frame 0 outgoing: Image + text -->
-  <div class="fragment fade-out" data-fragment-index="0" style="position:absolute; width:100%; height:100%;">
-    <img src="https://picsum.photos/450/300" width="450" height="300" style="position:absolute;" />
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <!-- Frame 0 outgoing: Image + text (Vertically aligned) -->
+  <div class="fragment fade-out" data-fragment-index="0">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <img src="https://picsum.photos/450/300" width="450" height="300" />
+      <p style="margin-top: 1rem; font-size: 0.8em;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
   </div>
   
   <!-- Frame 0 incoming: Table -->
-  <div class="fragment current-visible" data-fragment-index="0" style="position:absolute; width:100%; height:100%;">
-    <table style="position:absolute; top:50px;">
+  <div class="fragment current-visible" data-fragment-index="0">
+    <table style="margin: auto;">
       <tr><td>Row1 Col1</td><td>Row1 Col2</td></tr>
       <tr><td>Row2 Col1</td><td>Row2 Col2</td></tr>
     </table>
