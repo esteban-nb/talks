@@ -182,7 +182,7 @@
 .block-question {
   --icon-color: var(--core-green);
   --title-color: color-mix(in srgb, var(--core-green) 15%, transparent);
-  --icon-src: url("icons/clipboard.svg");
+  --icon-src: url("icons/question.svg");
 }
 
 /* NOTE (Slate) */
