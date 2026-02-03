@@ -150,11 +150,18 @@
   --icon-src: url("icons/do-not.svg");
 }
 
-/* ALERT (Yellow) */
+/* ALERT (Orange) */
 .block-alert {
+  --icon-color: var(--core-orange);
+  --title-color: color-mix(in srgb, var(--core-orange) 15%, transparent);
+  --icon-src: url("icons/warning.svg");
+}
+
+/* PIN (Yellow) */
+.block-pin {
   --icon-color: var(--core-yellow);
   --title-color: color-mix(in srgb, var(--core-yellow) 15%, transparent);
-  --icon-src: url("icons/warning.svg");
+  --icon-src: url("icons/pin.svg");
 }
 
 /* ZOOM (Purple) */
@@ -171,18 +178,18 @@
   --icon-src: url("icons/info.svg");
 }
 
-/* NOTE (Green) */
-.block-note {
+/* QUESTION (Green) */
+.block-question {
   --icon-color: var(--core-green);
   --title-color: color-mix(in srgb, var(--core-green) 15%, transparent);
   --icon-src: url("icons/clipboard.svg");
 }
 
-/* PIN (Slate) */
-.block-pin {
+/* NOTE (Slate) */
+.block-note {
   --icon-color: var(--core-slate);
   --title-color: color-mix(in srgb, var(--core-slate) 15%, transparent);
-  --icon-src: url("icons/pin.svg");
+  --icon-src: url("icons/clipboard.svg");
 }
 
 
