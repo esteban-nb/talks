@@ -45,7 +45,7 @@ COMMENT_TEMPLATES = [
     r"\[//\]: # \"{content}\""
 ]
 
-blocks = ["donot", "alert", "zoom", "info", "example", "note"]
+blocks = ["donot", "alert", "zoom", "info", "example", "question", "note"]
 
 BLOCK_PATTERN = rf":::\s*(?P<type>{'|'.join(blocks)})\s*\|\s*(?P<title>.*?)\n(?P<body>.*?)\n\s*:::"
 MD_PATTERN = r"<md(?P<attrs>[^>]*)>(?P<content>.*?)</md>"
@@ -140,6 +140,7 @@ def transform_blocks(text: str) -> str:
             "zoom": "zoom",
             "info": "info",
             "example": "note",
+            "question": "question",
             "note": "pin",
         }
         cls = css_map.get(b_type, "std")
