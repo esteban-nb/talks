@@ -39,7 +39,7 @@ DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
 DIVISION_BLOCK = """<div {attrs}>
   <div class="block-title">{title}</div>
   <div class="block-body">
-    {content}
+{content}
   </div>
 </div>"""
 
