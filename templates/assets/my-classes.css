@@ -138,6 +138,10 @@
   background: var(--icon-color);
 }
 
+.block[data-title="false"] .block-title {
+  display: none;
+}
+
 
 /* -------------------------------------------------------
  * THEMATIC BLOCKS
