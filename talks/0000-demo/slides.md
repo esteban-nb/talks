@@ -83,6 +83,10 @@ This is a `donot` block.
 This is a `alert` block.
 :::
 
+::: pin | Block Title
+This is a `note` block.
+:::
+
 ::: zoom | Block Title
 This is a `zoom` block.
 :::
@@ -96,11 +100,11 @@ This is a `info` block.
 :::
 
 ::: example | Block Title
-This is a `example` block.
+This is a `question` block.
 :::
 
-::: note | Block Title
-This is a `note` block.
+::: example | Block Title
+This is a `example` block.
 :::
 
 <!-- !!! -->
