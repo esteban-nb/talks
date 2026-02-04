@@ -137,11 +137,11 @@ def transform_blocks(text: str) -> str:
         css_map = {
             "donot": "donot",
             "alert": "alert",
+            "note": "pin",
             "zoom": "zoom",
             "info": "info",
-            "example": "note",
             "question": "question",
-            "note": "pin",
+            "example": "note",
         }
         cls = css_map.get(b_type, "std")
 
