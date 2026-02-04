@@ -1,0 +1,10 @@
+graft templates
+graft scripts
+graft vendor
+global-exclude .git*
+global-exclude .github*
+global-exclude media/*
+global-exclude talks/*
+global-exclude .trunk/*
+exclude .gitignore .gitmodules .todo.md
+prune .git
