@@ -36,6 +36,13 @@ DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
   </textarea>
 </div>"""
 
+DIVISION_BLOCK = """<div block {attrs}>
+  <div class="block-title">{title}</div>
+    <div class="block-body">
+      {content}
+    </div>
+</div>"""
+
 COMMENT_TEMPLATES = [
     r"<!-- {content} -->",
     r"\[comment\]: # \({content}\)",
@@ -145,18 +152,11 @@ def transform_blocks(text: str) -> str:
         }
         cls = css_map.get(b_type, "std")
 
-        attr = f'class="block block-{cls}"'
+        attr = f'class="block-{cls}"'
         if title.startswith("^@") or title == "":
             attr += ' data-title="false"'
 
-        return (
-            f'<div {attr}>\n'
-            f'  <div class="block-title">{title}</div>\n'
-            f'  <div class="block-body">\n\n'
-            f'{body}\n\n'
-            f'  </div>\n'
-            f'</div>'
-        )
+        return DIVISION_BLOCK.format(attrs=attr, title=title, content=body)
 
     return block_re.sub(replacer, text)
 
