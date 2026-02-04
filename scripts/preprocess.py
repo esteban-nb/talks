@@ -21,19 +21,19 @@ ALLOW_DASH_DELIM = False
 DEFAULT_ATTRIBUTES = ""
 
 SECTION_RAW = """<section {attrs}>
-{content}
+  {content}
 </section>"""
 
 SECTION_MD = """<section data-markdown {attrs}>
-<script type="text/template">
-{content}
-</script>
+  <script type="text/template">
+    {content}
+  </script>
 </section>"""
 
 DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
-<textarea data-template>
-{content}
-</textarea>
+  <textarea data-template>
+    {content}
+  </textarea>
 </div>"""
 
 COMMENT_TEMPLATES = [
@@ -150,7 +150,7 @@ def transform_blocks(text: str) -> str:
             attr += ' data-title="false"'
 
         return (
-            f'<div {attr}">\n'
+            f'<div {attr}>\n'
             f'  <div class="block-title">{title}</div>\n'
             f'  <div class="block-body">\n\n'
             f'{body}\n\n'
