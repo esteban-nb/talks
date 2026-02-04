@@ -38,9 +38,9 @@ DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
 
 DIVISION_BLOCK = """<div block {attrs}>
   <div class="block-title">{title}</div>
-    <div class="block-body">
-      {content}
-    </div>
+  <div class="block-body">
+    {content}
+  </div>
 </div>"""
 
 COMMENT_TEMPLATES = [
