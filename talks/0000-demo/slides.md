@@ -76,7 +76,9 @@ This is fully markdown.
 ## Different Blocks
 
 ::: donot | Block Title
-This is a `donot` block.
+<md>
+This is a `donot` block within md.
+</md>
 :::
 
 ::: alert | Block Title
