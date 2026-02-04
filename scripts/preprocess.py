@@ -36,7 +36,7 @@ DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
   </textarea>
 </div>"""
 
-DIVISION_BLOCK = """<div block {attrs}>
+DIVISION_BLOCK = """<div {attrs}>
   <div class="block-title">{title}</div>
   <div class="block-body">
     {content}
@@ -152,7 +152,7 @@ def transform_blocks(text: str) -> str:
         }
         cls = css_map.get(b_type, "std")
 
-        attr = f'class="block-{cls}"'
+        attr = f'class="block block-{cls}"'
         if title.startswith("^@") or title == "":
             attr += ' data-title="false"'
 
