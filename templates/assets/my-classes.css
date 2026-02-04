@@ -88,7 +88,7 @@
   display: block;
   width: 100%;
   box-sizing: border-box;
-  margin: var(--space-md) 0;
+  margin: 0;
   border-style: solid;
   border-width: .5px .5px .5px var(--block-border-width);
     /* top, right, bottom, left */
@@ -103,7 +103,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-sm);
+  padding: var(--space-xs);
   font-weight: 600;
   color: var(--text);
   background: var(--title-color);
@@ -117,8 +117,8 @@
 .block-title::before {
   content: "";
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
+  width: var(--space-md);
+  height: var(--space-md);
   flex-shrink: 0;
 
   /* Title background under the icon */
