@@ -145,8 +145,12 @@ def transform_blocks(text: str) -> str:
         }
         cls = css_map.get(b_type, "std")
 
+        attr = f'class="block block-{cls}"'
+        if title.startswith("^@") or title == "":
+            attr += ' data-title="false"'
+
         return (
-            f'<div class="block block-{cls}">\n'
+            f'<div {attr}">\n'
             f'  <div class="block-title">{title}</div>\n'
             f'  <div class="block-body">\n\n'
             f'{body}\n\n'
