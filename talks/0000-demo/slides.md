@@ -7,7 +7,8 @@ controls: false
 progress: true
 center: true
 hash: true
-transition: "none"
+transition: "fade"
+transitionSpeed: 'fast'
 ---
 
 ## Slide Template
