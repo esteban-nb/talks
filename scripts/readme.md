@@ -57,7 +57,7 @@ When
 1. Install Python libraries.
 2. Run orchestrator. The function `build_talks.py` will directly load the Markdown files, get the processed HTML from `preprocess_slides.py`, and use a simple string replace to generate the final `index.html` in a hashed folder.
 
-## [CommonMark Spec](https://spec.commonmark.org/)
+## [CommonMark Spec](https://spec.commonmark.org/current/)
 
 - Block vs. inline parsing
   - Block HTML: If a tag like `<div>` starts on its own line, CommonMark stops parsing Markdown until it finds a blank line or a closing tag.
