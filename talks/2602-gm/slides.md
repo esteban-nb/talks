@@ -27,7 +27,9 @@ transition: "slide"
 
 ## [Moaveni et al.](http://dx.doi.org/10.1016/j.strusafe.2010.03.006)'s paper
 
-![frontcover](@media/images/moaveni-et-al.png) <!-- .element: style="width: 80%; max-height: 400px; image-rendering: crisp-edges;" -->
+<br>
+
+![frontcover](@media/images/moaveni-et-al.png) <!-- .element: style="width: 100%; max-height: 400px; image-rendering: crisp-edges;" -->
 
 <!-- !!! -->
 
@@ -157,13 +159,17 @@ The system is driven by:
 - stochastic variability between runs,
 - progressive damage events.
 
-::: allert | ^@
+::: alert | ^@
 This introduces **nonlinear, time-irreversible operators**, beaking the following structures:
 
-- **Liouville volume preservation**
-- **unitarity of modal evolution**
-- **self-adjointness of generators**
-  :::
+- **Liouville volume preservation** (invariance of phase-space measure under Hamiltonian flow)
+- **Unitarity of modal evolution** (norm-preserving time evolution in a Hilbert space)
+- **self-adjointness of generators** (symmetry of the infinitesimal generator)
+:::
+
+Without volume preservation, there are no invariant measure on phase space and no reversible dynamics.
+Without unitarity, modes are not orthogonal, eigenvalues are complex.
+
 
 <!-- ||| -->
 
@@ -320,8 +326,9 @@ Indeed
 
 - $\Sigma$ is symmetric.
 - $\Theta$ is symmetric.
-- Antisymmetric flow information is lost.
+- Ant1isymmetric flow information is lost.
 
+Note:
 Thus:
 
 - torsional effects,
@@ -354,15 +361,17 @@ Covariance/Laplacian methods are good _statistical baselines_ but are **blind** 
 
 ## Geometric construction
 
+::: alert | ^@
 Thoe goal is to construct an **inference geometry on observables** that does not require unitarity or volume preservation.
+:::
 
-We model the sensor network as a graph endowed with an orientation-dependent vector bundle and a data-driven connection; signals are sections of this bundle, and structural damage is detected as a change in the induced transport geometry (torsion, curvature, and entropy production)
+We model the sensor network as a **graph endowed with an orientation-dependent vector bundle** and a data-driven connection; signals are sections of this bundle, and structural damage is detected as a change in the induced transport geometry (torsion, curvature, and entropy production)
 
 In the next slides we
 
-- formalize the operator-valued configuration space,
-- define torsion explicitly as a non-integrability of transport on that space
--
+  - formalize the operator-valued configuration space
+  - define torsion explicitly as a non-integrability of transport on that space
+  - construct a probabilistic space
 
 <!-- ||| -->
 
