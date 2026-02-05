@@ -645,7 +645,7 @@ This operator:
 
 <!-- !!! -->
 
-# Probabilistic "lifting"
+## Probabilistic "lifting"
 
 ::: alert | ^@
 We need a mapping that respects the connection (i.e., does not collapse orientation or coupling geometry), where we fall back on the covariance/Laplacian models only if we _quotient out the fiber_.
@@ -661,7 +661,7 @@ Codomain elements can be either
 
 <!-- |||| -->
 
-# Operator-valued measures
+## Operator-valued measures
 
 We define the **generalized [cross-spectral](https://en.wikipedia.org/wiki/Spectral_density#Cross_power_spectral_density) operator** expressed as an operator-valued tensor (in components):
 
@@ -711,6 +711,8 @@ We define the positive operator-valued measure ([POVM](https://en.wikipedia.org/
 $$
 \mu(d\omega) = \Sigma(\omega)\ \mathrm{d}\omega
 $$
+
+i.e. $\mu$ is a map assigning to each frequency set a positive semidefinite operator.
 
 <!-- To ensure the operator-valued measure $\mu(d\omega) = \Sigma(\omega),d\omega$ is well-defined, key proofs include:
 
