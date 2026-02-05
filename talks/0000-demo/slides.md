@@ -20,7 +20,7 @@ This is a demo to showcase [badaboum](https://github.com/esteban-nb/talks).
 
 ## Basic Use
 
-This is fully markdown.
+This is fully markdown!
 
 <!-- ||| raw: -->
 
