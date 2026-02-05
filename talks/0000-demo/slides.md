@@ -3,11 +3,11 @@ title: "Demo Slide Template (Jan 2026)"
 display_name: "Demo"
 date: "2026-01-23"
 template: "templates/slides-template.html"
-controls: true
+controls: false
 progress: true
 center: true
 hash: true
-transition: "slide"
+transition: "none"
 ---
 
 ## Slide Template
