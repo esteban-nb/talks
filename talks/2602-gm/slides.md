@@ -383,29 +383,13 @@ We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\
 
 This is where:
 
-- vector-valued OT,
-- Schrödinger bridges with orientation cost,
-- connection-based operators
+  - vector-valued OT,
+  - Schrödinger bridges with orientation cost,
+  - connection-based operators
 
 become necessary.
 
-Note:
-A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
-By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
-Therefore the sensor implements a linear functional
-
-$$
-\mathbb R^3 \to \mathbb R,\; v\mapsto v\cdot e_i
-$$
-
-The inner product is the only rotationally invariant linear way to measure along an axis.
-
-<!-- ||| -->
-
-## What is the state variable?
-
-Here is where torsion enters _inevitably_.
-
+::: alert | ^@
 The state is **not**:
 
 - a displacement field $u(x)$,
@@ -413,19 +397,18 @@ The state is **not**:
 - a vector field on the graph.
 
 Those objects are unobservable.
+:::
 
-Instead we need a measure or operator-valued field on the tuple $(\text{sensor index } i,\; \text{orientation } e_i,\; \omega)$
+Note:
+A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
+By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
+Therefore the sensor implements a linear functional
 
-This means:
+$$
+\mathbb R^3 \to \mathbb R,\ v\mapsto v\cdot e_i
+$$
 
-- operator-valued spectral density,
-- vector-valued probability measure,
-- Schrödinger bridge flow on a directed, oriented graph.
-
-This state already **lives on a bundle-like structure**:
-
-- base: sensor graph,
-- fiber: orientation space.
+The inner product is the only rotationally invariant linear way to measure along an axis.
 
 <!-- ||| -->
 
@@ -617,8 +600,8 @@ $$
 via the orientation-aware projection
 
 $$
-\nabla_{ij}(v) = \langle v, e_j \rangle e_j
-= (e_i \cdot e_j)\, v_j,
+\nabla_{ij}(v) = \langle v, e_j \rangle\ e_j
+= (e_i \cdot e_j)\ v_j,
 \quad v \in F_i
 $$
 
@@ -663,9 +646,11 @@ This operator:
 
 <!-- !!! -->
 
-# Probabilistic / transport lifting
+# Probabilistic "lifting"
 
+::: alert | ^@
 We need a mapping that respects the connection (i.e., does not collapse orientation or coupling geometry), where we fall back on the covariance/Laplacian models only if we _quotient out the fiber_.
+:::
 
 In particular, we do not want to use scalar OT on marginal densities, build Laplacians on $y_i(t)$ alone, or treat $e_i$ as mere metadata.
 
@@ -683,7 +668,7 @@ We define the **generalized [cross-spectral](https://en.wikipedia.org/wiki/Spect
 
 $$
 \Sigma(\omega) = \mathbb E\left[
-    \sum_{i,j} \hat y_i(\omega)\,\overline{\hat y_j(\omega)}\, e_i \otimes e_j
+    \sum_{i,j} \hat y_i(\omega)\ \overline{\hat y_j(\omega)}\ e_i \otimes e_j
 \right]
 $$
 
@@ -696,13 +681,13 @@ $$
 
 the set of PSD bounded linear operators on the direct sum of Hilbert spaces $F_i$.
 
-::: info | ^@
+Note:
 Key elements:
 
 - orientation enters via $e_i\otimes e_j$,
 - coupling is explicit,
 - antisymmetry survives.
-  :::
+
 
 <!-- Some work needed: prove
 - Positive semi-definiteness: The operator must satisfy
@@ -726,7 +711,7 @@ Key elements:
 We define the positive operator-valued measure ([POVM](https://en.wikipedia.org/wiki/POVM)):
 
 $$
-\mu(d\omega) = \Sigma(\omega)\,\mathrm{d}\omega
+\mu(d\omega) = \Sigma(\omega)\ \mathrm{d}\omega
 $$
 
 <!-- To ensure the operator-valued measure $\mu(d\omega) = \Sigma(\omega),d\omega$ is well-defined, key proofs include:
@@ -739,9 +724,9 @@ As a standard result in operator-valued measure theory: For any Borel set $E \su
 
 Now:
 
-- entropy = von Neumann entropy,
-- transport = operator-valued OT,
-- damage = loss of coherence.
+  - entropy = von Neumann entropy,
+  - transport = operator-valued OT,
+  - damage = loss of coherence.
 
 This **strictly preserves the bundle**, because operators act _between fibers_.
 
@@ -761,12 +746,12 @@ describing how spectral energy / coherence moves between sensors.
 
 This defines a **connection on the graph**:
 
-- edges carry transport maps,
-- composition along paths is meaningful.
+  - edges carry transport maps,
+  - composition along paths is meaningful.
 
 ### Transport between fibers
 
-Between nodes (i) and (j), define some **transport cost** using the connection.
+Between nodes $i$ and $j$, define some **transport cost** using the connection.
 
 Note:
 
