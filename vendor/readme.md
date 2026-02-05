@@ -10,5 +10,4 @@ To add other advanced features (that are not core), load them as separate submod
 - Menu: For a slide-out navigation table of contents.
 - Custom Code Editors: For live-running code snippets.
 
-
 Look at pointers [here](https://github.com/burnpiro/reveal-pointer) and [here](https://github.com/denniskniep/reveal.js-plugin-spotlight).
