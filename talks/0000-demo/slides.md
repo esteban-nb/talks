@@ -8,7 +8,7 @@ progress: true
 center: true
 hash: true
 transition: "fade"
-transitionSpeed: 'fast'
+transitionSpeed: "fast"
 ---
 
 ## Slide Template
