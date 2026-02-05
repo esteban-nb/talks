@@ -78,7 +78,7 @@
 body[data-theme="light"] {
   --bg: #ffffff;
   --text: #1a1a1a;
-  --title: var(--core-orange);
+  --accent: var(--core-orange);
   --dim-text: #666;
   --divider: #e5e5e5;
 
@@ -93,7 +93,7 @@ body[data-theme="light"] {
 body[data-theme="dark"] {
   --bg: #2a2a2a;
   --text: #d4d4d4;
-  --title: #ffffff;
+  --accent: #ffffff;
   --dim-text: #9da5b4;
   --divider: #3d3d3d;
 
@@ -108,7 +108,7 @@ body[data-theme="dark"] {
 body[data-theme="mono"] {
   --bg: #fff9f5;
   --text: #432100;
-  --title: var(--core-orange);
+  --accent: var(--core-orange);
   --dim-text: #8b4513;
   --divider: #fad7b5;
 
@@ -371,7 +371,7 @@ section[data-markdown] figcaption {
 
 .reveal ul > li::marker,
 .reveal ol > li::marker {
-  color: var(--title);
+  color: var(--accent);
 }
 
 .reveal dt { font-weight: bold; }
@@ -440,7 +440,6 @@ section[data-markdown] figcaption {
 .reveal h6 {
   font-weight: var(--heading-weight);
   line-height: var(--heading-line-height);
-  color: var(--title);
   text-align: left;
   font-family: var(--font-main);
 }
@@ -461,6 +460,7 @@ section[data-markdown] figcaption {
   margin-top: var(--space-sm);
   margin-bottom: var(--space-sm);
   font-size: var(--font-size-h3);
+  color: var(--accent);
 }
 
 .reveal h4,
