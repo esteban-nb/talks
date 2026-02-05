@@ -19,6 +19,7 @@ transition: "slide"
 <br><br>
 
 <i>Feb 5, 2026</i>
+
 </center>
 
 <!-- !!! -->
@@ -26,7 +27,6 @@ transition: "slide"
 ## The physical system
 
 ### Ideal dynamics
-
 
 Let $\Omega \subset \mathbb{R}^3$ denote the building domain.
 The undamaged (material) building admits a continuum description via a displacement field
@@ -58,7 +58,7 @@ It describes an elastic wave without energy loss, whose speed depends only on st
 
 <!-- The colon ($\colon\!$) denotes the double contraction (inner product) of two tensors. -->
 
-<!-- Note that in the space of second-order tensors, the double contraction 
+<!-- Note that in the space of second-order tensors, the double contraction
 defines an inner product that induces the Frobenius norm. -->
 
 <!-- ||| -->
@@ -68,17 +68,19 @@ defines an inner product that induces the Frobenius norm. -->
 ### Dynamics under damping and damage
 
 Since we consider a system under damage-induced dissipation, stochastic forcing and thus time-irreversibility:
+
 - The symplectic structure is broken.
 - There is no invariant phase-space volume.
 - Modal amplitudes do not evolve unitarily.
 - Generators are not self-adjoint.
 
 ::: alert | ^@
-The Panagiotou shake-table experiment forces us into: 
+The Panagiotou shake-table experiment forces us into:
+
 - non-Hamiltonian geometry,
 - non-scalar state spaces,
 - transport with dissipation.
-:::
+  :::
 
 We therefore abandon pure symplectic mechanics and move toward entropic, operator-valued transport with directional structure.
 
@@ -109,10 +111,12 @@ Group velocity is the speed at which the envelope of a wave packet (or group of 
 In dispersive media (e.g., light in glass, water waves), different frequencies travel at different speeds, causing the wave packet to spread. -->
 
 ::: note | ^@
-This is the tensor form of 
+This is the tensor form of
+
 $$
 \rho \ddot u + D \dot u + K u = 0, \quad D \succeq 0
 $$
+
 :::
 
 <!-- !!! -->
@@ -127,24 +131,26 @@ In the next slides we
 
 - formalize the operator-valued configuration space,
 - define torsion explicitly as a non-integrability of transport on that space
-- 
+-
 
 <!-- !!! -->
 
 ## The sensing architecture
 
 A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
-By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis. 
+By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
 Therefore the sensor implements a linear functional
+
 $$
 \mathbb R^3 \to \mathbb R,\; v\mapsto v\cdot e_i
 $$
+
 The inner product is the only rotationally invariant linear way to measure along an axis.
 
 We have a finite sensor set $\{s_i\}_{i=1}^N \subset \Omega$, each with:
 
-* a fixed orientation vector $e_i \in \mathbb{S}^2$, the unit sphere $\mathbb{S}^2 = \{v\in\mathbb R^2\ \colon \|v\|=1\}$
-* a uniaxial acceleration measurement
+- a fixed orientation vector $e_i \in \mathbb{S}^2$, the unit sphere $\mathbb{S}^2 = \{v\in\mathbb R^2\ \colon \|v\|=1\}$
+- a uniaxial acceleration measurement
   $$
   x_i(t) = \langle \ddot u(s_i,t),\ e_i \rangle + \eta_i(t),
   $$
@@ -165,16 +171,16 @@ This already prevents reconstruction of a canonical phase space.
 
 The system is driven by:
 
-* base excitation $f(t)$ (shake table),
-* stochastic variability between runs,
-* progressive damage events.
+- base excitation $f(t)$ (shake table),
+- stochastic variability between runs,
+- progressive damage events.
 
 Damage induces:
 
-* local stiffness loss,
-* cracking,
-* frictional sliding,
-* hysteresis.
+- local stiffness loss,
+- cracking,
+- frictional sliding,
+- hysteresis.
 
 Mathematically, this introduces **nonlinear, history-dependent operators**:
 
@@ -196,42 +202,40 @@ $$
 
 with:
 
-* $z = (q,p)$,
-* $J$ skew-symmetric, nondegenerate,
-* flow preserving the symplectic form.
+- $z = (q,p)$,
+- $J$ skew-symmetric, nondegenerate,
+- flow preserving the symplectic form.
 
 Our system **cannot admit a symplectic structure** on any state space compatible with the data.
 \
+
 1. Symplectic dynamics require **even-dimensional phase space** with canonical conjugate variables.
 
 2. Our observations:
-
-   * provide only scalar accelerations,
-   * lack displacement $q$ and momentum $p$,
-   * are orientation-projected.
-
+   - provide only scalar accelerations,
+   - lack displacement $q$ and momentum $p$,
+   - are orientation-projected.
 
 ::: note | ^@
 We can attempt to define a phase space from ${x_i(t)}$, e.g.:
 
-* When there is no clear phase space, one can reconstruct it from observed data using techniques like delay-coordinate embedding ([Takens' theorem](https://en.wikipedia.org/wiki/Takens%27s_theorem)). This allows to extract physically meaningful modes and conserve system structure in noise reduction and feature extraction techniques.
+- When there is no clear phase space, one can reconstruct it from observed data using techniques like delay-coordinate embedding ([Takens' theorem](https://en.wikipedia.org/wiki/Takens%27s_theorem)). This allows to extract physically meaningful modes and conserve system structure in noise reduction and feature extraction techniques.
 <!-- This reconstructed attractor can then be analyzed using symplectic tools like symplectic principal component analysis (SPCA) or symplectic geometry mode decomposition (SGMD) to extract physically meaningful modes and conserve system structure in noise reduction and feature extraction. -->
-* Manifold learning techniques like [Isomap](https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Isomap) or [LLE](https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Locally-linear_embedding) can reconstruct **statistical states** from high-dimensional data, effectively creating a low-dimensional representation (manifold) that captures essential dynamics.
+- Manifold learning techniques like [Isomap](https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Isomap) or [LLE](https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Locally-linear_embedding) can reconstruct **statistical states** from high-dimensional data, effectively creating a low-dimensional representation (manifold) that captures essential dynamics.
 
 However, these embeddings:
 
-* are **not canonical**,
-* still would not define a closed 2-form preserved by the flow.
+- are **not canonical**,
+- still would not define a closed 2-form preserved by the flow.
 
 Arguably, no symplectic form exists that is intrinsic and invariant, while being compatible with the observations.
 
 Importantly, these methods are meant for:
+
 - Systems that lack clear physical variables
 - Systems without explicit temporal structure
-- Processing high-dimensional and noisy data 
-:::
-
-
+- Processing high-dimensional and noisy data
+  :::
 
 ---
 
@@ -248,13 +252,16 @@ to also be a solution.
 However:
 
 1. Damping introduces terms:
+
    $$
    \rho \ddot u + D \dot u + K u = f(t),
    \quad D \succeq 0
    $$
+
    which are **odd under time reversal**.
 
 2. Hysteresis implies:
+
    $$
    \sigma(t) \neq \sigma(-t)
    \quad \text{for the same strain path}.
@@ -285,11 +292,12 @@ $$
 - \int_{\partial\Omega} f \cdot \dot u.
 $$
 
-* $D \succeq 0$,
-* crack dissipation $>0$,
-* forcing stochastic.
+- $D \succeq 0$,
+- crack dissipation $>0$,
+- forcing stochastic.
 
 Hence:
+
 $$
 \mathbb{E}[E(t_2)] < \mathbb{E}[E(t_1)]
 \quad \text{without forcing}.
@@ -303,9 +311,9 @@ Energy conservation fails structurally.
 
 Additionally broken:
 
-* **Liouville volume preservation**,
-* **unitarity of modal evolution**,
-* **self-adjointness of generators**.
+- **Liouville volume preservation**,
+- **unitarity of modal evolution**,
+- **self-adjointness of generators**.
 
 These kill classical spectral mechanics.
 
@@ -328,20 +336,20 @@ $$
 $$
 
 ::: alert | ^@
-Covariance selection can detect *statistical coupling* but **cannot detect directional transport or torsion**.
+Covariance selection can detect _statistical coupling_ but **cannot detect directional transport or torsion**.
 :::
 
 Indeed
 
-* $\Sigma$ is symmetric.
-* $\Theta$ is symmetric.
-* Antisymmetric flow information is lost.
+- $\Sigma$ is symmetric.
+- $\Theta$ is symmetric.
+- Antisymmetric flow information is lost.
 
 Thus:
 
-* torsional effects,
-* orientation-dependent phase transport,
-* non-reciprocal coupling
+- torsional effects,
+- orientation-dependent phase transport,
+- non-reciprocal coupling
 
 are lost.
 
@@ -355,14 +363,14 @@ are lost.
 
 Therefore:
 
-* longitudinal vs transversal mixing,
-* twisting modes,
-* circulation
+- longitudinal vs transversal mixing,
+- twisting modes,
+- circulation
 
 are projected out.
 
 ::: alert | ^@
-Covariance/Laplacian methods are good *statistical baselines* but are **blind** to what we care about.
+Covariance/Laplacian methods are good _statistical baselines_ but are **blind** to what we care about.
 :::
 
 ---
@@ -372,10 +380,11 @@ Covariance/Laplacian methods are good *statistical baselines* but are **blind** 
 ::: example | Do we have torsion?
 Torsion arises from **non-integrability of directional coupling**, not from sensor orientation alone.
 The question is can we integrate couplings or do we deal with torsion?
+
 <!-- here we mean geometric torsion of the observation–coupling structure -->
 
 We can try to show that a network of single-axis sensors with heterogeneous orientation will generically exhibit torsion (even if the building is perfectly intact).
-Meaning that we have  a non trivial geometry.
+Meaning that we have a non trivial geometry.
 :::
 
 Suppose there exists a global potential $\Phi$ such that:
@@ -386,15 +395,15 @@ $$
 
 Then:
 
-* transport between channels is gradient-driven,
-* loops close,
-* no torsion exists.
+- transport between channels is gradient-driven,
+- loops close,
+- no torsion exists.
 
 This corresponds to:
 
-* intact structure,
-* symmetric stiffness,
-* reciprocal coupling.
+- intact structure,
+- symmetric stiffness,
+- reciprocal coupling.
 
 ---
 
@@ -422,12 +431,11 @@ We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\
 
 This is where:
 
-* vector-valued OT,
-* Schrödinger bridges with orientation cost,
-* connection-based operators
+- vector-valued OT,
+- Schrödinger bridges with orientation cost,
+- connection-based operators
 
 become necessary.
-
 
 ---
 
@@ -441,14 +449,16 @@ $$
 
 where:
 
-* $s_i$: spatial location,
-* $e_i \in \mathbb S^2$: fixed axis,
-* $y_i(t) \in \mathbb R$: scalar observable.
+- $s_i$: spatial location,
+- $e_i \in \mathbb S^2$: fixed axis,
+- $y_i(t) \in \mathbb R$: scalar observable.
 
 **Observables** are therefore:
+
 $$
 \mathcal O = { y_i(t) }_{i=1}^N
 $$
+
 rahter than vector-valued observables at nodes.
 
 From $y_i(t)$, we can construct:
@@ -460,31 +470,30 @@ From $y_i(t)$, we can construct:
 
 But htey mush remain **functions of scalar channels indexed by orientation metadata**.
 
+---
 
---- 
 # What integrability would mean
 
 Integrability would mean:
 
-* existence of a global latent vector field $v(x,t)$,
-* such that all observations are projections:
+- existence of a global latent vector field $v(x,t)$,
+- such that all observations are projections:
   $$
   y_i(t) = \langle v(s_i,t),\ e_i \rangle
   $$
-* and all transport is gradient-driven.
+- and all transport is gradient-driven.
 
 This requires:
 
-* isotropy,
-* perfect reciprocity,
-* no modal mixing.
+- isotropy,
+- perfect reciprocity,
+- no modal mixing.
 
 This is **non-generic** in multi-story shear-wall buildings where
 
-* different modes dominate at different floors,
-* longitudinal and transverse responses mix,
-* vertical excitation induces horizontal motion via geometry.
-
+- different modes dominate at different floors,
+- longitudinal and transverse responses mix,
+- vertical excitation induces horizontal motion via geometry.
 
 ---
 
@@ -492,45 +501,47 @@ This is **non-generic** in multi-story shear-wall buildings where
 
 Take three sensors $i,j,k$ with different orientations.
 In general:
+
 $$
 T_{ij} \circ T_{jk} \neq T_{ik}
 $$
+
 even in a perfectly elastic, undamaged building because
 
-* projections onto different axes do not commute,
-* modal content mixes orientation-dependent components,
-* the observation map itself is non-integrable.
+- projections onto different axes do not commute,
+- modal content mixes orientation-dependent components,
+- the observation map itself is non-integrable.
 
 This is **purely geometric torsion of the sensing network**.
-
 
 ---
 
 ## Emergent connection from coupling
 
 Define a data-driven transport operator:
+
 $$
 T_{ij} : \mu_i \to \mu_j
 $$
+
 describing how spectral energy / coherence moves between sensors.
 
 This defines a **connection on the graph**:
 
-* edges carry transport maps,
-* composition along paths is meaningful.
-
+- edges carry transport maps,
+- composition along paths is meaningful.
 
 ---
 
 # What is the state variable?
 
-Here is where torsion enters *inevitably*.
+Here is where torsion enters _inevitably_.
 
 The state is **not**:
 
-* a displacement field $u(x)$,
-* a phase space point $(q,p)$,
-* a vector field on the graph.
+- a displacement field $u(x)$,
+- a phase space point $(q,p)$,
+- a vector field on the graph.
 
 Those objects are unobservable.
 
@@ -538,36 +549,38 @@ Instead we need a measure or operator-valued field on the tuple $(\text{sensor i
 
 This means:
 
-* operator-valued spectral density,
-* vector-valued probability measure,
-* Schrödinger bridge flow on a directed, oriented graph.
+- operator-valued spectral density,
+- vector-valued probability measure,
+- Schrödinger bridge flow on a directed, oriented graph.
 
 This state already **lives on a bundle-like structure**:
 
-* base: sensor graph,
-* fiber: orientation space.
-
+- base: sensor graph,
+- fiber: orientation space.
 
 ---
 
-## Orientation lives in the *fiber*, not in the data
+## Orientation lives in the _fiber_, not in the data
 
 Each sensor has a known axis:
+
 $$
 e_i \in \mathbb S^2 \subset \mathbb R^3
 $$
 
 We define at each node a **one-dimensional oriented vector space**
+
 $$
 F_i := \mathrm{span}\{e_i\} \subset \mathbb R^3
 $$
 
 This is crucial:
 
-* the signal is scalar,
-* but the *space it belongs to* is oriented.
+- the signal is scalar,
+- but the _space it belongs to_ is oriented.
 
 So we now have a **rank-1 vector bundle over a graph**:
+
 $$
 \pi:\; \bigsqcup_{i\in V} F_i \;\to\; V
 $$
@@ -577,6 +590,7 @@ $$
 ## Observables as sections of the bundle
 
 At time $t$, define the observed section:
+
 $$
 s(t): i \mapsto y_i(t)\, e_i \in F_i
 $$
@@ -594,10 +608,13 @@ One question is to see how this non-scalar structure already impacts covariance 
 To compare signals at different nodes, we need a way to move vectors between fibers.
 
 We define a **connection on the graph**:
+
 $$
 \nabla_{ij} : F_i \to F_j
 $$
+
 via the orientation-aware projection
+
 $$
 \nabla_{ij}(v) = \langle v, e_j \rangle e_j
 = (e_i \cdot e_j)\, v_j,
@@ -606,17 +623,17 @@ $$
 
 Key elements:
 
-* $\nabla_{ij}$ is generally **not symmetric**,
-* $\nabla_{ij}\nabla_{jk} \neq \nabla_{ik}$ in general,
-* this non-associativity is **geometric torsion**.
+- $\nabla_{ij}$ is generally **not symmetric**,
+- $\nabla_{ij}\nabla_{jk} \neq \nabla_{ik}$ in general,
+- this non-associativity is **geometric torsion**.
 
 Take a loop $i\to j\to k\to i$ and compute parallel transport:
+
 $$
 P_\ell = \nabla_{ij}\nabla_{jk}\nabla_{ki}
 $$
 
 In general, $P_\ell \neq \mathrm{Id}$.
-
 
 ---
 
@@ -639,16 +656,15 @@ $$
 
 This operator:
 
-* preserves orientation,
-* mixes longitudinal / transverse channels correctly,
-* reduces to scalar Laplacian **only if all (e_i) align**.
-
+- preserves orientation,
+- mixes longitudinal / transverse channels correctly,
+- reduces to scalar Laplacian **only if all (e_i) align**.
 
 ---
 
 # Probabilistic / transport lifting
 
-We need a mapping that respects the connection (i.e., does not collapse orientation or coupling geometry), where we fall back on the covariance/Laplacian models only if we *quotient out the fiber*.
+We need a mapping that respects the connection (i.e., does not collapse orientation or coupling geometry), where we fall back on the covariance/Laplacian models only if we _quotient out the fiber_.
 
 In particular, we do not want to use scalar OT on marginal densities, build Laplacians on $y_i(t)$ alone, or treat $e_i$ as mere metadata.
 
@@ -663,6 +679,7 @@ Codomain elements can be either
 # Operator-valued measures
 
 We define the **generalized [cross-spectral](https://en.wikipedia.org/wiki/Spectral_density#Cross_power_spectral_density) operator** expressed as an operator-valued tensor (in components):
+
 $$
 \Sigma(\omega) = \mathbb E\left[
     \sum_{i,j} \hat y_i(\omega)\,\overline{\hat y_j(\omega)}\, e_i \otimes e_j
@@ -671,25 +688,27 @@ $$
 
 This form lifts the [standard CSD](https://doi.org/10.1088/1464-4258/11/8/085706) (with scalar or matrix quantity) to an operator encoding directional coupling and geometric structure.
 Now it lives in:
+
 $$
 \Sigma(\omega)\in \mathcal L\!\left(\bigoplus_i F_i\right)^+
 $$
+
 the set of PSD bounded linear operators on the direct sum of Hilbert spaces $F_i$.
 
-::: info | ^@ 
+::: info | ^@
 Key elements:
 
-* orientation enters via $e_i\otimes e_j$,
-* coupling is explicit,
-* antisymmetry survives.
-:::
+- orientation enters via $e_i\otimes e_j$,
+- coupling is explicit,
+- antisymmetry survives.
+  :::
 
 <!-- Some work needed: prove
 - Positive semi-definiteness: The operator must satisfy
    $$
-   \langle v, \Sigma(\omega)\ v \rangle \geq 0 \quad \forall v   
+   \langle v, \Sigma(\omega)\ v \rangle \geq 0 \quad \forall v
    $$
-   This follows from the fact that $\Sigma(\omega)$ is the expectation of a positive semi-definite outer product $\hat{y}(\omega) \otimes \hat{y}(\omega)^\star$, analogous to the covariance matrix. Note that $\hat{y}(\omega)^\star$ denotes the complex conjugate of $\hat{y}(\omega)$ and $\hat{y}(\omega) \otimes \hat{y}(\omega)^\star$ is the coordinate-free (operator or tensor) notation of $\hat y_i(\omega)\,\overline{\hat y_j(\omega)}$. The proof should mirror that of [covariance matrices](https://statproofbook.github.io/P/covmat-psd.html): for any vector $a$, $a^ \Sigma(\omega) a = \mathbb{E}[|a^* \hat{y}(\omega)|^2] \geq 0$. 
+   This follows from the fact that $\Sigma(\omega)$ is the expectation of a positive semi-definite outer product $\hat{y}(\omega) \otimes \hat{y}(\omega)^\star$, analogous to the covariance matrix. Note that $\hat{y}(\omega)^\star$ denotes the complex conjugate of $\hat{y}(\omega)$ and $\hat{y}(\omega) \otimes \hat{y}(\omega)^\star$ is the coordinate-free (operator or tensor) notation of $\hat y_i(\omega)\,\overline{\hat y_j(\omega)}$. The proof should mirror that of [covariance matrices](https://statproofbook.github.io/P/covmat-psd.html): for any vector $a$, $a^ \Sigma(\omega) a = \mathbb{E}[|a^* \hat{y}(\omega)|^2] \geq 0$.
 - Measurability and integrability: The Fourier transform $\hat{y}_i(\omega)$ must exist (i.e., $y_i(t)$ square-integrable), and the expectation must converge. This requires stationarity or ergodicity of the process to ensure $\mathbb{E}[\hat{y}_i \overline{\hat{y}_j}]$ is well-defined. -->
 
 <!-- Some literature to look at on CSD:
@@ -704,38 +723,36 @@ Key elements:
 ## Mapping to distributions
 
 We define the positive operator-valued measure ([POVM](https://en.wikipedia.org/wiki/POVM)):
+
 $$
 \mu(d\omega) = \Sigma(\omega)\,\mathrm{d}\omega
 $$
 
-
 <!-- To ensure the operator-valued measure $\mu(d\omega) = \Sigma(\omega),d\omega$ is well-defined, key proofs include:
 
-- Positive semi-definiteness: Show $\langle v, \Sigma(\omega) v \rangle \geq 0$ for all $v$, which follows from $\Sigma(\omega) = \mathbb{E}[\hat{y}(\omega) \otimes \hat{y}(\omega)^*]$ being an expectation of a positive semi-definite outer product. 
-- Bochner integrability: Prove $\Sigma(\omega)$ is measurable and $\int |\Sigma(\omega)|,d\omega < \infty$, ensuring the integral $\mu(E) = \int_E \Sigma(\omega),d\omega$ converges in the operator norm. 
-- Operator-valued Bochner or Pettis integral: Use functional analytic results to define the integral of operator-valued functions with respect to scalar or spectral measures. 
+- Positive semi-definiteness: Show $\langle v, \Sigma(\omega) v \rangle \geq 0$ for all $v$, which follows from $\Sigma(\omega) = \mathbb{E}[\hat{y}(\omega) \otimes \hat{y}(\omega)^*]$ being an expectation of a positive semi-definite outer product.
+- Bochner integrability: Prove $\Sigma(\omega)$ is measurable and $\int |\Sigma(\omega)|,d\omega < \infty$, ensuring the integral $\mu(E) = \int_E \Sigma(\omega),d\omega$ converges in the operator norm.
+- Operator-valued Bochner or Pettis integral: Use functional analytic results to define the integral of operator-valued functions with respect to scalar or spectral measures.
 
 As a standard result in operator-valued measure theory: For any Borel set $E \subset \mathbb{R}$, the mapping $E \mapsto \langle v, \mu(E) v \rangle$ defines a non-negative scalar measure for each vector $v$, satisfying countable additivity. -->
 
-
 Now:
 
-* entropy = von Neumann entropy,
-* transport = operator-valued OT,
-* damage = loss of coherence.
+- entropy = von Neumann entropy,
+- transport = operator-valued OT,
+- damage = loss of coherence.
 
-This **strictly preserves the bundle**, because operators act *between fibers*.
-
+This **strictly preserves the bundle**, because operators act _between fibers_.
 
 ---
 
 ## Transport between fibers (connection-aware)
 
 Between nodes (i) and (j), define transport cost using the connection:
+
 $$
 c_{ij}(v_i,v_j) = \| v_j - \nabla_{ij} v_i \|^2
 $$
-
 
 ---
 
@@ -744,14 +761,13 @@ $$
 ::: question | Consistency
 If Liouville preservation, unitarity, and self-adjointness are broken, in what sense are we allowed to talk about generators, transport, connections, Laplacians?
 
-
 ### Volume preservation
 
 Fails because:
 
-* dissipation,
-* stochastic forcing,
-* damage-induced irreversibility.
+- dissipation,
+- stochastic forcing,
+- damage-induced irreversibility.
 
 Instead of:
 
@@ -773,10 +789,10 @@ Damage shows up as **entropy production**, not volume loss.
 
 Fails because:
 
-* damping,
-* mode coupling,
-* non-normal operators,
-* time-varying stiffness.
+- damping,
+- mode coupling,
+- non-normal operators,
+- time-varying stiffness.
 
 Instead of:
 
@@ -785,6 +801,7 @@ $$
 $$
 
 we have:
+
 $$
 |\mu_t - \nu_t| \le e^{-\lambda t}|\mu_0-\nu_0|
 $$
@@ -799,9 +816,9 @@ Dissipation is encoded as **contraction**.
 
 Fails because:
 
-* damping,
-* hysteresis (history dependence),
-* damage (operator drift).
+- damping,
+- hysteresis (history dependence),
+- damage (operator drift).
 
 The generator decomposes as:
 
@@ -813,11 +830,12 @@ $$
 
 Neither part needs to be self-adjoint.
 
-This is where torsion *lives*.
+This is where torsion _lives_.
 
 <!-- ||| -->
 
 E.g., note that the Fokker–Planck operator
+
 $$
 \mathcal L \rho
 = \nabla\cdot(\rho\nabla V)
@@ -830,21 +848,19 @@ $$
 
 yet it:
 
-* generates a valid semigroup,
-* defines a geometry (via gradient flow),
-* underlies optimal transport.
-
+- generates a valid semigroup,
+- defines a geometry (via gradient flow),
+- underlies optimal transport.
 
 <!-- !!! -->
 
 ## Next Steps
 
-* Formally define a *reference connection*.
-* Define a statistically robust torsion-change functional / sort of "strain" measure.
-* Define **torsion and curvature observables** computable from data,
-* Show explicitly how Laplacian / covariance methods arise as projections.
+- Formally define a _reference connection_.
+- Define a statistically robust torsion-change functional / sort of "strain" measure.
+- Define **torsion and curvature observables** computable from data,
+- Show explicitly how Laplacian / covariance methods arise as projections.
 
 The goal is to construct a sort of finite strain theory on Wasserstein space.
 
 <!-- Potentially look at cosserat continua, and gauge theories of defects -->
-
