@@ -158,18 +158,13 @@ The system is driven by:
 - stochastic variability between runs,
 - progressive damage events.
 
-Damage induces:
+::: allert | ^@
+This introduces **nonlinear, time-irreversible operators**, beaking the following structures:
 
-- local stiffness loss,
-- cracking,
-- frictional sliding,
-- hysteresis.
-
-Mathematically, this introduces **nonlinear, history-dependent operators**:
-
-$$
-\sigma(u,t) = \mathbb{C}(x,t,\text{history})\ \colon \nabla u.
-$$
+- **Liouville volume preservation**
+- **unitarity of modal evolution**
+- **self-adjointness of generators**
+:::
 
 <!-- ||| -->
 
