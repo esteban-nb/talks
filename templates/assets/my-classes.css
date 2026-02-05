@@ -110,9 +110,14 @@
 }
 
 .block-body {
+  display: flow-root;
   padding: var(--space-sm) var(--space-sm);
   margin: 0;
+  margin-trim: block;
 }
+
+.block-body > *:first-child { margin-top: 0; }
+.block-body > *:last-child { margin-bottom: 0; }
 
 /* Shared icon rule */
 .block-title::before {
