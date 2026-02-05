@@ -114,6 +114,7 @@
   padding: var(--space-sm) var(--space-sm);
   margin: 0;
   margin-trim: block;
+  white-space: normal;
 }
 
 .block-body > *:first-child { margin-top: 0; }
