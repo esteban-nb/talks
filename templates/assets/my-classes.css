@@ -111,6 +111,7 @@
 
 .block-body {
   padding: var(--space-sm) var(--space-sm);
+  margin: 0;
 }
 
 /* Shared icon rule */
