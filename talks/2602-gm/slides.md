@@ -64,7 +64,6 @@ The colon ($\colon\!$) denotes the double contraction (inner product) of two ten
 Note that in the space of second-order tensors, the double contraction
 defines an inner product that induces the Frobenius norm.
 
-
 <!-- !!! -->
 
 ## The physical system
@@ -85,7 +84,6 @@ In the **linear elastic, conservative limit**, the the system is described by th
 $$
 \rho\ \ddot{\mathbf{u}} - \nabla \cdot \boldsymbol{\sigma}(u) = \mathbf{0}, \qquad \boldsymbol{\sigma} = \mathsf{C}\ \colon \boldsymbol{\varepsilon}
 $$
-
 
 <!-- ||| -->
 
