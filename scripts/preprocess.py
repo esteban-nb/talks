@@ -36,12 +36,19 @@ DIVISION_MD = """<div data-markdown class="seamless-block" {attrs}>
   </textarea>
 </div>"""
 
+# DIVISION_BLOCK = """<div {attrs}>
+#   <div class="block-title">{title}</div>
+#   <div data-markdown class="block-body">
+#     <textarea data-template>
+#       {content}
+#     </textarea>
+#   </div>
+# </div>"""
+
 DIVISION_BLOCK = """<div {attrs}>
   <div class="block-title">{title}</div>
-  <div data-markdown class="block-body">
-    <textarea data-template>
-      {content}
-    </textarea>
+  <div class="block-body">
+    {content}
   </div>
 </div>"""
 
