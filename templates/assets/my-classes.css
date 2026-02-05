@@ -139,7 +139,7 @@
   mask-image: var(--icon-src);
   -webkit-mask-size: contain;
   mask-size: contain;
-  -webkit-mask-size: 98%;  /* Reduced from contain */
+  -webkit-mask-size: 98%;
   mask-size: 98%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
