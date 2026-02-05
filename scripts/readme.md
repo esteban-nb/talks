@@ -60,12 +60,12 @@ When
 ## [CommonMark Spec](https://spec.commonmark.org/)
 
 - Block vs. inline parsing
-  + Block HTML: If a tag like `<div>` starts on its own line, CommonMark stops parsing Markdown until it finds a blank line or a closing tag.
-  + Inline HTML: Tags like `<span>`, `<b>`, or `<i>` can be used inside a paragraph without breaking Markdown parsing
+  - Block HTML: If a tag like `<div>` starts on its own line, CommonMark stops parsing Markdown until it finds a blank line or a closing tag.
+  - Inline HTML: Tags like `<span>`, `<b>`, or `<i>` can be used inside a paragraph without breaking Markdown parsing
 - Markdown parsers require a blank line between a block-level HTML tag (like `div`) and the Markdown content to correctly switch back from HTML parsing to Markdown parsing.
 - Lines starting with `<!--`, `<?`, `<!`, or `<![CDATA[` also stop Markdown parsing.
 - CommonMark uses a 4-space or 1-tab rule for code blocks.
   Thus always keep Markdown content flush-left even when inside nested HTML.
-  Otherwise the parser will see the `<div>` and switch to HTML mode, see the indented text and wrap it in `<pre><code>` instead of rendering it as part of the block. 
+  Otherwise the parser will see the `<div>` and switch to HTML mode, see the indented text and wrap it in `<pre><code>` instead of rendering it as part of the block.
 
 To see these rules in action, test snippets in the [CommonMark Dingus](https://spec.commonmark.org/dingus/).
