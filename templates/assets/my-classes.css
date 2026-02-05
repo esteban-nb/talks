@@ -107,6 +107,7 @@
   font-weight: 600;
   color: var(--text);
   background: var(--title-color);
+  line-height: 1; 
 }
 
 .block-body {
@@ -124,8 +125,9 @@
 .block-title::before {
   content: "";
   display: inline-block;
-  width: var(--space-md);
-  height: var(--space-md);
+  vertical-align: middle;
+  width: var(--space-sm);
+  height: var(--space-sm);
   flex-shrink: 0;
 
   /* Title background under the icon */
@@ -136,6 +138,8 @@
   mask-image: var(--icon-src);
   -webkit-mask-size: contain;
   mask-size: contain;
+  -webkit-mask-size: 96%;  /* Reduced from contain */
+  mask-size: 96%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
