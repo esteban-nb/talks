@@ -165,11 +165,10 @@ This introduces **nonlinear, time-irreversible operators**, beaking the followin
 - **Liouville volume preservation** (invariance of phase-space measure under Hamiltonian flow)
 - **Unitarity of modal evolution** (norm-preserving time evolution in a Hilbert space)
 - **self-adjointness of generators** (symmetry of the infinitesimal generator)
-:::
+  :::
 
 Without volume preservation, there are no invariant measure on phase space and no reversible dynamics.
 Without unitarity, modes are not orthogonal, eigenvalues are complex.
-
 
 <!-- ||| -->
 
@@ -369,9 +368,9 @@ We model the sensor network as a **graph endowed with an orientation-dependent v
 
 In the next slides we
 
-  - formalize the operator-valued configuration space
-  - define torsion explicitly as a non-integrability of transport on that space
-  - construct a probabilistic space
+- formalize the operator-valued configuration space
+- define torsion explicitly as a non-integrability of transport on that space
+- construct a probabilistic space
 
 <!-- ||| -->
 
@@ -383,9 +382,9 @@ We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\
 
 This is where:
 
-  - vector-valued OT,
-  - Schrödinger bridges with orientation cost,
-  - connection-based operators
+- vector-valued OT,
+- Schrödinger bridges with orientation cost,
+- connection-based operators
 
 become necessary.
 
@@ -468,8 +467,8 @@ $$
 
 This is crucial:
 
-  - the signal is scalar,
-  - but the _space it belongs to_ is oriented.
+- the signal is scalar,
+- but the _space it belongs to_ is oriented.
 
 So we now have a **rank-1 vector bundle over a graph**:
 
@@ -688,7 +687,6 @@ Key elements:
 - coupling is explicit,
 - antisymmetry survives.
 
-
 <!-- Some work needed: prove
 - Positive semi-definiteness: The operator must satisfy
    $$
@@ -724,9 +722,9 @@ As a standard result in operator-valued measure theory: For any Borel set $E \su
 
 Now:
 
-  - entropy = von Neumann entropy,
-  - transport = operator-valued OT,
-  - damage = loss of coherence.
+- entropy = von Neumann entropy,
+- transport = operator-valued OT,
+- damage = loss of coherence.
 
 This **strictly preserves the bundle**, because operators act _between fibers_.
 
@@ -746,8 +744,8 @@ describing how spectral energy / coherence moves between sensors.
 
 This defines a **connection on the graph**:
 
-  - edges carry transport maps,
-  - composition along paths is meaningful.
+- edges carry transport maps,
+- composition along paths is meaningful.
 
 ### Transport between fibers
 
