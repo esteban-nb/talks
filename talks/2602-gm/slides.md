@@ -145,105 +145,6 @@ $$
 
 <!-- !!! -->
 
-## Geometric construction
-
-Thoe goal is to construct an **inference geometry on observables** that does not require unitarity or volume preservation.
-
-We model the sensor network as a graph endowed with an orientation-dependent vector bundle and a data-driven connection; signals are sections of this bundle, and structural damage is detected as a change in the induced transport geometry (torsion, curvature, and entropy production)
-
-In the next slides we
-
-- formalize the operator-valued configuration space,
-- define torsion explicitly as a non-integrability of transport on that space
--
-
-<!-- ||| -->
-
-## How axis information must be retained
-
-To retain axis information, geometry must live on **vector- or operator-valued objects**, not scalars.
-
-We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\Omega)$.
-
-This is where:
-
-- vector-valued OT,
-- Schrödinger bridges with orientation cost,
-- connection-based operators
-
-become necessary.
-
-<!-- !!! -->
-
-## What are the observables
-
-For each sensor $i$:
-
-$$
-y_i(t) := \langle \ddot u(s_i,t), e_i \rangle + \eta_i(t)
-$$
-
-where:
-
-- $s_i$: spatial location,
-- $e_i \in \mathbb S^2$: fixed axis,
-- $y_i(t) \in \mathbb R$: scalar observable.
-
-**Observables** are therefore:
-
-$$
-\mathcal O = { y_i(t) }_{i=1}^N
-$$
-
-rahter than vector-valued observables at nodes.
-
-From $y_i(t)$, we can construct:
-
-1. Time–frequency distributions $\mu_i(\omega,t)$,
-2. Cross-spectral densities $C_{ij}(\omega)$,
-3. Transport plans between spectral measures,
-4. Phase lags and coherence.
-
-But htey mush remain **functions of scalar channels indexed by orientation metadata**.
-
-
-<!-- !!! -->
-
-## The sensing architecture
-
-
-We have a finite sensor set $\{s_i\}_{i=1}^N \subset \Omega$, each with:
-
-- a fixed orientation vector $e_i \in \mathbb{S}^2$, the unit sphere $\mathbb{S}^2 = \{v\in\mathbb R^2\ \colon \|v\|=1\}$
-- a uniaxial acceleration measurement
-  $$
-  x_i(t) = \langle \ddot u(s_i,t),\ e_i \rangle + \eta_i(t),
-  $$
-  where $\eta_i$ is sensor noise.
-
-Key elements:
-
-1. **Projection**: we never observe $\ddot u$, only its projection.
-2. **Heterogeneous orientations**: $e_i \neq e_j$ in general.
-3. **Sparse spatial sampling**.
-4. **No displacement or velocity**, only acceleration.
-
-This already prevents reconstruction of a canonical phase space.
-
-
-Note:
-A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
-By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
-Therefore the sensor implements a linear functional
-
-$$
-\mathbb R^3 \to \mathbb R,\; v\mapsto v\cdot e_i
-$$
-
-The inner product is the only rotationally invariant linear way to measure along an axis.
-
-<!-- !!! -->
-
 ## Experimental forcing and damage
 
 The system is driven by:
@@ -449,6 +350,90 @@ are projected out.
 ::: alert | ^@
 Covariance/Laplacian methods are good _statistical baselines_ but are **blind** to what we care about.
 :::
+
+<!-- !!! -->
+
+## Geometric construction
+
+Thoe goal is to construct an **inference geometry on observables** that does not require unitarity or volume preservation.
+
+We model the sensor network as a graph endowed with an orientation-dependent vector bundle and a data-driven connection; signals are sections of this bundle, and structural damage is detected as a change in the induced transport geometry (torsion, curvature, and entropy production)
+
+In the next slides we
+
+- formalize the operator-valued configuration space,
+- define torsion explicitly as a non-integrability of transport on that space
+-
+
+<!-- ||| -->
+
+## How axis information must be retained
+
+To retain axis information, geometry must live on **vector- or operator-valued objects**, not scalars.
+
+We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\Omega)$.
+
+This is where:
+
+- vector-valued OT,
+- Schrödinger bridges with orientation cost,
+- connection-based operators
+
+become necessary.
+
+
+Note:
+A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
+By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
+Therefore the sensor implements a linear functional
+
+$$
+\mathbb R^3 \to \mathbb R,\; v\mapsto v\cdot e_i
+$$
+
+The inner product is the only rotationally invariant linear way to measure along an axis.
+
+<!-- !!! -->
+
+## What are the observables
+
+We have a finite sensor set $\{s_i\}_{i=1}^N \subset \Omega$, each with:
+
+- a fixed orientation vector $e_i \in \mathbb{S}^2$, the unit sphere $\mathbb{S}^2 = \{v\in\mathbb R^2\ \colon \|v\|=1\}$
+- a uniaxial acceleration measurement
+  $$
+  x_i(t) = \langle \ddot u(s_i,t),\ e_i \rangle + \eta_i(t),
+  $$
+  where $\eta_i$ is sensor noise.
+
+**Observables** are therefore:
+
+$$
+\mathcal O = { x_i(t) }_{i=1}^N
+$$
+
+rahter than vector-valued observables at nodes.
+
+From $x_i(t)$, we can construct:
+
+1. Time–frequency distributions $\mu_i(\omega,t)$,
+2. Cross-spectral densities $C_{ij}(\omega)$,
+3. Transport plans between spectral measures,
+4. Phase lags and coherence.
+
+But they mush remain **functions of opertaor-valued channels** (rather than scalars indexed by orientation metadata).
+
+
+Note:
+Key elements:
+
+1. **Projection**: we never observe $\ddot u$, only its projection.
+2. **Heterogeneous orientations**: $e_i \neq e_j$ in general.
+3. **Sparse spatial sampling**.
+4. **No displacement or velocity**, only acceleration.
+
+This already prevents reconstruction of a canonical phase space.
+
 
 <!-- !!! -->
 
