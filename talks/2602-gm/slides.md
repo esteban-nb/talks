@@ -164,7 +164,7 @@ This introduces **nonlinear, time-irreversible operators**, beaking the followin
 - **Liouville volume preservation**
 - **unitarity of modal evolution**
 - **self-adjointness of generators**
-:::
+  :::
 
 <!-- ||| -->
 
