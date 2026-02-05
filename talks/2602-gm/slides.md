@@ -10,9 +10,8 @@ transition: "slide"
 
 <center>
 
-<div style="height:20px"></div>
 <h1>7-Story Building</h1>
-<h2>Finite Strain Theory on Wasserstein Space</h2>
+<h3>Finite Strain Theory on Wasserstein Space</h3>
 
 <div style="height:100px"></div>
 
@@ -28,7 +27,7 @@ transition: "slide"
 
 ## [Moaveni et al.](http://dx.doi.org/10.1016/j.strusafe.2010.03.006)'s paper
 
-![frontcover](@media/images/moaveni-et-al.png) <!-- .element: style="width: 30%; max-height: 400px; image-rendering: crisp-edges;" -->
+![frontcover](@media/images/moaveni-et-al.png) <!-- .element: style="width: 80%; max-height: 400px; image-rendering: crisp-edges;" -->
 
 <!-- !!! -->
 
