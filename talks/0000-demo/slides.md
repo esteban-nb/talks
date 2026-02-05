@@ -96,15 +96,15 @@ This is a `zoom` block with **Markdown**.
 ## Different Blocks
 
 ::: info | Block Title
-This is a `info` block.
+This is a `info` block with **Markdown**.
 :::
 
 ::: question | Block Title
-This is a `question` block.
+This is a `question` block with **Markdown**.
 :::
 
 ::: example | Block Title
-This is a `example` block.
+This is a `example` block with **Markdown**.
 :::
 
 <!-- !!! -->
