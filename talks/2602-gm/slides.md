@@ -876,6 +876,7 @@ yet it:
 - Define a statistically robust torsion-change functional / sort of "strain" measure.
 - Define **torsion and curvature observables** computable from data,
 - Show explicitly how Laplacian / covariance methods arise as projections.
+- Explore properties or rank-$1$ bundles
 
 The goal is to construct a sort of finite strain theory on Wasserstein space.
 
