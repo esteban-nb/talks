@@ -9,10 +9,12 @@ transition: "slide"
 <!-- conference-style presentation (15 minutes) -->
 
 <center>
+
+<div style="height:100px"></div>
 <h1>7-Story Building</h1>
 <h2>Finite Strain Theory on Wasserstein Space</h2>
 
-<br>
+<div style="height:100px"></div>
 
 <b>Est&eacute;ban Nocet&ndash;Binois</b>
 
@@ -21,48 +23,6 @@ transition: "slide"
 <i>Feb 5, 2026</i>
 
 </center>
-
-<!-- !!! -->
-
-## The physical system
-
-### Ideal dynamics
-
-![FP on sphere (from path)](@media/images/sensors-schema.svg) <!-- .element: style="width: 30%; max-height: 400px; image-rendering: crisp-edges;" -->
-
-Let $\Omega \subset \mathbb{R}^3$ denote the building domain.
-The undamaged (material) building admits a continuum description via a displacement field
-
-$$
-u(x,t) : \Omega \times \mathbb{R}_+ \to \mathbb{R}^3
-$$
-
-In the **linear elastic, conservative limit**, the the system is described by the following (homogeneous) [hyperbolic PDE](https://en.wikipedia.org/wiki/Linear_elasticity#Direct_tensor_form):
-
-<!-- The presence of $\ddot{\mathbf{u}} = \partial^2 \mathbf{u}/\partial t^2$ makes the
-system hyperbolic, as opposed to parabolic (first-order in time, like the heat
-equation) or elliptic (no time dependence, like Laplace’s equation).  -->
-
-$$
-\rho\ \ddot{\mathbf{u}} - \nabla \cdot \boldsymbol{\sigma}(u) = \mathbf{0}, \qquad \boldsymbol{\sigma} = \mathsf{C}\ \colon \boldsymbol{\varepsilon}
-$$
-
-with suitable boundary conditions, and where:
-
-- $\mathbf{u}(\mathbf{x}, t)$ is the displacement vector field,
-- $\rho$ is the mass density,
-- $\ddot{\mathbf{u}} = \frac{\partial^2 \mathbf{u}}{\partial t^2}$ is the acceleration,
-- $\boldsymbol{\sigma}$ is the Cauchy stress tensor,
-  - $\mathsf{C}$ is the fourth-order elasticity (stiffness) tensor,
-  - $\boldsymbol{\varepsilon} = \frac{1}{2}(\nabla \mathbf{u} + (\nabla \mathbf{u})^T$ is the infinitesimal strain tensor
-
-Note:
-It describes an elastic wave without energy loss, whose speed depends only on stiffness.
-
-The colon ($\colon\!$) denotes the double contraction (inner product) of two tensors.
-
-Note that in the space of second-order tensors, the double contraction
-defines an inner product that induces the Frobenius norm.
 
 <!-- !!! -->
 
@@ -84,6 +44,46 @@ In the **linear elastic, conservative limit**, the the system is described by th
 $$
 \rho\ \ddot{\mathbf{u}} - \nabla \cdot \boldsymbol{\sigma}(u) = \mathbf{0}, \qquad \boldsymbol{\sigma} = \mathsf{C}\ \colon \boldsymbol{\varepsilon}
 $$
+
+Note:
+The presence of $\ddot{\mathbf{u}} = \partial^2 \mathbf{u}/\partial t^2$ makes the system hyperbolic, as opposed to parabolic (first-order in time, like the heat equation) or elliptic (no time dependence, like Laplace’s equation).
+
+
+<!-- ||| -->
+
+## The physical system
+
+### Ideal dynamics
+
+Let $\Omega \subset \mathbb{R}^3$ denote the building domain.
+The undamaged (material) building admits a continuum description via a displacement field
+
+$$
+u(x,t) : \Omega \times \mathbb{R}_+ \to \mathbb{R}^3
+$$
+
+In the **linear elastic, conservative limit**, the the system is described by the following (homogeneous) [hyperbolic PDE](https://en.wikipedia.org/wiki/Linear_elasticity#Direct_tensor_form):
+
+$$
+\rho\ \ddot{\mathbf{u}} - \nabla \cdot \boldsymbol{\sigma}(u) = \mathbf{0}, \qquad \boldsymbol{\sigma} = \mathsf{C}\ \colon \boldsymbol{\varepsilon}
+$$
+
+with suitable boundary conditions, and where:
+
+- $\mathbf{u}(\mathbf{x}, t)$ is the displacement vector field,
+- $\rho$ is the mass density,
+- $\ddot{\mathbf{u}} = \frac{\partial^2 \mathbf{u}}{\partial t^2}$ is the acceleration,
+- $\boldsymbol{\sigma}$ is the Cauchy stress tensor,
+  - $\mathsf{C}$ is the fourth-order elasticity (stiffness) tensor,
+  - $\boldsymbol{\varepsilon} = \frac{1}{2}(\nabla \mathbf{u} + (\nabla \mathbf{u})^T$ is the infinitesimal strain tensor
+
+Note:
+It describes an elastic wave without energy loss, whose speed depends only on stiffness.
+
+The colon ($\colon\!$) denotes the double contraction (inner product) of two tensors.
+
+Note that in the space of second-order tensors, the double contraction
+defines an inner product that induces the Frobenius norm.
 
 <!-- ||| -->
 
@@ -134,7 +134,7 @@ Waves decay in amplitude due to $D \dot{u}$, and may travel slower because dampi
 Group velocity is the speed at which the envelope of a wave packet (or group of waves) travels, representing the propagation of energy or information: $v_g = \mathrm{d}k / \mathrm{\omega}$.
 In dispersive media (e.g., light in glass, water waves), different frequencies travel at different speeds, causing the wave packet to spread. -->
 
-::: note | ^@
+::: alert | ^@
 This is the tensor form of
 
 $$
@@ -157,19 +157,60 @@ In the next slides we
 - define torsion explicitly as a non-integrability of transport on that space
 -
 
+<!-- ||| -->
+
+## How axis information must be retained
+
+To retain axis information, geometry must live on **vector- or operator-valued objects**, not scalars.
+
+We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\Omega)$.
+
+This is where:
+
+- vector-valued OT,
+- Schrödinger bridges with orientation cost,
+- connection-based operators
+
+become necessary.
+
+<!-- !!! -->
+
+## What are the observables
+
+For each sensor $i$:
+
+$$
+y_i(t) := \langle \ddot u(s_i,t), e_i \rangle + \eta_i(t)
+$$
+
+where:
+
+- $s_i$: spatial location,
+- $e_i \in \mathbb S^2$: fixed axis,
+- $y_i(t) \in \mathbb R$: scalar observable.
+
+**Observables** are therefore:
+
+$$
+\mathcal O = { y_i(t) }_{i=1}^N
+$$
+
+rahter than vector-valued observables at nodes.
+
+From $y_i(t)$, we can construct:
+
+1. Time–frequency distributions $\mu_i(\omega,t)$,
+2. Cross-spectral densities $C_{ij}(\omega)$,
+3. Transport plans between spectral measures,
+4. Phase lags and coherence.
+
+But htey mush remain **functions of scalar channels indexed by orientation metadata**.
+
+
 <!-- !!! -->
 
 ## The sensing architecture
 
-A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
-By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
-Therefore the sensor implements a linear functional
-
-$$
-\mathbb R^3 \to \mathbb R,\; v\mapsto v\cdot e_i
-$$
-
-The inner product is the only rotationally invariant linear way to measure along an axis.
 
 We have a finite sensor set $\{s_i\}_{i=1}^N \subset \Omega$, each with:
 
@@ -189,7 +230,19 @@ Key elements:
 
 This already prevents reconstruction of a canonical phase space.
 
----
+
+Note:
+A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
+By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
+Therefore the sensor implements a linear functional
+
+$$
+\mathbb R^3 \to \mathbb R,\; v\mapsto v\cdot e_i
+$$
+
+The inner product is the only rotationally invariant linear way to measure along an axis.
+
+<!-- !!! -->
 
 ## Experimental forcing and damage
 
@@ -212,7 +265,7 @@ $$
 \sigma(u,t) = \mathbb{C}(x,t,\text{history})\ \colon \nabla u.
 $$
 
----
+<!-- ||| -->
 
 ## Why symplectic structure fails
 
@@ -261,7 +314,7 @@ Importantly, these methods are meant for:
 - Processing high-dimensional and noisy data
   :::
 
----
+<!-- ||| -->
 
 ## Why time reversibility fails
 
@@ -295,7 +348,7 @@ However:
 
 Thus the evolution operator is **non-invertible in time**.
 
----
+<!-- ||| -->
 
 ## Why energy conservation fails
 
@@ -329,7 +382,7 @@ $$
 
 Energy conservation fails structurally.
 
----
+<!-- ||| -->
 
 ## Other broken structures
 
@@ -341,7 +394,7 @@ Additionally broken:
 
 These kill classical spectral mechanics.
 
----
+<!-- !!! -->
 
 ## Covariance selection (Gaussian graphical models)
 
@@ -377,7 +430,7 @@ Thus:
 
 are lost.
 
----
+<!-- ||| -->
 
 ## Graph Laplacian models
 
@@ -397,11 +450,11 @@ are projected out.
 Covariance/Laplacian methods are good _statistical baselines_ but are **blind** to what we care about.
 :::
 
----
+<!-- !!! -->
 
 ## How coupling could be integrable
 
-::: example | Do we have torsion?
+::: example | ^@
 Torsion arises from **non-integrability of directional coupling**, not from sensor orientation alone.
 The question is can we integrate couplings or do we deal with torsion?
 
@@ -429,7 +482,8 @@ This corresponds to:
 - symmetric stiffness,
 - reciprocal coupling.
 
----
+
+<!-- ||| -->
 
 ## What non-integrability means here
 
@@ -445,56 +499,7 @@ If $\mathcal{P}_\ell \neq I$ then coupling is **non-integrable**.
 
 This defect is torsion / curvature.
 
----
-
-## How axis information must be retained
-
-To retain axis information, geometry must live on **vector- or operator-valued objects**, not scalars.
-
-We consider $\mu \in \mathcal{M}(\Omega \times \mathbb{S}^2)$ not $\mathcal{M}(\Omega)$.
-
-This is where:
-
-- vector-valued OT,
-- Schrödinger bridges with orientation cost,
-- connection-based operators
-
-become necessary.
-
----
-
-## What are the observables
-
-For each sensor $i$:
-
-$$
-y_i(t) := \langle \ddot u(s_i,t), e_i \rangle + \eta_i(t)
-$$
-
-where:
-
-- $s_i$: spatial location,
-- $e_i \in \mathbb S^2$: fixed axis,
-- $y_i(t) \in \mathbb R$: scalar observable.
-
-**Observables** are therefore:
-
-$$
-\mathcal O = { y_i(t) }_{i=1}^N
-$$
-
-rahter than vector-valued observables at nodes.
-
-From $y_i(t)$, we can construct:
-
-1. Time–frequency distributions $\mu_i(\omega,t)$,
-2. Cross-spectral densities $C_{ij}(\omega)$,
-3. Transport plans between spectral measures,
-4. Phase lags and coherence.
-
-But htey mush remain **functions of scalar channels indexed by orientation metadata**.
-
----
+<!-- ||| -->
 
 # What integrability would mean
 
@@ -519,7 +524,7 @@ This is **non-generic** in multi-story shear-wall buildings where
 - longitudinal and transverse responses mix,
 - vertical excitation induces horizontal motion via geometry.
 
----
+<!-- ||| -->
 
 ## Torsion as non-commutativity of directional transport
 
@@ -538,24 +543,7 @@ even in a perfectly elastic, undamaged building because
 
 This is **purely geometric torsion of the sensing network**.
 
----
-
-## Emergent connection from coupling
-
-Define a data-driven transport operator:
-
-$$
-T_{ij} : \mu_i \to \mu_j
-$$
-
-describing how spectral energy / coherence moves between sensors.
-
-This defines a **connection on the graph**:
-
-- edges carry transport maps,
-- composition along paths is meaningful.
-
----
+<!-- !!! -->
 
 # What is the state variable?
 
@@ -582,7 +570,7 @@ This state already **lives on a bundle-like structure**:
 - base: sensor graph,
 - fiber: orientation space.
 
----
+<!-- ||| -->
 
 ## Orientation lives in the _fiber_, not in the data
 
@@ -609,7 +597,7 @@ $$
 \pi:\; \bigsqcup_{i\in V} F_i \;\to\; V
 $$
 
----
+<!-- ||| -->
 
 ## Observables as sections of the bundle
 
@@ -625,7 +613,7 @@ This is not a scalar field on $V$, it is a **vector-valued section with spatiall
 One question is to see how this non-scalar structure already impacts covariance models and diffusion models (can it be isotropic anymore?).
 :::
 
----
+<!-- !!! -->
 
 ## Transport requires a connection
 
@@ -659,11 +647,11 @@ $$
 
 In general, $P_\ell \neq \mathrm{Id}$.
 
----
+<!-- !!! -->
 
 ## Dynamics / statistics live on this bundle
 
-Now you can define meaningful operators.
+Now we can define meaningful operators.
 
 ### Oriented graph gradient
 
@@ -684,7 +672,7 @@ This operator:
 - mixes longitudinal / transverse channels correctly,
 - reduces to scalar Laplacian **only if all (e_i) align**.
 
----
+<!-- !!! -->
 
 # Probabilistic / transport lifting
 
@@ -698,7 +686,7 @@ Codomain elements can be either
 2. spectral / statistical objects,
 3. distributional / transport objects,
 
----
+<!-- |||| -->
 
 # Operator-valued measures
 
@@ -742,7 +730,7 @@ Key elements:
 - [Friston et al., 2012](https://doi.org/10.1016/j.neuroimage.2011.07.048)
 - [Gori et al., 2009](https://doi.org/10.1088/1464-4258/11/8/085706) -->
 
----
+<!-- ||| -->
 
 ## Mapping to distributions
 
@@ -768,22 +756,44 @@ Now:
 
 This **strictly preserves the bundle**, because operators act _between fibers_.
 
----
 
-## Transport between fibers (connection-aware)
+<!-- ||| -->
 
-Between nodes (i) and (j), define transport cost using the connection:
+## Emergent connection from coupling
 
+### Connection in the probabilistic space
+
+Define a data-driven transport operator:
+
+$$
+T_{ij} : \mu_i \to \mu_j
+$$
+
+describing how spectral energy / coherence moves between sensors.
+
+This defines a **connection on the graph**:
+
+- edges carry transport maps,
+- composition along paths is meaningful.
+
+
+### Transport between fibers
+
+Between nodes (i) and (j), define some **transport cost** using the connection.
+
+
+Note:
 $$
 c_{ij}(v_i,v_j) = \| v_j - \nabla_{ij} v_i \|^2
 $$
 
----
+<!-- !!! -->
 
 ## Sanity check
 
-::: question | Consistency
+::: question | ^@
 If Liouville preservation, unitarity, and self-adjointness are broken, in what sense are we allowed to talk about generators, transport, connections, Laplacians?
+:::
 
 ### Volume preservation
 
@@ -808,6 +818,12 @@ $$
 Damage shows up as **entropy production**, not volume loss.
 
 <!-- ||| -->
+
+## Sanity check
+
+::: question | ^@
+If Liouville preservation, unitarity, and self-adjointness are broken, in what sense are we allowed to talk about generators, transport, connections, Laplacians?
+:::
 
 ### Unitarity of modal evolution
 
@@ -835,6 +851,12 @@ in Wasserstein / KL geometry.
 Dissipation is encoded as **contraction**.
 
 <!-- ||| -->
+
+## Sanity check
+
+::: question | ^@
+If Liouville preservation, unitarity, and self-adjointness are broken, in what sense are we allowed to talk about generators, transport, connections, Laplacians?
+:::
 
 ### Self-adjointness of generators
 
