@@ -400,7 +400,34 @@ $$
 
 The inner product is the only rotationally invariant linear way to measure along an axis.
 
-<!-- !!! -->
+<!-- ||| -->
+
+## What is the state variable?
+
+Here is where torsion enters _inevitably_.
+
+The state is **not**:
+
+- a displacement field $u(x)$,
+- a phase space point $(q,p)$,
+- a vector field on the graph.
+
+Those objects are unobservable.
+
+Instead we need a measure or operator-valued field on the tuple $(\text{sensor index } i,\; \text{orientation } e_i,\; \omega)$
+
+This means:
+
+- operator-valued spectral density,
+- vector-valued probability measure,
+- Schrödinger bridge flow on a directed, oriented graph.
+
+This state already **lives on a bundle-like structure**:
+
+- base: sensor graph,
+- fiber: orientation space.
+
+<!-- ||| -->
 
 ## What are the observables
 
@@ -428,8 +455,6 @@ From $x_i(t)$, we can construct:
 3. Transport plans between spectral measures,
 4. Phase lags and coherence.
 
-But they mush remain **functions of opertaor-valued channels** (rather than scalars indexed by orientation metadata).
-
 Note:
 Key elements:
 
@@ -439,6 +464,51 @@ Key elements:
 4. **No displacement or velocity**, only acceleration.
 
 This already prevents reconstruction of a canonical phase space.
+
+What we construct from it must remain **functions of operator-valued channels** (rather than scalars indexed by orientation metadata).
+
+<!-- ||| -->
+
+## Orientation lives in the _fiber_, not in the data
+
+Each sensor has a known axis:
+
+$$
+e_i \in \mathbb S^2 \subset \mathbb R^3
+$$
+
+We define at each node a **one-dimensional oriented vector space**
+
+$$
+F_i := \mathrm{span}\ \{e_i\} \subset \mathbb R^3
+$$
+
+This is crucial:
+
+  - the signal is scalar,
+  - but the _space it belongs to_ is oriented.
+
+So we now have a **rank-1 vector bundle over a graph**:
+
+$$
+\pi:\ \bigsqcup_{i\in V} F_i \ \to\ V
+$$
+
+<!-- ||| -->
+
+## Observables as sections of the bundle
+
+At time $t$, define the observed section:
+
+$$
+s(t): i \mapsto y_i(t)\, e_i \in F_i
+$$
+
+This is not a scalar field on $V$, it is a **vector-valued section with spatially varying orientation**.
+
+::: question | ^@
+One question is to see how this non-scalar structure already impacts covariance models and diffusion models (can it be isotropic anymore?).
+:::
 
 <!-- !!! -->
 
@@ -490,7 +560,7 @@ This defect is torsion / curvature.
 
 <!-- ||| -->
 
-# What integrability would mean
+## What integrability would mean
 
 Integrability would mean:
 
@@ -531,76 +601,6 @@ even in a perfectly elastic, undamaged building because
 - the observation map itself is non-integrable.
 
 This is **purely geometric torsion of the sensing network**.
-
-<!-- !!! -->
-
-# What is the state variable?
-
-Here is where torsion enters _inevitably_.
-
-The state is **not**:
-
-- a displacement field $u(x)$,
-- a phase space point $(q,p)$,
-- a vector field on the graph.
-
-Those objects are unobservable.
-
-Instead we need a measure or operator-valued field on the tuple $(\text{sensor index } i,\; \text{orientation } e_i,\; \omega)$
-
-This means:
-
-- operator-valued spectral density,
-- vector-valued probability measure,
-- Schrödinger bridge flow on a directed, oriented graph.
-
-This state already **lives on a bundle-like structure**:
-
-- base: sensor graph,
-- fiber: orientation space.
-
-<!-- ||| -->
-
-## Orientation lives in the _fiber_, not in the data
-
-Each sensor has a known axis:
-
-$$
-e_i \in \mathbb S^2 \subset \mathbb R^3
-$$
-
-We define at each node a **one-dimensional oriented vector space**
-
-$$
-F_i := \mathrm{span}\{e_i\} \subset \mathbb R^3
-$$
-
-This is crucial:
-
-- the signal is scalar,
-- but the _space it belongs to_ is oriented.
-
-So we now have a **rank-1 vector bundle over a graph**:
-
-$$
-\pi:\; \bigsqcup_{i\in V} F_i \;\to\; V
-$$
-
-<!-- ||| -->
-
-## Observables as sections of the bundle
-
-At time $t$, define the observed section:
-
-$$
-s(t): i \mapsto y_i(t)\, e_i \in F_i
-$$
-
-This is not a scalar field on $V$, it is a **vector-valued section with spatially varying orientation**.
-
-::: question | ^@
-One question is to see how this non-scalar structure already impacts covariance models and diffusion models (can it be isotropic anymore?).
-:::
 
 <!-- !!! -->
 
