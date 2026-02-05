@@ -48,7 +48,6 @@ $$
 Note:
 The presence of $\ddot{\mathbf{u}} = \partial^2 \mathbf{u}/\partial t^2$ makes the system hyperbolic, as opposed to parabolic (first-order in time, like the heat equation) or elliptic (no time dependence, like Laplace’s equation).
 
-
 <!-- ||| -->
 
 ## The physical system
@@ -381,7 +380,6 @@ This is where:
 
 become necessary.
 
-
 Note:
 A uniaxial accelerometer consists of a proof mass constrained to move along one mechanical axis.
 By Newton’s law $F=m(\ddot u \cdot e_i)$, the sensor cannot respond to acceleration orthogonal to its axis.
@@ -423,7 +421,6 @@ From $x_i(t)$, we can construct:
 
 But they mush remain **functions of opertaor-valued channels** (rather than scalars indexed by orientation metadata).
 
-
 Note:
 Key elements:
 
@@ -433,7 +430,6 @@ Key elements:
 4. **No displacement or velocity**, only acceleration.
 
 This already prevents reconstruction of a canonical phase space.
-
 
 <!-- !!! -->
 
@@ -466,7 +462,6 @@ This corresponds to:
 - intact structure,
 - symmetric stiffness,
 - reciprocal coupling.
-
 
 <!-- ||| -->
 
@@ -741,7 +736,6 @@ Now:
 
 This **strictly preserves the bundle**, because operators act _between fibers_.
 
-
 <!-- ||| -->
 
 ## Emergent connection from coupling
@@ -761,13 +755,12 @@ This defines a **connection on the graph**:
 - edges carry transport maps,
 - composition along paths is meaningful.
 
-
 ### Transport between fibers
 
 Between nodes (i) and (j), define some **transport cost** using the connection.
 
-
 Note:
+
 $$
 c_{ij}(v_i,v_j) = \| v_j - \nabla_{ij} v_i \|^2
 $$
