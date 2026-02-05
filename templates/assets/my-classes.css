@@ -113,7 +113,7 @@
 
 .block-body {
   display: flow-root;
-  padding: var(--space-sm) 0 var(--space-xs) 0;
+  padding: var(--space-md) 0 var(--space-xs) 0;
   margin: 0;
   margin-trim: block;
   white-space: normal;
@@ -124,8 +124,8 @@
   content: "";
   display: inline-block;
   vertical-align: middle;
-  width: var(--space-sm);
-  height: var(--space-sm);
+  width: var(--space-md);
+  height: var(--space-md);
   flex-shrink: 0;
 
   /* Title background under the icon */
@@ -136,8 +136,8 @@
   mask-image: var(--icon-src);
   -webkit-mask-size: contain;
   mask-size: contain;
-  -webkit-mask-size: 98%;
-  mask-size: 98%;
+  -webkit-mask-size: 96%;
+  mask-size: 96%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
