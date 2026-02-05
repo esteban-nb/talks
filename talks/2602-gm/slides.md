@@ -28,6 +28,8 @@ transition: "slide"
 
 ### Ideal dynamics
 
+![FP on sphere (from path)](@media/images/sensors-schema.svg) <!-- .element: style="width: 30%; max-height: 400px; image-rendering: crisp-edges;" -->
+
 Let $\Omega \subset \mathbb{R}^3$ denote the building domain.
 The undamaged (material) building admits a continuum description via a displacement field
 
@@ -45,21 +47,45 @@ $$
 \rho\ \ddot{\mathbf{u}} - \nabla \cdot \boldsymbol{\sigma}(u) = \mathbf{0}, \qquad \boldsymbol{\sigma} = \mathsf{C}\ \colon \boldsymbol{\varepsilon}
 $$
 
-with suitable boundary conditions; where:
+with suitable boundary conditions, and where:
 
 - $\mathbf{u}(\mathbf{x}, t)$ is the displacement vector field,
 - $\rho$ is the mass density,
 - $\ddot{\mathbf{u}} = \frac{\partial^2 \mathbf{u}}{\partial t^2}$ is the acceleration,
 - $\boldsymbol{\sigma}$ is the Cauchy stress tensor,
-- $\mathsf{C}$ is the fourth-order elasticity (stiffness) tensor,
-- $\boldsymbol{\varepsilon} = \frac{1}{2}(\nabla \mathbf{u} + (\nabla \mathbf{u})^T$ is the infinitesimal strain tensor
+  - $\mathsf{C}$ is the fourth-order elasticity (stiffness) tensor,
+  - $\boldsymbol{\varepsilon} = \frac{1}{2}(\nabla \mathbf{u} + (\nabla \mathbf{u})^T$ is the infinitesimal strain tensor
 
+Note:
 It describes an elastic wave without energy loss, whose speed depends only on stiffness.
 
-<!-- The colon ($\colon\!$) denotes the double contraction (inner product) of two tensors. -->
+The colon ($\colon\!$) denotes the double contraction (inner product) of two tensors.
 
-<!-- Note that in the space of second-order tensors, the double contraction
-defines an inner product that induces the Frobenius norm. -->
+Note that in the space of second-order tensors, the double contraction
+defines an inner product that induces the Frobenius norm.
+
+
+<!-- !!! -->
+
+## The physical system
+
+### Ideal dynamics
+
+![fig from article](@media/images/kinematic-overstrength.jpg) <!-- .element: style="width: 30%; max-height: 400px; image-rendering: crisp-edges;" -->
+
+Let $\Omega \subset \mathbb{R}^3$ denote the building domain.
+The undamaged (material) building admits a continuum description via a displacement field
+
+$$
+u(x,t) : \Omega \times \mathbb{R}_+ \to \mathbb{R}^3
+$$
+
+In the **linear elastic, conservative limit**, the the system is described by the following (homogeneous) [hyperbolic PDE](https://en.wikipedia.org/wiki/Linear_elasticity#Direct_tensor_form):
+
+$$
+\rho\ \ddot{\mathbf{u}} - \nabla \cdot \boldsymbol{\sigma}(u) = \mathbf{0}, \qquad \boldsymbol{\sigma} = \mathsf{C}\ \colon \boldsymbol{\varepsilon}
+$$
+
 
 <!-- ||| -->
 
