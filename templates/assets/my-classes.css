@@ -103,7 +103,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: var(--space-xs);
+  padding: var(--space-xs) var(--space-xs);
+  margin: 0;
   font-weight: 600;
   color: var(--text);
   background: var(--title-color);
@@ -126,8 +127,8 @@
   content: "";
   display: inline-block;
   vertical-align: middle;
-  width: var(--space-sm);
-  height: var(--space-sm);
+  width: var(--font-size-base);
+  height: var(--font-size-base);
   flex-shrink: 0;
 
   /* Title background under the icon */
@@ -138,8 +139,8 @@
   mask-image: var(--icon-src);
   -webkit-mask-size: contain;
   mask-size: contain;
-  -webkit-mask-size: 96%;  /* Reduced from contain */
-  mask-size: 96%;
+  -webkit-mask-size: 98%;  /* Reduced from contain */
+  mask-size: 98%;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
   -webkit-mask-position: center;
