@@ -30,7 +30,8 @@
   --space-xs: 0.4em;
   --space-sm: 0.8em;
   --space-md: 1.2em;
-  --space-lg: 2em;
+  --space-lg: 1.6em;
+  --space-xl: 2em;
 
   /* =======================================================
    * TYPOGRAPHY
