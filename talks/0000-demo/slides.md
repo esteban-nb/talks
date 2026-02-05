@@ -73,7 +73,7 @@ This is fully markdown.
 
 <!-- !!! -->
 
-## Different Blocks UPDATED
+## Different Blocks
 
 ::: donot | Block Title
 This is a `donot` block with **Markdown**.
