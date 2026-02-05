@@ -76,19 +76,19 @@ This is fully markdown.
 ## Different Blocks
 
 ::: donot | Block Title
-This is a `donot` block.
+This is a `donot` block with **Markdown**.
 :::
 
 ::: alert | Block Title
-This is a `alert` block.
+This is a `alert` block with **Markdown**.
 :::
 
 ::: note | Block Title
-This is a `note` block.
+This is a `note` block with **Markdown**.
 :::
 
 ::: zoom | Block Title
-This is a `zoom` block.
+This is a `zoom` block with **Markdown**.
 :::
 
 <!-- ||| -->
