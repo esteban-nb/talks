@@ -114,7 +114,7 @@
 
 .block-body {
   display: flow-root;
-  padding: 1em;
+  padding: 1em 1em var(--space-xs) 1em;
   margin: 0;
   margin-trim: block;
   white-space: normal;
